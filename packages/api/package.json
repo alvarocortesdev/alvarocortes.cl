@@ -1,0 +1,19 @@
+{
+  "name": "@alvarocortes/api",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "dev": "echo 'Configured in Plan 01-03'",
+    "build": "echo 'Configured in Plan 01-03'",
+    "lint": "echo 'Configured in Plan 01-04'",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@alvarocortes/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}
