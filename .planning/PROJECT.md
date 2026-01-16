@@ -8,45 +8,75 @@ Portfolio personal profesional para Alvaro Cortes. Un sitio web completo con blo
 
 El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada interacción, animación y detalle visual refleja capacidad de desarrollo frontend de alto nivel.
 
+## Current Milestone: v1.0 MVP Foundation
+
+**Goal:** Establish solid infrastructure and deploy a functional Home page as the foundation for incremental feature development.
+
+**Target features:**
+- BHVR monorepo structure (Bun, Hono, Vite, React)
+- Supabase integration with PostgreSQL
+- Vercel deployment with GitHub CI/CD
+- Home page with header, banner, bio section, and footer
+- Progressive loading behavior (header first, content transitions)
+- Basic responsive design (desktop + mobile)
+
 ## Requirements
 
 ### Validated
 
 (None yet — ship to validate)
 
-### Active
+### v1.0 Active
 
 **Infraestructura & Stack:**
 - [ ] Monorepo BHVR (Bun, Hono, Vite, React)
 - [ ] Supabase con PostgreSQL para BD
-- [ ] Supabase Auth con GitHub OAuth
 - [ ] Vitest para testing
 - [ ] Vercel para hosting
 - [ ] GitHub CI/CD hacia Vercel
-- [ ] Admin en subdominio separado (admin.dominio.com)
-
-**Responsive Design:**
-- [ ] Desktop optimizado
-- [ ] Mobile optimizado
-- [ ] Tablet optimizado
-- [ ] Folded Phones optimizado
-- [ ] TV optimizado
 
 **Carga Progresiva:**
 - [ ] Header carga primero (rápido)
 - [ ] Contenido aparece con transición de opacidad cuando está listo
 - [ ] Footer se muestra después del contenido
-- [ ] Sensación fluida, sin saltos visuales
+
+**Responsive Design (básico):**
+- [ ] Desktop optimizado
+- [ ] Mobile optimizado
+
+**Componentes Fijos:**
+
+*Header:*
+- [ ] Logo/foto + nombre a la izquierda
+- [ ] Navegación derecha: Inicio (solo por ahora)
+
+*Footer:*
+- [ ] Oculto por defecto
+- [ ] Se despliega al llegar al final del scroll
+
+**Página: Inicio (Home):**
+- [ ] Banner con foto, nombre, perfil de trabajo
+- [ ] Sección de presentación/bio personal
+
+### Future (post-v1.0)
+
+**Infraestructura adicional:**
+- [ ] Supabase Auth con GitHub OAuth
+- [ ] Admin en subdominio separado (admin.dominio.com)
+
+**Responsive Design extendido:**
+- [ ] Tablet optimizado
+- [ ] Folded Phones optimizado
+- [ ] TV optimizado
 
 **Internacionalización:**
 - [ ] UI completa en ES/EN
 - [ ] Contenido (blog, portfolio) en ambos idiomas
 - [ ] Switcher de idioma en header
 
-**Componentes Fijos (todas las páginas):**
+**Componentes Fijos completos:**
 
-*Header:*
-- [ ] Logo/foto + nombre a la izquierda
+*Header extendido:*
 - [ ] Navegación derecha: Inicio, Portafolio, Blog
 - [ ] Switcher idioma (ES/EN)
 - [ ] Toggle tema light/dark
@@ -57,14 +87,8 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 - [ ] Temas: Selector de temas (hasta 5 administrables, cada uno con variante light/dark)
 - [ ] Hover despliega leyenda desde detrás del ícono hacia la derecha
 
-*Footer:*
-- [ ] Oculto por defecto
-- [ ] Se despliega al llegar al final del scroll
+*Footer extendido:*
 - [ ] Borde superior sticky al subir (como barra de estado de navegador)
-
-**Página: Inicio (Home):**
-- [ ] Banner con foto, nombre, perfil de trabajo, imagen relacionada
-- [ ] Sección de presentación/bio personal
 
 **Página: Portafolio:**
 - [ ] Timeline horizontal de experiencia laboral (líneas verticales arriba/abajo con hitos)
@@ -128,4 +152,4 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 | Carga progresiva con transiciones | UX fluida, diferenciador visual | — Pending |
 
 ---
-*Last updated: 2026-01-16 after initialization*
+*Last updated: 2026-01-16 after milestone v1.0 start*
