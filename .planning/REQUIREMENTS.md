@@ -124,17 +124,44 @@ Explicitly excluded. Documented to prevent scope creep.
 
 ## Traceability
 
-Which phases cover which requirements. Updated by create-roadmap.
+Which phases cover which requirements.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (To be filled by create-roadmap) | | |
+| INFRA-01 | Phase 1 | Pending |
+| INFRA-02 | Phase 1 | Pending |
+| INFRA-03 | Phase 1 | Pending |
+| INFRA-04 | Phase 1 | Pending |
+| INFRA-05 | Phase 1 | Pending |
+| INFRA-06 | Phase 1 | Pending |
+| INFRA-07 | Phase 1 | Pending |
+| INFRA-08 | Phase 1 | Pending |
+| DEPLOY-01 | Phase 2 | Pending |
+| DEPLOY-02 | Phase 2 | Pending |
+| DEPLOY-03 | Phase 2 | Pending |
+| DEPLOY-04 | Phase 2 | Pending |
+| LAYOUT-01 | Phase 3 | Pending |
+| LAYOUT-02 | Phase 3 | Pending |
+| LAYOUT-03 | Phase 3 | Pending |
+| LAYOUT-04 | Phase 3 | Pending |
+| LAYOUT-05 | Phase 3 | Pending |
+| LOAD-01 | Phase 3 | Pending |
+| LOAD-02 | Phase 3 | Pending |
+| LOAD-03 | Phase 3 | Pending |
+| LOAD-04 | Phase 3 | Pending |
+| HOME-01 | Phase 4 | Pending |
+| HOME-02 | Phase 4 | Pending |
+| HOME-03 | Phase 4 | Pending |
+| RESP-01 | Phase 4 | Pending |
+| RESP-02 | Phase 4 | Pending |
+| RESP-03 | Phase 4 | Pending |
+| RESP-04 | Phase 4 | Pending |
 
 **Coverage:**
-- v1 requirements: 20 total
-- Mapped to phases: 0
-- Unmapped: 20 (pending roadmap creation)
+- v1 requirements: 28 total
+- Mapped to phases: 28
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-01-16*
-*Last updated: 2026-01-16 after initial definition*
+*Last updated: 2026-01-16 after roadmap creation*
