@@ -1,0 +1,17 @@
+{
+  "name": "@alvarocortes/web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'Configured in Plan 01-02'",
+    "build": "echo 'Configured in Plan 01-02'",
+    "lint": "echo 'Configured in Plan 01-04'",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@alvarocortes/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}
