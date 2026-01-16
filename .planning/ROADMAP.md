@@ -30,10 +30,13 @@ Build a professional developer portfolio MVP with BHVR stack (Bun, Hono, Vite, R
   6. Hono API package has type exports for RPC
   7. Supabase client configured in packages/api
 **Research**: Unlikely (STACK.md research already done)
-**Plans**: TBD
+**Plans**: 4 plans in 3 waves
 
 Plans:
-- [ ] 01-01: TBD
+- [ ] 01-01: Monorepo Scaffolding (Wave 1) — Bun workspaces, Turborepo, TypeScript config
+- [ ] 01-02: Frontend Stack (Wave 2) — Vite 6, React 19, Tailwind v4
+- [ ] 01-03: Backend Stack (Wave 2) — Hono API, Supabase client, RPC types
+- [ ] 01-04: Tooling (Wave 3) — Vitest, ESLint, Prettier
 
 ### Phase 2: Deployment Pipeline
 **Goal**: Site deploys automatically to Vercel on push to main
@@ -89,11 +92,11 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Monorepo Foundation | 0/? | Not started | - |
+| 1. Monorepo Foundation | 0/4 | Planned | - |
 | 2. Deployment Pipeline | 0/? | Not started | - |
 | 3. Layout System | 0/? | Not started | - |
 | 4. Home Page | 0/? | Not started | - |
 
 ---
 *Roadmap created: 2026-01-16*
-*Last updated: 2026-01-16 after initial creation*
+*Last updated: 2026-01-16 after Phase 1 planning*
