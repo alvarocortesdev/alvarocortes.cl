@@ -4,6 +4,8 @@
     "composite": true,
     "declaration": true,
     "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": false,
     "noEmit": false,
     "baseUrl": ".",
     "outDir": "dist"
