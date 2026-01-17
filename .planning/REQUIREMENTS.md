@@ -9,14 +9,14 @@ Requirements for MVP Foundation. Each maps to roadmap phases.
 
 ### Infrastructure
 
-- [ ] **INFRA-01**: Monorepo structure with Bun workspaces (apps/web, packages/api, packages/shared)
-- [ ] **INFRA-02**: Turborepo configured for build/dev/test orchestration
-- [ ] **INFRA-03**: TypeScript configured across all packages with shared tsconfig
-- [ ] **INFRA-04**: Vite configured for apps/web with React and Tailwind v4
-- [ ] **INFRA-05**: Hono API package with RPC type exports
-- [ ] **INFRA-06**: Supabase client configured in packages/api
-- [ ] **INFRA-07**: Vitest configured with projects for monorepo testing
-- [ ] **INFRA-08**: ESLint/Prettier configured for code quality
+- [x] **INFRA-01**: Monorepo structure with Bun workspaces (apps/web, packages/api, packages/shared)
+- [x] **INFRA-02**: Turborepo configured for build/dev/test orchestration
+- [x] **INFRA-03**: TypeScript configured across all packages with shared tsconfig
+- [x] **INFRA-04**: Vite configured for apps/web with React and Tailwind v4
+- [x] **INFRA-05**: Hono API package with RPC type exports
+- [x] **INFRA-06**: Supabase client configured in packages/api
+- [x] **INFRA-07**: Vitest configured with projects for monorepo testing
+- [x] **INFRA-08**: ESLint/Prettier configured for code quality
 
 ### Deployment
 
@@ -128,14 +128,14 @@ Which phases cover which requirements.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFRA-01 | Phase 1 | Pending |
-| INFRA-02 | Phase 1 | Pending |
-| INFRA-03 | Phase 1 | Pending |
-| INFRA-04 | Phase 1 | Pending |
-| INFRA-05 | Phase 1 | Pending |
-| INFRA-06 | Phase 1 | Pending |
-| INFRA-07 | Phase 1 | Pending |
-| INFRA-08 | Phase 1 | Pending |
+| INFRA-01 | Phase 1 | Complete |
+| INFRA-02 | Phase 1 | Complete |
+| INFRA-03 | Phase 1 | Complete |
+| INFRA-04 | Phase 1 | Complete |
+| INFRA-05 | Phase 1 | Complete |
+| INFRA-06 | Phase 1 | Complete |
+| INFRA-07 | Phase 1 | Complete |
+| INFRA-08 | Phase 1 | Complete |
 | DEPLOY-01 | Phase 2 | Pending |
 | DEPLOY-02 | Phase 2 | Pending |
 | DEPLOY-03 | Phase 2 | Pending |
@@ -164,4 +164,4 @@ Which phases cover which requirements.
 
 ---
 *Requirements defined: 2026-01-16*
-*Last updated: 2026-01-16 after roadmap creation*
+*Last updated: 2026-01-16 after Phase 1 execution*

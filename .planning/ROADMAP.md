@@ -10,7 +10,7 @@ Build a professional developer portfolio MVP with BHVR stack (Bun, Hono, Vite, R
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [ ] **Phase 1: Monorepo Foundation** - Complete BHVR dev environment with tooling
+- [x] **Phase 1: Monorepo Foundation** - Complete BHVR dev environment with tooling
 - [ ] **Phase 2: Deployment Pipeline** - Vercel CI/CD to ship early and iterate
 - [ ] **Phase 3: Layout System** - Header, footer, and progressive loading
 - [ ] **Phase 4: Home Page** - Responsive home with banner and bio
@@ -33,10 +33,10 @@ Build a professional developer portfolio MVP with BHVR stack (Bun, Hono, Vite, R
 **Plans**: 4 plans in 3 waves
 
 Plans:
-- [ ] 01-01: Monorepo Scaffolding (Wave 1) — Bun workspaces, Turborepo, TypeScript config
-- [ ] 01-02: Frontend Stack (Wave 2) — Vite 6, React 19, Tailwind v4
-- [ ] 01-03: Backend Stack (Wave 2) — Hono API, Supabase client, RPC types
-- [ ] 01-04: Tooling (Wave 3) — Vitest, ESLint, Prettier
+- [x] 01-01: Monorepo Scaffolding (Wave 1) — Bun workspaces, Turborepo, TypeScript config
+- [x] 01-02: Frontend Stack (Wave 2) — Vite 6, React 19, Tailwind v4
+- [x] 01-03: Backend Stack (Wave 2) — Hono API, Supabase client, RPC types
+- [x] 01-04: Tooling (Wave 3) — Vitest, ESLint, Prettier
 
 ### Phase 2: Deployment Pipeline
 **Goal**: Site deploys automatically to Vercel on push to main
@@ -92,11 +92,11 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Monorepo Foundation | 0/4 | Planned | - |
+| 1. Monorepo Foundation | 4/4 | ✓ Complete | 2026-01-16 |
 | 2. Deployment Pipeline | 0/? | Not started | - |
 | 3. Layout System | 0/? | Not started | - |
 | 4. Home Page | 0/? | Not started | - |
 
 ---
 *Roadmap created: 2026-01-16*
-*Last updated: 2026-01-16 after Phase 1 planning*
+*Last updated: 2026-01-16 after Phase 1 execution*
