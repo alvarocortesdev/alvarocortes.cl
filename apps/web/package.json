@@ -3,15 +3,25 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "echo 'Configured in Plan 01-02'",
-    "build": "echo 'Configured in Plan 01-02'",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
     "lint": "echo 'Configured in Plan 01-04'",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "@alvarocortes/shared": "workspace:*"
   },
   "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.4.0",
+    "@tailwindcss/vite": "^4.1.18",
+    "tailwindcss": "^4.1.18",
+    "vite": "^6.3.1",
+    "vite-tsconfig-paths": "^5.0.0",
     "typescript": "^5.7.2"
   }
 }
