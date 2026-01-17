@@ -1,12 +1,13 @@
 {
   "name": "alvarocortes",
   "private": true,
+  "type": "module",
   "packageManager": "bun@1.3.5",
   "workspaces": ["apps/*", "packages/*"],
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
-    "test": "vitest",
+    "test": "vitest run",
     "lint": "turbo lint",
     "type-check": "turbo type-check"
   },

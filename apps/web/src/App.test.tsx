@@ -12,6 +12,6 @@ describe("App", () => {
 
   it("shows construction message", () => {
     render(<App />)
-    expect(screen.getByText(/en construcción/i)).toBeInTheDocument()
+    expect(screen.getByText(/en construccion/i)).toBeInTheDocument()
   })
 })

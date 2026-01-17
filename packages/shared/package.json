@@ -11,7 +11,7 @@
     }
   },
   "scripts": {
-    "lint": "echo 'Configured in Plan 01-04'",
+    "lint": "eslint . --max-warnings 0",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
