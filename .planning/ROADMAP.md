@@ -11,7 +11,7 @@ Build a professional developer portfolio MVP with BHVR stack (Bun, Hono, Vite, R
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
 - [x] **Phase 1: Monorepo Foundation** - Complete BHVR dev environment with tooling
-- [ ] **Phase 2: Deployment Pipeline** - Vercel CI/CD to ship early and iterate
+- [x] **Phase 2: Deployment Pipeline** - Vercel CI/CD to ship early and iterate
 - [ ] **Phase 3: Layout System** - Header, footer, and progressive loading
 - [ ] **Phase 4: Home Page** - Responsive home with banner and bio
 
@@ -48,10 +48,10 @@ Plans:
   3. Environment variables (Supabase keys) available in runtime
   4. PR branches create preview deployments
 **Research**: Unlikely (Vercel deployment patterns in STACK.md)
-**Plans**: TBD
+**Plans**: 1 plan in 1 wave
 
 Plans:
-- [ ] 02-01: Vercel Deployment Setup (Wave 1) — Deploy apps/web with GitHub CI/CD
+- [x] 02-01: Vercel Deployment Setup (Wave 1) — Deploy apps/web with GitHub CI/CD
 
 ### Phase 3: Layout System
 **Goal**: Header, footer, and progressive loading orchestration
@@ -93,10 +93,10 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Monorepo Foundation | 4/4 | ✓ Complete | 2026-01-16 |
-| 2. Deployment Pipeline | 0/? | Not started | - |
+| 2. Deployment Pipeline | 1/1 | ✓ Complete | 2026-01-18 |
 | 3. Layout System | 0/? | Not started | - |
 | 4. Home Page | 0/? | Not started | - |
 
 ---
 *Roadmap created: 2026-01-16*
-*Last updated: 2026-01-16 after Phase 1 execution*
+*Last updated: 2026-01-18 after Phase 2 execution*
