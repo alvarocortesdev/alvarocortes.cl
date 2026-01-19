@@ -51,7 +51,7 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 02-01: TBD
+- [ ] 02-01: Vercel Deployment Setup (Wave 1) — Deploy apps/web with GitHub CI/CD
 
 ### Phase 3: Layout System
 **Goal**: Header, footer, and progressive loading orchestration
