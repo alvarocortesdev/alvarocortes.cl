@@ -13,7 +13,7 @@ Build a professional developer portfolio MVP with BHVR stack (Bun, Hono, Vite, R
 - [x] **Phase 1: Monorepo Foundation** - Complete BHVR dev environment with tooling
 - [x] **Phase 2: Deployment Pipeline** - Vercel CI/CD to ship early and iterate
 - [x] **Phase 3: Layout System** - Header, footer, and progressive loading
-- [ ] **Phase 4: Home Page** - Responsive home with banner and bio
+- [x] **Phase 4: Home Page** - Responsive home with banner and bio
 
 ## Phase Details
 
@@ -81,10 +81,11 @@ Plans:
   4. Mobile layout stacks sections vertically with adapted header
   5. Page uses Layout component with header/footer
 **Research**: Unlikely (Tailwind v4 responsive patterns in STACK.md)
-**Plans**: TBD
+**Plans**: 2 plans in 2 waves
 
 Plans:
-- [ ] 04-01: TBD
+- [x] 04-01: Home Page Content (Wave 1) — Banner, Bio, HomePage components
+- [x] 04-02: Responsive Design (Wave 2) — Mobile hamburger menu, responsive layouts
 
 ## Progress
 
@@ -96,8 +97,8 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Monorepo Foundation | 4/4 | ✓ Complete | 2026-01-16 |
 | 2. Deployment Pipeline | 1/1 | ✓ Complete | 2026-01-18 |
 | 3. Layout System | 2/2 | ✓ Complete | 2026-01-19 |
-| 4. Home Page | 0/? | Not started | - |
+| 4. Home Page | 2/2 | ✓ Complete | 2026-01-19 |
 
 ---
 *Roadmap created: 2026-01-16*
-*Last updated: 2026-01-19 after Phase 3 execution*
+*Last updated: 2026-01-19 after Phase 4 execution*

@@ -42,16 +42,16 @@ Requirements for MVP Foundation. Each maps to roadmap phases.
 
 ### Home Page
 
-- [ ] **HOME-01**: Banner section with photo, name, and job title
-- [ ] **HOME-02**: Bio/presentation section with personal description
-- [ ] **HOME-03**: Home page uses Layout component with header/footer
+- [x] **HOME-01**: Banner section with photo, name, and job title
+- [x] **HOME-02**: Bio/presentation section with personal description
+- [x] **HOME-03**: Home page uses Layout component with header/footer
 
 ### Responsive Design
 
-- [ ] **RESP-01**: Desktop layout optimized (1024px+)
-- [ ] **RESP-02**: Mobile layout optimized (< 768px)
-- [ ] **RESP-03**: Header adapts to mobile (condensed navigation)
-- [ ] **RESP-04**: Home page sections stack vertically on mobile
+- [x] **RESP-01**: Desktop layout optimized (1024px+)
+- [x] **RESP-02**: Mobile layout optimized (< 768px)
+- [x] **RESP-03**: Header adapts to mobile (condensed navigation)
+- [x] **RESP-04**: Home page sections stack vertically on mobile
 
 ## v2 Requirements
 
@@ -149,13 +149,13 @@ Which phases cover which requirements.
 | LOAD-02 | Phase 3 | Complete |
 | LOAD-03 | Phase 3 | Complete |
 | LOAD-04 | Phase 3 | Complete |
-| HOME-01 | Phase 4 | Pending |
-| HOME-02 | Phase 4 | Pending |
-| HOME-03 | Phase 4 | Pending |
-| RESP-01 | Phase 4 | Pending |
-| RESP-02 | Phase 4 | Pending |
-| RESP-03 | Phase 4 | Pending |
-| RESP-04 | Phase 4 | Pending |
+| HOME-01 | Phase 4 | Complete |
+| HOME-02 | Phase 4 | Complete |
+| HOME-03 | Phase 4 | Complete |
+| RESP-01 | Phase 4 | Complete |
+| RESP-02 | Phase 4 | Complete |
+| RESP-03 | Phase 4 | Complete |
+| RESP-04 | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 28 total
@@ -164,4 +164,4 @@ Which phases cover which requirements.
 
 ---
 *Requirements defined: 2026-01-16*
-*Last updated: 2026-01-19 after Phase 3 execution*
+*Last updated: 2026-01-19 after Phase 4 execution*
