@@ -10,8 +10,8 @@ describe("App", () => {
     )
   })
 
-  it("shows construction message", () => {
+  it("shows job title", () => {
     render(<App />)
-    expect(screen.getByText(/en construccion/i)).toBeInTheDocument()
+    expect(screen.getByText(/Full Stack Developer/i)).toBeInTheDocument()
   })
 })
