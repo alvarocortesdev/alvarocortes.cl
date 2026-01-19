@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+/* Ensure body fills viewport and allows proper footer positioning */
+html, body, #root {
+  min-height: 100vh;
+}
+
+body {
+  background-color: theme('colors.neutral.900');
+  color: white;
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
