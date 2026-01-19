@@ -27,18 +27,18 @@ Requirements for MVP Foundation. Each maps to roadmap phases.
 
 ### Layout Components
 
-- [ ] **LAYOUT-01**: Header component with logo/photo and name on left
-- [ ] **LAYOUT-02**: Header shows navigation with "Inicio" link on right
-- [ ] **LAYOUT-03**: Footer component hidden by default
-- [ ] **LAYOUT-04**: Footer reveals on scroll to bottom of page
-- [ ] **LAYOUT-05**: Layout wrapper component orchestrates header/content/footer
+- [x] **LAYOUT-01**: Header component with logo/photo and name on left
+- [x] **LAYOUT-02**: Header shows navigation with "Inicio" link on right
+- [x] **LAYOUT-03**: Footer component hidden by default
+- [x] **LAYOUT-04**: Footer reveals on scroll to bottom of page
+- [x] **LAYOUT-05**: Layout wrapper component orchestrates header/content/footer
 
 ### Progressive Loading
 
-- [ ] **LOAD-01**: Header renders immediately on page load
-- [ ] **LOAD-02**: Main content fades in with opacity transition when ready
-- [ ] **LOAD-03**: Footer appears after content is visible
-- [ ] **LOAD-04**: No layout shifts during loading sequence
+- [x] **LOAD-01**: Header renders immediately on page load
+- [x] **LOAD-02**: Main content fades in with opacity transition when ready
+- [x] **LOAD-03**: Footer appears after content is visible
+- [x] **LOAD-04**: No layout shifts during loading sequence
 
 ### Home Page
 
@@ -140,15 +140,15 @@ Which phases cover which requirements.
 | DEPLOY-02 | Phase 2 | Complete |
 | DEPLOY-03 | Phase 2 | Complete |
 | DEPLOY-04 | Phase 2 | Complete |
-| LAYOUT-01 | Phase 3 | Pending |
-| LAYOUT-02 | Phase 3 | Pending |
-| LAYOUT-03 | Phase 3 | Pending |
-| LAYOUT-04 | Phase 3 | Pending |
-| LAYOUT-05 | Phase 3 | Pending |
-| LOAD-01 | Phase 3 | Pending |
-| LOAD-02 | Phase 3 | Pending |
-| LOAD-03 | Phase 3 | Pending |
-| LOAD-04 | Phase 3 | Pending |
+| LAYOUT-01 | Phase 3 | Complete |
+| LAYOUT-02 | Phase 3 | Complete |
+| LAYOUT-03 | Phase 3 | Complete |
+| LAYOUT-04 | Phase 3 | Complete |
+| LAYOUT-05 | Phase 3 | Complete |
+| LOAD-01 | Phase 3 | Complete |
+| LOAD-02 | Phase 3 | Complete |
+| LOAD-03 | Phase 3 | Complete |
+| LOAD-04 | Phase 3 | Complete |
 | HOME-01 | Phase 4 | Pending |
 | HOME-02 | Phase 4 | Pending |
 | HOME-03 | Phase 4 | Pending |
@@ -164,4 +164,4 @@ Which phases cover which requirements.
 
 ---
 *Requirements defined: 2026-01-16*
-*Last updated: 2026-01-18 after Phase 2 execution*
+*Last updated: 2026-01-19 after Phase 3 execution*
