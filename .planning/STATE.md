@@ -62,12 +62,12 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-- [ ] User: Complete Supabase setup (see 01-03-USER-SETUP.md)
+- [x] User: Complete Supabase setup (see 01-03-USER-SETUP.md) — Done 2026-01-18
 - [ ] Begin Phase 2 (Deployment)
 
 ### Blockers/Concerns
 
-- User needs Supabase setup guidance - Now documented in 01-03-USER-SETUP.md
+None — ready to proceed with Phase 2
 
 ## Session Continuity
 
