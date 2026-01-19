@@ -2,154 +2,111 @@
 
 ## What This Is
 
-Portfolio personal profesional para Alvaro Cortes. Un sitio web completo con blog, showcase de proyectos, y sistema de temas administrable. Diseñado para impresionar reclutadores demostrando habilidades de frontend y desarrollo fullstack. Inspirado visualmente en adhamdannaway.com.
+Portfolio personal profesional para Alvaro Cortes. Un sitio web con home page responsiva, sistema de carga progresiva, y despliegue automático a Vercel. La v1.0 establece la base para futuras páginas de portfolio, blog, y panel admin. Inspirado visualmente en adhamdannaway.com.
 
 ## Core Value
 
 El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada interacción, animación y detalle visual refleja capacidad de desarrollo frontend de alto nivel.
 
-## Current Milestone: v1.0 MVP Foundation
+## Current State (v1.0 Shipped)
 
-**Goal:** Establish solid infrastructure and deploy a functional Home page as the foundation for incremental feature development.
+**Live:** https://alvarocortes.vercel.app
 
-**Target features:**
-- BHVR monorepo structure (Bun, Hono, Vite, React)
-- Supabase integration with PostgreSQL
-- Vercel deployment with GitHub CI/CD
-- Home page with header, banner, bio section, and footer
-- Progressive loading behavior (header first, content transitions)
-- Basic responsive design (desktop + mobile)
+**Tech stack:**
+- Bun 1.3.5 + Turborepo 2.7
+- Vite 6 + React 19 + Tailwind v4
+- Hono API + Supabase client (backend infrastructure ready)
+- Framer Motion for animations
+- Vitest + ESLint + Prettier
+
+**Codebase:**
+- 432 LOC TypeScript/TSX
+- 59 files across 3 workspaces
+- 4 tests passing
+
+**What's built:**
+- Responsive home page with Banner and Bio sections
+- Progressive loading (header immediate, content fade-in, footer scroll-reveal)
+- Mobile hamburger menu with animated icon
+- Dark theme with professional styling
 
 ## Requirements
 
 ### Validated
 
-(None yet — ship to validate)
+- Monorepo BHVR (Bun, Hono, Vite, React) — v1.0
+- Supabase client configured — v1.0
+- Vitest testing — v1.0
+- Vercel deployment with CI/CD — v1.0
+- Header with logo/name and navigation — v1.0
+- Footer with scroll reveal — v1.0
+- Progressive loading (header first, content transitions) — v1.0
+- Desktop and mobile responsive design — v1.0
+- Home page with banner, bio, Layout — v1.0
 
-### v1.0 Active
+### Future (v1.1+)
 
-**Infraestructura & Stack:**
-- [ ] Monorepo BHVR (Bun, Hono, Vite, React)
-- [ ] Supabase con PostgreSQL para BD
-- [ ] Vitest para testing
-- [ ] Vercel para hosting
-- [ ] GitHub CI/CD hacia Vercel
-
-**Carga Progresiva:**
-- [ ] Header carga primero (rápido)
-- [ ] Contenido aparece con transición de opacidad cuando está listo
-- [ ] Footer se muestra después del contenido
-
-**Responsive Design (básico):**
-- [ ] Desktop optimizado
-- [ ] Mobile optimizado
-
-**Componentes Fijos:**
-
-*Header:*
-- [ ] Logo/foto + nombre a la izquierda
-- [ ] Navegación derecha: Inicio (solo por ahora)
-
-*Footer:*
-- [ ] Oculto por defecto
-- [ ] Se despliega al llegar al final del scroll
-
-**Página: Inicio (Home):**
-- [ ] Banner con foto, nombre, perfil de trabajo
-- [ ] Sección de presentación/bio personal
-
-### Future (post-v1.0)
-
-**Infraestructura adicional:**
-- [ ] Supabase Auth con GitHub OAuth
-- [ ] Admin en subdominio separado (admin.dominio.com)
-
-**Responsive Design extendido:**
-- [ ] Tablet optimizado
-- [ ] Folded Phones optimizado
-- [ ] TV optimizado
-
-**Internacionalización:**
-- [ ] UI completa en ES/EN
-- [ ] Contenido (blog, portfolio) en ambos idiomas
-- [ ] Switcher de idioma en header
-
-**Componentes Fijos completos:**
-
-*Header extendido:*
-- [ ] Navegación derecha: Inicio, Portafolio, Blog
-- [ ] Switcher idioma (ES/EN)
-- [ ] Toggle tema light/dark
-
-*3 Íconos Flotantes (izquierda, centrados verticalmente):*
-- [ ] Contáctame: Modal con formulario (Nombre, Teléfono, Correo, Mensaje) → envía email directo via Resend/SendGrid
-- [ ] Información: Modal con links + redes sociales (LinkedIn, GitHub, Twitter/X, Instagram) + sección herramientas/recursos dev
-- [ ] Temas: Selector de temas (hasta 5 administrables, cada uno con variante light/dark)
-- [ ] Hover despliega leyenda desde detrás del ícono hacia la derecha
-
-*Footer extendido:*
-- [ ] Borde superior sticky al subir (como barra de estado de navegador)
-
-**Página: Portafolio:**
-- [ ] Timeline horizontal de experiencia laboral (líneas verticales arriba/abajo con hitos)
-- [ ] Sección de stacks tecnológicos (4 cuadros: frontend, backend, herramientas, adicionales) con íconos + nombres
+**Portfolio Page:**
+- [ ] Timeline horizontal de experiencia laboral
+- [ ] Sección de stacks tecnológicos (4 cuadros con íconos)
 - [ ] Bento Grid de proyectos web
-- [ ] Hover en proyecto: se levanta y agranda invitando click
-- [ ] Click abre modal con vista previa + íconos URL y GitHub
+- [ ] Hover en proyecto: se levanta y agranda
+- [ ] Click abre modal con vista previa
 
-**Página: Blog:**
+**Blog Page:**
 - [ ] Estilo réplica de Blogger
-- [ ] Sidebar izquierda fija: búsqueda, calendario de entradas, tags
-- [ ] Sidebar colapsable en móvil (barra desplegable arriba)
-- [ ] Área principal con entradas (máx 4 por vista)
+- [ ] Sidebar izquierda fija: búsqueda, calendario, tags
+- [ ] Sidebar colapsable en móvil
+- [ ] Paginación (máx 4 por vista)
 
-**Panel Admin (subdominio):**
-- [ ] GitHub OAuth login
+**Admin Panel:**
+- [ ] Supabase Auth con GitHub OAuth
+- [ ] Admin en subdominio (admin.dominio.com)
 - [ ] CRUD de posts del blog (ES/EN)
 - [ ] CRUD de proyectos del portfolio (ES/EN)
-- [ ] CRUD de temas (hasta 5, cada uno con light/dark)
+- [ ] CRUD de temas
+
+**Enhancements:**
+- [ ] Internacionalización (ES/EN switcher)
+- [ ] Temas administrables (light/dark variants)
+- [ ] 3 Íconos Flotantes (Contacto, Info, Temas)
+- [ ] Formulario de contacto via Resend
 
 ### Out of Scope
 
 - Múltiples usuarios admin — solo el owner
-- Comentarios en blog — no necesarios por ahora
+- Comentarios en blog — no necesarios
 - E-commerce/pagos — es portfolio, no tienda
-- Analytics avanzados — Vercel Analytics básico es suficiente
+- Analytics avanzados — Vercel Analytics básico suficiente
+- Tablet/TV/folded layouts — desktop/mobile covers 95%
 
 ## Context
 
-**Referencia visual:** https://www.adhamdannaway.com/ — especialmente la fluidez de carga y las transiciones suaves.
+**Referencia visual:** https://www.adhamdannaway.com/
 
-**Propósito:** Sitio para atraer reclutadores y mostrar capacidades técnicas. El código debe ser tan impresionante como el resultado visual — reclutadores pueden ver los repos de GitHub.
+**Propósito:** Sitio para atraer reclutadores y mostrar capacidades técnicas.
 
-**Redes sociales a incluir:**
-- LinkedIn
-- GitHub
-- Twitter/X
-- Instagram
-- Sección de herramientas/recursos útiles para devs
-
-**Tipografía:** Proxima Nova, Helvetica Neue, Helvetica, Arial, sans-serif (en orden de fallback)
+**Tipografía:** Proxima Nova, Helvetica Neue, Helvetica, Arial, sans-serif
 
 ## Constraints
 
 - **Stack**: BHVR (Bun, Hono, Vite, React) — no negociable
-- **BD**: Supabase con PostgreSQL — ya decidido
-- **Hosting**: Vercel — integración con GitHub CI/CD
-- **Testing**: Vitest — consistente con el ecosistema
-- **Arquitectura**: Monorepo — sitio público + admin en mismo repo
-- **Email**: Resend o SendGrid para formulario de contacto
+- **BD**: Supabase con PostgreSQL
+- **Hosting**: Vercel con GitHub CI/CD
+- **Testing**: Vitest
+- **Arquitectura**: Monorepo (apps/web, packages/api, packages/shared)
 
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Monorepo para sitio + admin | Código compartido, deploy unificado | — Pending |
-| Admin en subdominio | Separación clara público/privado, sin UI de login en sitio | — Pending |
-| GitHub OAuth único | Solo un admin (owner), simple y seguro | — Pending |
-| Temas administrables (hasta 5) | Demostrar habilidades frontend a reclutadores | — Pending |
-| i18n completo (ES/EN) | Alcance internacional, mostrar capacidad de internacionalización | — Pending |
-| Carga progresiva con transiciones | UX fluida, diferenciador visual | — Pending |
+| Monorepo para sitio + admin | Código compartido, deploy unificado | ✓ Good — working well |
+| Carga progresiva con transiciones | UX fluida, diferenciador visual | ✓ Good — 150ms feels smooth |
+| Mobile-first responsive | Better code organization | ✓ Good — md: breakpoints work well |
+| Tailwind v4 @import syntax | Modern CSS approach | ✓ Good — cleaner than directives |
+| Framer Motion for animations | Powerful, declarative | ✓ Good — AnimatePresence works great |
+| Footer scroll-reveal | Clean UX, reveals only when relevant | ✓ Good — 100px threshold feels natural |
+| Photo placeholder with initials | Ship fast, real image later | — Pending real image |
 
 ---
-*Last updated: 2026-01-16 after milestone v1.0 start*
+*Last updated: 2026-01-19 after v1.0 milestone*

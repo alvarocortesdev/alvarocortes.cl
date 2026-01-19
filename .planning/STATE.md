@@ -2,36 +2,32 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-01-16)
+See: .planning/PROJECT.md (updated 2026-01-19)
 
 **Core value:** El sitio debe sentirse fluido, profesional y demostrar dominio tecnico
-**Current focus:** Phase 4 - Home Page (COMPLETE)
+**Current focus:** Planning next milestone
 
 ## Current Position
 
-Phase: 4 of 4 (Home Page) - COMPLETE
-Plan: 2/2 complete
-Status: Phase 4 complete - All planned phases finished
-Last activity: 2026-01-19 - Completed 04-02-PLAN.md (Responsive Design)
+Milestone: v1.0 MVP Foundation - SHIPPED
+Status: Ready to plan next milestone
+Last activity: 2026-01-19 - Milestone v1.0 complete and archived
 
-Progress: ████████████████████████████████████████ 100% (Phase 4)
-Overall: ████████████████████████████████████████ 100% (9/9 plans)
+Progress: ████████████████████████████████████████ 100% (v1.0)
 
-## Phase Execution History
+## Milestone History
 
-| Phase | Plans | Status |
-|-------|-------|--------|
-| 1 - Monorepo Foundation | 4/4 | Complete |
-| 2 - Deployment Pipeline | 1/1 | Complete |
-| 3 - Layout System | 2/2 | Complete |
-| 4 - Home Page | 2/2 | Complete |
+| Milestone | Phases | Plans | Status | Shipped |
+|-----------|--------|-------|--------|---------|
+| v1.0 MVP Foundation | 1-4 | 9 | SHIPPED | 2026-01-19 |
 
-## Performance Metrics
+## Performance Metrics (v1.0)
 
 **Velocity:**
 - Total plans completed: 9
 - Average duration: ~7 min
 - Total execution time: ~65 min
+- Calendar time: 3 days
 
 **By Phase:**
 
@@ -42,59 +38,35 @@ Overall: ███████████████████████�
 | 03-layout | 2/2 | ~5 min | ~2.5 min |
 | 04-home-page | 2/2 | ~13 min | ~6.5 min |
 
-**Recent Trend:**
-- Last 5 plans: 03-01 (~2 min), 03-02 (~3 min), 04-01 (~8 min), 04-02 (~5 min)
-- Trend: Fast execution for UI plans
-
 ## Accumulated Context
 
-### Decisions
+### Key Decisions (v1.0)
 
-Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
+See PROJECT.md Key Decisions table for full list with outcomes.
 
-- Stack: BHVR (Bun, Hono, Vite, React) - non-negotiable
-- Deploy early: Phase 2 complete - site live at Vercel
-- Hono RPC pattern: Export AppType for frontend type-safe API calls
-- Supabase dual client: Separate public (anon) and admin (service_role) factories
-- Tailwind v4: Uses @import syntax instead of @tailwind directives
-- JSX mode: react-jsx for React 19 automatic runtime
-- Vitest projects: Use glob pattern for monorepo workspace configs
-- ESLint v9 flat config: Modern configuration format with typescript-eslint
-- happy-dom: Lightweight DOM environment for React testing
-- Vercel monorepo: Build from root with --filter flag, output at apps/web/dist
-- VITE_ prefix: Only frontend-safe environment variables exposed to client
-- Header z-50: Fixed position header with z-index for proper layering
-- Component path: apps/web/src/components/ for layout components
-- Content width: max-w-6xl mx-auto px-6 pattern for consistent layout
-- Content fade-in: 150ms delay for perceived smoothness
-- Footer scroll-reveal: 100px threshold from bottom triggers reveal
-- Global styles: Background/color in CSS, not inline classes
-- Photo placeholder: Initials in circle, ready for real image
-- Bio language: Spanish text for target audience
-- Page composition: HomePage wraps section components (Banner, Bio)
-- Responsive breakpoint: md (768px) as primary mobile/desktop threshold
-- Hamburger animation: CSS transforms for X icon effect
-- Mobile-first approach: Base styles for mobile, md: for desktop
+Summary:
+- Stack: BHVR (Bun, Hono, Vite, React)
+- Tailwind v4 with @import syntax
+- Mobile-first responsive with md: breakpoints
+- Progressive loading: 150ms content fade-in
+- Footer scroll-reveal at 100px threshold
+- Framer Motion for animations
 
 ### Pending Todos
 
-- [x] User: Complete Supabase setup (see 01-03-USER-SETUP.md) - Done 2026-01-18
-- [x] Deploy to Vercel - Done 2026-01-18
-- [x] Begin Phase 3 (Layout System) - Started 2026-01-19
-- [x] Complete 03-02 (Layout orchestration with scroll reveal) - Done 2026-01-19
-- [x] Complete Phase 4 (Home Page) - Done 2026-01-19
-- [x] Complete 04-02 (Responsive Design) - Done 2026-01-19
+- [ ] Discuss next milestone scope
+- [ ] Define v1.1 requirements
+- [ ] Create v1.1 roadmap
 
 ### Blockers/Concerns
 
-None - All 4 planned phases complete. MVP home page fully responsive and ready.
+None - v1.0 shipped successfully. Ready for next milestone planning.
 
 ## Session Continuity
 
 Last session: 2026-01-19
-Stopped at: Completed 04-02-PLAN.md (Responsive Design)
+Stopped at: v1.0 milestone complete and archived
 Resume file: None
 
 ---
-*Last updated: 2026-01-19 after 04-02 execution*
+*Last updated: 2026-01-19 after v1.0 milestone completion*
