@@ -20,10 +20,10 @@ Requirements for MVP Foundation. Each maps to roadmap phases.
 
 ### Deployment
 
-- [ ] **DEPLOY-01**: Vercel project connected to GitHub repo
-- [ ] **DEPLOY-02**: apps/web deploys automatically on push to main
-- [ ] **DEPLOY-03**: Environment variables configured in Vercel (Supabase keys)
-- [ ] **DEPLOY-04**: Preview deployments work for pull requests
+- [x] **DEPLOY-01**: Vercel project connected to GitHub repo
+- [x] **DEPLOY-02**: apps/web deploys automatically on push to main
+- [x] **DEPLOY-03**: Environment variables configured in Vercel (Supabase keys)
+- [x] **DEPLOY-04**: Preview deployments work for pull requests
 
 ### Layout Components
 
@@ -136,10 +136,10 @@ Which phases cover which requirements.
 | INFRA-06 | Phase 1 | Complete |
 | INFRA-07 | Phase 1 | Complete |
 | INFRA-08 | Phase 1 | Complete |
-| DEPLOY-01 | Phase 2 | Pending |
-| DEPLOY-02 | Phase 2 | Pending |
-| DEPLOY-03 | Phase 2 | Pending |
-| DEPLOY-04 | Phase 2 | Pending |
+| DEPLOY-01 | Phase 2 | Complete |
+| DEPLOY-02 | Phase 2 | Complete |
+| DEPLOY-03 | Phase 2 | Complete |
+| DEPLOY-04 | Phase 2 | Complete |
 | LAYOUT-01 | Phase 3 | Pending |
 | LAYOUT-02 | Phase 3 | Pending |
 | LAYOUT-03 | Phase 3 | Pending |
@@ -164,4 +164,4 @@ Which phases cover which requirements.
 
 ---
 *Requirements defined: 2026-01-16*
-*Last updated: 2026-01-16 after Phase 1 execution*
+*Last updated: 2026-01-18 after Phase 2 execution*
