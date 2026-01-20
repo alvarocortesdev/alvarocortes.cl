@@ -2,6 +2,33 @@
 
 ## Completed
 
+### v1.1 Portfolio Page (Shipped: 2026-01-20)
+
+**Delivered:** Portfolio page with work timeline, tech stacks showcase, and interactive projects bento grid with modal.
+
+**Phases completed:** 5-8 (6 plans total)
+
+**Key accomplishments:**
+
+- Client-side routing with React Router (SPA navigation)
+- Work timeline with 7 entries (2019-2025), Work/Studies color distinction
+- Tech stacks section with simple-icons CDN and 4 categorized cards
+- Projects bento grid with featured card spanning, hover effects
+- Project modal with AnimatePresence animations and 3 close methods
+- Full responsive design (mobile vertical stack, desktop horizontal)
+
+**Stats:**
+
+- 946 lines of TypeScript/TSX (total web app)
+- 4 phases, 6 plans, 17 requirements satisfied
+- 1 day execution (2026-01-20)
+
+**Git range:** `feat(05-01)` → `feat(08-02)`
+
+**What's next:** TBD (Blog page, Admin panel, or enhancements)
+
+---
+
 ### v1.0 MVP Foundation (Shipped: 2026-01-19)
 
 **Delivered:** Professional portfolio foundation with responsive home page, progressive loading, and automated deployment pipeline.

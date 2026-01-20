@@ -2,35 +2,27 @@
 
 ## What This Is
 
-Portfolio personal profesional para Alvaro Cortes. Un sitio web con home page responsiva, sistema de carga progresiva, y despliegue automático a Vercel. La v1.0 establece la base para futuras páginas de portfolio, blog, y panel admin. Inspirado visualmente en adhamdannaway.com.
+Portfolio personal profesional para Alvaro Cortes. Un sitio web con home page responsiva, portfolio page con timeline y proyectos, sistema de carga progresiva, y despliegue automático a Vercel. Inspirado visualmente en adhamdannaway.com.
 
 ## Core Value
 
 El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada interacción, animación y detalle visual refleja capacidad de desarrollo frontend de alto nivel.
 
-## Current Milestone: v1.1 Portfolio Page
-
-**Goal:** Add a Portfolio page showcasing work timeline, tech stacks, and projects in a visually impressive layout.
-
-**Target features:**
-- Horizontal work timeline (2019-2025, 7 entries)
-- Tech stacks section with 4 categorized cards and icons
-- Bento Grid project showcase with hover effects and modals
-
-## Current State (v1.0 Shipped)
+## Current State (v1.1 Shipped)
 
 **Live:** https://alvarocortes.vercel.app
 
 **Tech stack:**
 - Bun 1.3.5 + Turborepo 2.7
 - Vite 6 + React 19 + Tailwind v4
+- React Router 7.12.0 (SPA navigation)
 - Hono API + Supabase client (backend infrastructure ready)
 - Framer Motion for animations
 - Vitest + ESLint + Prettier
 
 **Codebase:**
-- 432 LOC TypeScript/TSX
-- 59 files across 3 workspaces
+- 946 LOC TypeScript/TSX
+- 3 workspaces (web, api, shared)
 - 4 tests passing
 
 **What's built:**
@@ -38,32 +30,35 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 - Progressive loading (header immediate, content fade-in, footer scroll-reveal)
 - Mobile hamburger menu with animated icon
 - Dark theme with professional styling
+- **Portfolio page** with:
+  - Work timeline (7 entries 2019-2025, Work/Studies color distinction)
+  - Tech stacks (4 cards with simple-icons CDN)
+  - Projects bento grid (hover effects, modal with AnimatePresence)
 
 ## Requirements
 
 ### Validated
 
-- Monorepo BHVR (Bun, Hono, Vite, React) — v1.0
-- Supabase client configured — v1.0
-- Vitest testing — v1.0
-- Vercel deployment with CI/CD — v1.0
-- Header with logo/name and navigation — v1.0
-- Footer with scroll reveal — v1.0
-- Progressive loading (header first, content transitions) — v1.0
-- Desktop and mobile responsive design — v1.0
-- Home page with banner, bio, Layout — v1.0
+**v1.0 MVP:**
+- ✓ Monorepo BHVR (Bun, Hono, Vite, React)
+- ✓ Supabase client configured
+- ✓ Vitest testing
+- ✓ Vercel deployment with CI/CD
+- ✓ Header with logo/name and navigation
+- ✓ Footer with scroll reveal
+- ✓ Progressive loading (header first, content transitions)
+- ✓ Desktop and mobile responsive design
+- ✓ Home page with banner, bio, Layout
 
-### Active (v1.1)
-
-**Portfolio Page:**
-- [ ] Horizontal work timeline (scrollable, 7 entries 2019-2025)
-- [ ] Visual distinction between Work and Studies entries
-- [ ] Tech stacks section with 4 categorized cards
-- [ ] Technology icons (Frontend, Backend, Tools, Other)
-- [ ] Bento Grid project showcase with placeholder data
-- [ ] Hover effect: card lifts and enlarges
-- [ ] Click opens modal with project details
-- [ ] Responsive layout (mobile/desktop)
+**v1.1 Portfolio Page:**
+- ✓ Portfolio navigation link and /portfolio route
+- ✓ Horizontal work timeline (scrollable, 7 entries 2019-2025)
+- ✓ Visual distinction between Work and Studies entries
+- ✓ Tech stacks section with 4 categorized cards and icons
+- ✓ Bento Grid project showcase with placeholder data
+- ✓ Hover effect: card lifts and enlarges
+- ✓ Click opens modal with project details
+- ✓ Responsive layout (mobile/desktop)
 
 ### Future (v1.2+)
 
@@ -121,6 +116,11 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 | Framer Motion for animations | Powerful, declarative | ✓ Good — AnimatePresence works great |
 | Footer scroll-reveal | Clean UX, reveals only when relevant | ✓ Good — 100px threshold feels natural |
 | Photo placeholder with initials | Ship fast, real image later | — Pending real image |
+| BrowserRouter in main.tsx | Routing setup | ✓ Good — wraps entire App |
+| Layout per-route | Route structure | ✓ Good — flexibility for different layouts |
+| simple-icons CDN | Tech icons without local assets | ✓ Good — white icons, text fallback |
+| Bento grid col-span-2 | Featured projects | ✓ Good — visual hierarchy |
+| AnimatePresence modal | Smooth enter/exit | ✓ Good — 3 close methods work well |
 
 ---
-*Last updated: 2026-01-20 after v1.1 milestone initialization*
+*Last updated: 2026-01-20 after v1.1 milestone completion*
