@@ -8,6 +8,18 @@ Portfolio personal profesional para Alvaro Cortes. Un sitio web con home page re
 
 El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada interacción, animación y detalle visual refleja capacidad de desarrollo frontend de alto nivel.
 
+## Current Milestone: v1.2 Blog Page
+
+**Goal:** Add a Blogger-style blog page with sidebar navigation, pagination, and responsive design.
+
+**Target features:**
+- Blog page with post listing (Blogger aesthetic)
+- Fixed left sidebar (search, calendar, tags, categories)
+- Collapsible sidebar on mobile
+- Pagination (max 4 posts per page)
+- Single post detail view
+- 1 hardcoded example post (Supabase DB deferred to Admin)
+
 ## Current State (v1.1 Shipped)
 
 **Live:** https://alvarocortes.vercel.app
@@ -60,13 +72,17 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 - ✓ Click opens modal with project details
 - ✓ Responsive layout (mobile/desktop)
 
-### Future (v1.2+)
+### Active (v1.2)
 
 **Blog Page:**
-- [ ] Estilo réplica de Blogger
-- [ ] Sidebar izquierda fija: búsqueda, calendario, tags
-- [ ] Sidebar colapsable en móvil
-- [ ] Paginación (máx 4 por vista)
+- [ ] Blog page with Blogger-style aesthetic
+- [ ] Fixed left sidebar (search, calendar, tags, categories)
+- [ ] Collapsible sidebar on mobile
+- [ ] Pagination (max 4 posts per page)
+- [ ] Single post detail view with metadata
+- [ ] 1 hardcoded example post
+
+### Future (v1.3+)
 
 **Admin Panel:**
 - [ ] Supabase Auth con GitHub OAuth
@@ -123,4 +139,4 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 | AnimatePresence modal | Smooth enter/exit | ✓ Good — 3 close methods work well |
 
 ---
-*Last updated: 2026-01-20 after v1.1 milestone completion*
+*Last updated: 2026-01-20 after v1.2 milestone initialization*
