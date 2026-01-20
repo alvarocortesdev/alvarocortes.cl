@@ -32,9 +32,9 @@ Requirements for Portfolio Page release. Each maps to roadmap phases.
 
 ### Navigation
 
-- [ ] **NAV-01**: Header includes "Portfolio" link
-- [ ] **NAV-02**: Portfolio page accessible at /portfolio route
-- [ ] **NAV-03**: Portfolio page uses Layout component with header/footer
+- [x] **NAV-01**: Header includes "Portfolio" link
+- [x] **NAV-02**: Portfolio page accessible at /portfolio route
+- [x] **NAV-03**: Portfolio page uses Layout component with header/footer
 
 ## v2 Requirements
 
@@ -63,9 +63,9 @@ Which phases cover which requirements. Updated by create-roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| NAV-01 | Phase 5 | Pending |
-| NAV-02 | Phase 5 | Pending |
-| NAV-03 | Phase 5 | Pending |
+| NAV-01 | Phase 5 | Complete |
+| NAV-02 | Phase 5 | Complete |
+| NAV-03 | Phase 5 | Complete |
 | TIME-01 | Phase 6 | Pending |
 | TIME-02 | Phase 6 | Pending |
 | TIME-03 | Phase 6 | Pending |
@@ -88,4 +88,4 @@ Which phases cover which requirements. Updated by create-roadmap.
 
 ---
 *Requirements defined: 2026-01-20*
-*Last updated: 2026-01-20 after roadmap creation*
+*Last updated: 2026-01-20 after Phase 5 completion*
