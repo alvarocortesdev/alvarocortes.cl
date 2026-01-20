@@ -5,17 +5,17 @@
 See: .planning/PROJECT.md (updated 2026-01-20)
 
 **Core value:** El sitio debe sentirse fluido, profesional y demostrar dominio técnico
-**Current focus:** Planning next milestone
+**Current focus:** v1.2 Blog Page
 
 ## Current Position
 
-Milestone: Between milestones (v1.1 shipped, next TBD)
-Phase: —
+Milestone: v1.2 Blog Page
+Phase: Not started (run /gsd:create-roadmap)
 Plan: —
-Status: Ready to plan next milestone
-Last activity: 2026-01-20 — v1.1 milestone shipped
+Status: Defining requirements
+Last activity: 2026-01-20 — Milestone v1.2 started
 
-Progress: ████████████████████████████████████████ 100% (v1.1 complete)
+Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0% (v1.2 - 0/? plans)
 
 ## Milestone History
 
@@ -59,22 +59,29 @@ Summary:
 - Framer Motion for animations
 - React Router for SPA navigation
 - simple-icons CDN for tech icons
-- Bento grid with col-span-2 for featured
-- AnimatePresence for modal animations
+
+### v1.2 Constraints
+
+- Content: 1 hardcoded example post (no CMS/DB yet)
+- Style: Blogger aesthetic (classic blog layout)
+- Data: Prepare structure for future Supabase integration
+- Mobile: Sidebar must be collapsible/hidden
 
 ### Pending Todos
 
-None — milestones v1.0 and v1.1 shipped.
+- [ ] Define v1.2 requirements
+- [ ] Create v1.2 roadmap
+- [ ] Execute phases 9-12 (estimated)
 
 ### Blockers/Concerns
 
-None — ready for next milestone planning.
+None — ready for requirements definition.
 
 ## Session Continuity
 
 Last session: 2026-01-20
-Stopped at: v1.1 milestone shipped
+Stopped at: v1.2 milestone started
 Resume file: None
 
 ---
-*Last updated: 2026-01-20 — v1.1 shipped*
+*Last updated: 2026-01-20 — v1.2 milestone started*
