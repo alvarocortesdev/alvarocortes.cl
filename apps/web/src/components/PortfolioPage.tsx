@@ -1,3 +1,5 @@
+import { Timeline } from './Timeline'
+
 export function PortfolioPage() {
   return (
     <div className="min-h-screen bg-neutral-900">
@@ -9,7 +11,10 @@ export function PortfolioPage() {
 
         {/* Timeline Section */}
         <section className="mb-16">
-          {/* Timeline goes here */}
+          <h2 className="text-2xl font-bold text-white mb-6">
+            Mi Trayectoria
+          </h2>
+          <Timeline />
         </section>
 
         {/* Tech Stacks Section */}
