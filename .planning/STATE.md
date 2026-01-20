@@ -11,11 +11,11 @@ See: .planning/PROJECT.md (updated 2026-01-19)
 
 Milestone: v1.1 Portfolio Page
 Phase: 5 of 8 (Portfolio Foundation)
-Plan: Not started
-Status: Ready to plan
-Last activity: 2026-01-20 - Roadmap created with 4 phases (5-8)
+Plan: 1 of 3 complete
+Status: In progress
+Last activity: 2026-01-20 - Completed 05-01-PLAN.md (Portfolio Foundation)
 
-Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0% (v1.1)
+Progress: ██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 17% (v1.1 - 1/6 plans)
 
 ## Milestone History
 
@@ -54,11 +54,21 @@ Summary:
 - Footer scroll-reveal at 100px threshold
 - Framer Motion for animations
 
+### Key Decisions (v1.1)
+
+| Decision | Context | Outcome |
+|----------|---------|---------|
+| BrowserRouter in main.tsx | Routing setup | Wraps entire App for route context |
+| Layout per-route | Route structure | Each Route wraps with Layout individually |
+| Mobile menu auto-close | UX improvement | Link click closes menu before navigation |
+
 ### Pending Todos
 
 - [x] Define v1.1 requirements (17 requirements)
 - [x] Create v1.1 roadmap (4 phases: 5-8)
-- [ ] Plan and execute Portfolio page phases
+- [x] 05-01: Portfolio Foundation (routing + navigation)
+- [ ] 05-02: Timeline Section
+- [ ] 05-03: TBD (remaining Portfolio Foundation plans)
 
 ### Blockers/Concerns
 
@@ -66,9 +76,9 @@ None - v1.0 shipped successfully. Ready for next milestone planning.
 
 ## Session Continuity
 
-Last session: 2026-01-19
-Stopped at: v1.0 milestone complete and archived
+Last session: 2026-01-20
+Stopped at: Completed 05-01-PLAN.md
 Resume file: None
 
 ---
-*Last updated: 2026-01-20 after v1.1 roadmap creation*
+*Last updated: 2026-01-20 after 05-01-PLAN.md completion*
