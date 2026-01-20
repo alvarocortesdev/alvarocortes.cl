@@ -10,12 +10,12 @@ See: .planning/PROJECT.md (updated 2026-01-19)
 ## Current Position
 
 Milestone: v1.1 Portfolio Page
-Phase: 6 of 8 (Work Timeline) - Planned
-Plan: 06-01 ready to execute
-Status: Phase 6 planned (2 plans), ready to execute
-Last activity: 2026-01-20 - Phase 6 plans created
+Phase: 6 of 8 (Work Timeline) - Complete
+Plan: 06-02 complete (2/2)
+Status: Phase 6 complete, ready for Phase 7
+Last activity: 2026-01-20 - Completed 06-02-PLAN.md
 
-Progress: ██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 14% (v1.1 - 1/7 plans)
+Progress: ████████████████████░░░░░░░░░░░░░░░░░░░░ 43% (v1.1 - 3/7 plans)
 
 ## Milestone History
 
@@ -61,13 +61,15 @@ Summary:
 | BrowserRouter in main.tsx | Routing setup | Wraps entire App for route context |
 | Layout per-route | Route structure | Each Route wraps with Layout individually |
 | Mobile menu auto-close | UX improvement | Link click closes menu before navigation |
+| Mobile timeline visual | Timeline UX | Dot + vertical line on left for mobile |
+| Desktop scroll affordance | Timeline UX | Gradient fade on right edge |
 
 ### Pending Todos
 
 - [x] Define v1.1 requirements (17 requirements)
 - [x] Create v1.1 roadmap (4 phases: 5-8)
 - [x] Phase 5: Portfolio Foundation (complete)
-- [ ] Phase 6: Work Timeline
+- [x] Phase 6: Work Timeline (complete)
 - [ ] Phase 7: Tech Stacks
 - [ ] Phase 8: Projects Bento
 
@@ -78,8 +80,8 @@ None - v1.0 shipped successfully. Ready for next milestone planning.
 ## Session Continuity
 
 Last session: 2026-01-20
-Stopped at: Phase 5 complete, ready for Phase 6
+Stopped at: Phase 6 complete, ready for Phase 7
 Resume file: None
 
 ---
-*Last updated: 2026-01-20 after Phase 5 completion*
+*Last updated: 2026-01-20 after Phase 6 completion*
