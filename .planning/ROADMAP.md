@@ -73,8 +73,7 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 07-01: Tech stacks data and cards
-- [ ] 07-02: Technology icons integration
+- [ ] 07-01: Tech stacks data, cards, and icons (single consolidated plan)
 
 ### Phase 8: Projects Bento
 
@@ -100,7 +99,7 @@ Plans:
 |-------|----------------|--------|-----------|
 | 5. Portfolio Foundation | 1/1 | Complete | 2026-01-20 |
 | 6. Work Timeline | 2/2 | Complete | 2026-01-20 |
-| 7. Tech Stacks | 0/2 | Not started | - |
+| 7. Tech Stacks | 0/1 | Not started | - |
 | 8. Projects Bento | 0/2 | Not started | - |
 
 ---
