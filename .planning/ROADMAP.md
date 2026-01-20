@@ -90,8 +90,8 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 08-01: Bento grid layout and project cards
-- [ ] 08-02: Project modal with details
+- [ ] 08-01: Bento grid layout, project cards, and hover effects (PROJ-01 to PROJ-04)
+- [ ] 08-02: Project modal with AnimatePresence (PROJ-05)
 
 ## Progress
 
