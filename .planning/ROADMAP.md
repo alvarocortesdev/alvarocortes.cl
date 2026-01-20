@@ -3,7 +3,7 @@
 ## Milestones
 
 - v1.0 MVP Foundation - Phases 1-4 (shipped 2026-01-19)
-- v1.1 Portfolio Page - Phases 5-8 (in progress)
+- v1.1 Portfolio Page - Phases 5-8 (complete 2026-01-20)
 
 ## Overview
 
@@ -18,12 +18,12 @@ See: .planning/milestones/v1.0-ROADMAP.md
 
 </details>
 
-### v1.1 Portfolio Page (In Progress)
+### v1.1 Portfolio Page (Complete)
 
 - [x] **Phase 5: Portfolio Page Foundation** - Basic page with routing and layout
 - [x] **Phase 6: Work Timeline** - Horizontal timeline with work/study history
 - [x] **Phase 7: Tech Stacks** - Four categorized cards with technology icons
-- [ ] **Phase 8: Projects Bento** - Interactive project showcase with modal
+- [x] **Phase 8: Projects Bento** - Interactive project showcase with modal
 
 ## Phase Details
 
@@ -90,8 +90,8 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 08-01: Bento grid layout, project cards, and hover effects (PROJ-01 to PROJ-04)
-- [ ] 08-02: Project modal with AnimatePresence (PROJ-05)
+- [x] 08-01: Bento grid layout, project cards, and hover effects (PROJ-01 to PROJ-04)
+- [x] 08-02: Project modal with AnimatePresence (PROJ-05)
 
 ## Progress
 
@@ -100,8 +100,8 @@ Plans:
 | 5. Portfolio Foundation | 1/1 | Complete | 2026-01-20 |
 | 6. Work Timeline | 2/2 | Complete | 2026-01-20 |
 | 7. Tech Stacks | 1/1 | Complete | 2026-01-20 |
-| 8. Projects Bento | 0/2 | Not started | - |
+| 8. Projects Bento | 2/2 | Complete | 2026-01-20 |
 
 ---
 *Roadmap created: 2026-01-20*
-*Last updated: 2026-01-20 after Phase 7 completion*
+*Last updated: 2026-01-20 — v1.1 milestone complete*
