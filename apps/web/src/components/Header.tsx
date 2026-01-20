@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -15,13 +16,19 @@ export function Header() {
         </div>
 
         {/* Desktop Navigation - Right side */}
-        <nav className="hidden md:block">
-          <a
-            href="#"
+        <nav className="hidden md:flex items-center gap-6">
+          <Link
+            to="/"
             className="text-neutral-300 hover:text-white transition-colors duration-200 text-sm font-medium"
           >
             Inicio
-          </a>
+          </Link>
+          <Link
+            to="/portfolio"
+            className="text-neutral-300 hover:text-white transition-colors duration-200 text-sm font-medium"
+          >
+            Portfolio
+          </Link>
         </nav>
 
         {/* Mobile hamburger button */}
@@ -43,12 +50,20 @@ export function Header() {
       {/* Mobile navigation dropdown */}
       {menuOpen && (
         <nav className="md:hidden bg-neutral-900 border-t border-neutral-800 px-6 py-4">
-          <a
-            href="#"
+          <Link
+            to="/"
+            onClick={() => setMenuOpen(false)}
             className="block py-2 text-neutral-300 hover:text-white transition-colors duration-200 text-sm font-medium"
           >
             Inicio
-          </a>
+          </Link>
+          <Link
+            to="/portfolio"
+            onClick={() => setMenuOpen(false)}
+            className="block py-2 text-neutral-300 hover:text-white transition-colors duration-200 text-sm font-medium"
+          >
+            Portfolio
+          </Link>
         </nav>
       )}
     </header>
