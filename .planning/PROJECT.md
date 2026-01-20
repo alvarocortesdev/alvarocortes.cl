@@ -8,6 +8,15 @@ Portfolio personal profesional para Alvaro Cortes. Un sitio web con home page re
 
 El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada interacción, animación y detalle visual refleja capacidad de desarrollo frontend de alto nivel.
 
+## Current Milestone: v1.1 Portfolio Page
+
+**Goal:** Add a Portfolio page showcasing work timeline, tech stacks, and projects in a visually impressive layout.
+
+**Target features:**
+- Horizontal work timeline (2019-2025, 7 entries)
+- Tech stacks section with 4 categorized cards and icons
+- Bento Grid project showcase with hover effects and modals
+
 ## Current State (v1.0 Shipped)
 
 **Live:** https://alvarocortes.vercel.app
@@ -44,14 +53,19 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 - Desktop and mobile responsive design — v1.0
 - Home page with banner, bio, Layout — v1.0
 
-### Future (v1.1+)
+### Active (v1.1)
 
 **Portfolio Page:**
-- [ ] Timeline horizontal de experiencia laboral
-- [ ] Sección de stacks tecnológicos (4 cuadros con íconos)
-- [ ] Bento Grid de proyectos web
-- [ ] Hover en proyecto: se levanta y agranda
-- [ ] Click abre modal con vista previa
+- [ ] Horizontal work timeline (scrollable, 7 entries 2019-2025)
+- [ ] Visual distinction between Work and Studies entries
+- [ ] Tech stacks section with 4 categorized cards
+- [ ] Technology icons (Frontend, Backend, Tools, Other)
+- [ ] Bento Grid project showcase with placeholder data
+- [ ] Hover effect: card lifts and enlarges
+- [ ] Click opens modal with project details
+- [ ] Responsive layout (mobile/desktop)
+
+### Future (v1.2+)
 
 **Blog Page:**
 - [ ] Estilo réplica de Blogger
@@ -109,4 +123,4 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 | Photo placeholder with initials | Ship fast, real image later | — Pending real image |
 
 ---
-*Last updated: 2026-01-19 after v1.0 milestone*
+*Last updated: 2026-01-20 after v1.1 milestone initialization*
