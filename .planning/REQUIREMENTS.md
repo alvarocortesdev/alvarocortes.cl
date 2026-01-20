@@ -24,11 +24,11 @@ Requirements for Portfolio Page release. Each maps to roadmap phases.
 
 ### Projects
 
-- [ ] **PROJ-01**: Projects section displays bento grid layout
-- [ ] **PROJ-02**: Project cards show name, description, and tech badges
-- [ ] **PROJ-03**: Placeholder projects used initially (3-4 examples)
-- [ ] **PROJ-04**: Hover effect lifts and enlarges card
-- [ ] **PROJ-05**: Click opens modal with project details
+- [x] **PROJ-01**: Projects section displays bento grid layout
+- [x] **PROJ-02**: Project cards show name, description, and tech badges
+- [x] **PROJ-03**: Placeholder projects used initially (3-4 examples)
+- [x] **PROJ-04**: Hover effect lifts and enlarges card
+- [x] **PROJ-05**: Click opens modal with project details
 
 ### Navigation
 
@@ -75,11 +75,11 @@ Which phases cover which requirements. Updated by create-roadmap.
 | TECH-02 | Phase 7 | Complete |
 | TECH-03 | Phase 7 | Complete |
 | TECH-04 | Phase 7 | Complete |
-| PROJ-01 | Phase 8 | Pending |
-| PROJ-02 | Phase 8 | Pending |
-| PROJ-03 | Phase 8 | Pending |
-| PROJ-04 | Phase 8 | Pending |
-| PROJ-05 | Phase 8 | Pending |
+| PROJ-01 | Phase 8 | Complete |
+| PROJ-02 | Phase 8 | Complete |
+| PROJ-03 | Phase 8 | Complete |
+| PROJ-04 | Phase 8 | Complete |
+| PROJ-05 | Phase 8 | Complete |
 
 **Coverage:**
 - v1.1 requirements: 17 total
@@ -88,4 +88,4 @@ Which phases cover which requirements. Updated by create-roadmap.
 
 ---
 *Requirements defined: 2026-01-20*
-*Last updated: 2026-01-20 after Phase 7 completion*
+*Last updated: 2026-01-20 after Phase 8 completion — v1.1 complete*

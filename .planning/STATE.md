@@ -9,13 +9,13 @@ See: .planning/PROJECT.md (updated 2026-01-19)
 
 ## Current Position
 
-Milestone: v1.1 Portfolio Page
-Phase: 7 of 8 (Tech Stacks) - Complete
-Plan: 07-01 complete (1/1)
-Status: Phase 7 complete, ready for Phase 8
-Last activity: 2026-01-20 - Completed 07-01-PLAN.md
+Milestone: v1.1 Portfolio Page - COMPLETE
+Phase: 8 of 8 (Projects Bento) - Complete
+Plan: 08-02 complete (2/2)
+Status: Milestone v1.1 complete, ready for archive
+Last activity: 2026-01-20 - Phase 8 complete
 
-Progress: █████████████████████████████░░░░░░░░░░░ 57% (v1.1 - 4/7 plans)
+Progress: ████████████████████████████████████████ 100% (v1.1 - 7/7 plans)
 
 ## Milestone History
 
@@ -65,6 +65,8 @@ Summary:
 | Desktop scroll affordance | Timeline UX | Gradient fade on right edge |
 | simple-icons CDN | Tech icons | https://cdn.simpleicons.org/{slug}/white |
 | Icon text fallback | Error handling | useState tracks failed loads, shows text |
+| Bento grid layout | Projects section | col-span-2 for featured projects |
+| AnimatePresence modal | Project details | Scale+fade animation, 3 close methods |
 
 ### Pending Todos
 
@@ -73,7 +75,7 @@ Summary:
 - [x] Phase 5: Portfolio Foundation (complete)
 - [x] Phase 6: Work Timeline (complete)
 - [x] Phase 7: Tech Stacks (complete)
-- [ ] Phase 8: Projects Bento
+- [x] Phase 8: Projects Bento (complete)
 
 ### Blockers/Concerns
 
@@ -82,8 +84,8 @@ None - v1.0 shipped successfully. Ready for next milestone planning.
 ## Session Continuity
 
 Last session: 2026-01-20
-Stopped at: Phase 7 complete, ready for Phase 8
+Stopped at: Milestone v1.1 complete
 Resume file: None
 
 ---
-*Last updated: 2026-01-20 after Phase 7 completion*
+*Last updated: 2026-01-20 — v1.1 milestone complete*
