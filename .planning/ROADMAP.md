@@ -21,7 +21,7 @@ See: .planning/milestones/v1.0-ROADMAP.md
 ### v1.1 Portfolio Page (In Progress)
 
 - [x] **Phase 5: Portfolio Page Foundation** - Basic page with routing and layout
-- [ ] **Phase 6: Work Timeline** - Horizontal timeline with work/study history
+- [x] **Phase 6: Work Timeline** - Horizontal timeline with work/study history
 - [ ] **Phase 7: Tech Stacks** - Four categorized cards with technology icons
 - [ ] **Phase 8: Projects Bento** - Interactive project showcase with modal
 
@@ -56,8 +56,8 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 06-01: Timeline data and component (apps/web/src/data/timeline.ts, Timeline.tsx)
-- [ ] 06-02: Timeline responsive design (horizontal scroll desktop, vertical mobile)
+- [x] 06-01: Timeline data and component (apps/web/src/data/timeline.ts, Timeline.tsx)
+- [x] 06-02: Timeline responsive design (horizontal scroll desktop, vertical mobile)
 
 ### Phase 7: Tech Stacks
 
@@ -99,10 +99,10 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 5. Portfolio Foundation | 1/1 | Complete | 2026-01-20 |
-| 6. Work Timeline | 0/2 | Not started | - |
+| 6. Work Timeline | 2/2 | Complete | 2026-01-20 |
 | 7. Tech Stacks | 0/2 | Not started | - |
 | 8. Projects Bento | 0/2 | Not started | - |
 
 ---
 *Roadmap created: 2026-01-20*
-*Last updated: 2026-01-20 after Phase 5 completion*
+*Last updated: 2026-01-20 after Phase 6 completion*
