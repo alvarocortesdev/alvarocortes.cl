@@ -56,8 +56,8 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 06-01: Timeline data and component
-- [ ] 06-02: Timeline responsive design
+- [ ] 06-01: Timeline data and component (apps/web/src/data/timeline.ts, Timeline.tsx)
+- [ ] 06-02: Timeline responsive design (horizontal scroll desktop, vertical mobile)
 
 ### Phase 7: Tech Stacks
 
