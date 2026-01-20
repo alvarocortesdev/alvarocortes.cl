@@ -63,29 +63,29 @@ Which phases cover which requirements. Updated by create-roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TIME-01 | — | Pending |
-| TIME-02 | — | Pending |
-| TIME-03 | — | Pending |
-| TIME-04 | — | Pending |
-| TIME-05 | — | Pending |
-| TECH-01 | — | Pending |
-| TECH-02 | — | Pending |
-| TECH-03 | — | Pending |
-| TECH-04 | — | Pending |
-| PROJ-01 | — | Pending |
-| PROJ-02 | — | Pending |
-| PROJ-03 | — | Pending |
-| PROJ-04 | — | Pending |
-| PROJ-05 | — | Pending |
-| NAV-01 | — | Pending |
-| NAV-02 | — | Pending |
-| NAV-03 | — | Pending |
+| NAV-01 | Phase 5 | Pending |
+| NAV-02 | Phase 5 | Pending |
+| NAV-03 | Phase 5 | Pending |
+| TIME-01 | Phase 6 | Pending |
+| TIME-02 | Phase 6 | Pending |
+| TIME-03 | Phase 6 | Pending |
+| TIME-04 | Phase 6 | Pending |
+| TIME-05 | Phase 6 | Pending |
+| TECH-01 | Phase 7 | Pending |
+| TECH-02 | Phase 7 | Pending |
+| TECH-03 | Phase 7 | Pending |
+| TECH-04 | Phase 7 | Pending |
+| PROJ-01 | Phase 8 | Pending |
+| PROJ-02 | Phase 8 | Pending |
+| PROJ-03 | Phase 8 | Pending |
+| PROJ-04 | Phase 8 | Pending |
+| PROJ-05 | Phase 8 | Pending |
 
 **Coverage:**
 - v1.1 requirements: 17 total
-- Mapped to phases: 0
-- Unmapped: 17 (pending create-roadmap)
+- Mapped to phases: 17
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-01-20*
-*Last updated: 2026-01-20 after initial definition*
+*Last updated: 2026-01-20 after roadmap creation*
