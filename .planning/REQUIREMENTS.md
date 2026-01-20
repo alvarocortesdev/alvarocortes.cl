@@ -9,11 +9,11 @@ Requirements for Portfolio Page release. Each maps to roadmap phases.
 
 ### Timeline
 
-- [ ] **TIME-01**: Portfolio page displays horizontal scrollable timeline
-- [ ] **TIME-02**: Timeline shows 7 entries from 2019-2025
-- [ ] **TIME-03**: Each entry shows period, role/program, and company/institution
-- [ ] **TIME-04**: Work entries visually distinct from Studies entries
-- [ ] **TIME-05**: Timeline is responsive (horizontal scroll on desktop, vertical on mobile)
+- [x] **TIME-01**: Portfolio page displays horizontal scrollable timeline
+- [x] **TIME-02**: Timeline shows 7 entries from 2019-2025
+- [x] **TIME-03**: Each entry shows period, role/program, and company/institution
+- [x] **TIME-04**: Work entries visually distinct from Studies entries
+- [x] **TIME-05**: Timeline is responsive (horizontal scroll on desktop, vertical on mobile)
 
 ### Tech Stacks
 
@@ -66,11 +66,11 @@ Which phases cover which requirements. Updated by create-roadmap.
 | NAV-01 | Phase 5 | Complete |
 | NAV-02 | Phase 5 | Complete |
 | NAV-03 | Phase 5 | Complete |
-| TIME-01 | Phase 6 | Pending |
-| TIME-02 | Phase 6 | Pending |
-| TIME-03 | Phase 6 | Pending |
-| TIME-04 | Phase 6 | Pending |
-| TIME-05 | Phase 6 | Pending |
+| TIME-01 | Phase 6 | Complete |
+| TIME-02 | Phase 6 | Complete |
+| TIME-03 | Phase 6 | Complete |
+| TIME-04 | Phase 6 | Complete |
+| TIME-05 | Phase 6 | Complete |
 | TECH-01 | Phase 7 | Pending |
 | TECH-02 | Phase 7 | Pending |
 | TECH-03 | Phase 7 | Pending |
@@ -88,4 +88,4 @@ Which phases cover which requirements. Updated by create-roadmap.
 
 ---
 *Requirements defined: 2026-01-20*
-*Last updated: 2026-01-20 after Phase 5 completion*
+*Last updated: 2026-01-20 after Phase 6 completion*
