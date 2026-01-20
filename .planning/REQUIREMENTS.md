@@ -17,10 +17,10 @@ Requirements for Portfolio Page release. Each maps to roadmap phases.
 
 ### Tech Stacks
 
-- [ ] **TECH-01**: Tech stacks section displays 4 categorized cards
-- [ ] **TECH-02**: Each card has a category title (Frontend, Backend, Tools, Other)
-- [ ] **TECH-03**: Technologies display with icons
-- [ ] **TECH-04**: Cards use responsive grid (2x2 mobile, 4 columns desktop)
+- [x] **TECH-01**: Tech stacks section displays 4 categorized cards
+- [x] **TECH-02**: Each card has a category title (Frontend, Backend, Tools, Other)
+- [x] **TECH-03**: Technologies display with icons
+- [x] **TECH-04**: Cards use responsive grid (2x2 mobile, 4 columns desktop)
 
 ### Projects
 
@@ -71,10 +71,10 @@ Which phases cover which requirements. Updated by create-roadmap.
 | TIME-03 | Phase 6 | Complete |
 | TIME-04 | Phase 6 | Complete |
 | TIME-05 | Phase 6 | Complete |
-| TECH-01 | Phase 7 | Pending |
-| TECH-02 | Phase 7 | Pending |
-| TECH-03 | Phase 7 | Pending |
-| TECH-04 | Phase 7 | Pending |
+| TECH-01 | Phase 7 | Complete |
+| TECH-02 | Phase 7 | Complete |
+| TECH-03 | Phase 7 | Complete |
+| TECH-04 | Phase 7 | Complete |
 | PROJ-01 | Phase 8 | Pending |
 | PROJ-02 | Phase 8 | Pending |
 | PROJ-03 | Phase 8 | Pending |
@@ -88,4 +88,4 @@ Which phases cover which requirements. Updated by create-roadmap.
 
 ---
 *Requirements defined: 2026-01-20*
-*Last updated: 2026-01-20 after Phase 6 completion*
+*Last updated: 2026-01-20 after Phase 7 completion*
