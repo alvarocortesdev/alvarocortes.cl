@@ -1,5 +1,6 @@
 import { Timeline } from './Timeline'
 import { TechStacks } from './TechStacks'
+import { ProjectsBento } from './ProjectsBento'
 
 export function PortfolioPage() {
   return (
@@ -28,7 +29,10 @@ export function PortfolioPage() {
 
         {/* Projects Section */}
         <section className="mb-16">
-          {/* Projects goes here */}
+          <h2 className="text-2xl font-bold text-white mb-6">
+            Proyectos
+          </h2>
+          <ProjectsBento />
         </section>
       </div>
     </div>
