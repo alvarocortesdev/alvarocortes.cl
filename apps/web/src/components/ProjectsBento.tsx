@@ -1,5 +1,7 @@
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { PROJECTS, type Project } from "../data/projects"
+import { ProjectModal } from "./ProjectModal"
 
 function TechBadge({ tech }: { tech: string }) {
   return (
@@ -9,19 +11,22 @@ function TechBadge({ tech }: { tech: string }) {
   )
 }
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const handleClick = () => {
-    // Modal will be implemented in 08-02
-    console.log("Project clicked:", project.id)
-  }
-
+function ProjectCard({
+  project,
+  index,
+  onClick,
+}: {
+  project: Project
+  index: number
+  onClick: () => void
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
       whileHover={{ scale: 1.02, y: -4 }}
-      onClick={handleClick}
+      onClick={onClick}
       className={`
         bg-neutral-800 rounded-lg p-5 cursor-pointer
         shadow-lg hover:shadow-xl transition-shadow duration-200
@@ -69,11 +74,26 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 }
 
 export function ProjectsBento() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {PROJECTS.map((project, index) => (
-        <ProjectCard key={project.id} project={project} index={index} />
-      ))}
-    </div>
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {PROJECTS.map((project, index) => (
+          <ProjectCard
+            key={project.id}
+            project={project}
+            index={index}
+            onClick={() => setSelectedProject(project)}
+          />
+        ))}
+      </div>
+
+      <ProjectModal
+        project={selectedProject}
+        isOpen={selectedProject !== null}
+        onClose={() => setSelectedProject(null)}
+      />
+    </>
   )
 }
