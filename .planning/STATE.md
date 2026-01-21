@@ -4,18 +4,18 @@
 
 See: .planning/PROJECT.md (updated 2026-01-20)
 
-**Core value:** El sitio debe sentirse fluido, profesional y demostrar dominio técnico
+**Core value:** El sitio debe sentirse fluido, profesional y demostrar dominio tecnico
 **Current focus:** v1.2 Blog Page
 
 ## Current Position
 
 Milestone: v1.2 Blog Page
-Phase: 11 - Blog Listing (complete)
+Phase: 12 - Post Detail (complete)
 Plan: 1/1 complete
-Status: Phase 11 complete
-Last activity: 2026-01-21 — Completed 11-01-PLAN.md
+Status: v1.2 COMPLETE
+Last activity: 2026-01-21 - Completed 12-01-PLAN.md
 
-Progress: ██████████████████████████████████████░░ 95% (v1.2 - 4/5 phases)
+Progress: ████████████████████████████████████████ 100% (v1.2 - 5/5 phases)
 
 ## Milestone History
 
@@ -23,6 +23,7 @@ Progress: ███████████████████████�
 |-----------|--------|-------|--------|---------|
 | v1.0 MVP Foundation | 1-4 | 9 | SHIPPED | 2026-01-19 |
 | v1.1 Portfolio Page | 5-8 | 6 | SHIPPED | 2026-01-20 |
+| v1.2 Blog Page | 9-12 | 5 | COMPLETE | 2026-01-21 |
 
 ## Performance Metrics
 
@@ -51,6 +52,7 @@ Progress: ███████████████████████�
 | 09-blog-foundation | 1/1 | ~3 min | ~3 min |
 | 10-sidebar | 2/2 | ~6 min | ~3 min |
 | 11-blog-listing | 1/1 | ~3 min | ~3 min |
+| 12-post-detail | 1/1 | ~4 min | ~4 min |
 
 ## Accumulated Context
 
@@ -76,13 +78,22 @@ Summary:
 - Blog listing: 4 posts per page with prev/next pagination
 - PostCard: Spanish (es-ES) locale date formatting
 - Post data: Structure ready for CMS integration (slug, title, excerpt, date, tags, category)
+- Shared data modules: Extract data to src/data/ for reuse across components
+- PostDetail: dangerouslySetInnerHTML for HTML content (safe for hardcoded)
+- PostDetail: prose-invert typography classes for content styling
 
-### v1.2 Constraints
+### Patterns Established
 
-- Content: 1 hardcoded example post (no CMS/DB yet)
-- Style: Blogger aesthetic (classic blog layout)
-- Data: Prepare structure for future Supabase integration
-- Mobile: Sidebar must be collapsible/hidden
+- Shared data modules: src/data/ directory for reusable data
+- Social sharing: window.open with noopener,noreferrer
+- Clipboard feedback: useState with setTimeout for visual confirmation
+
+### v1.2 Constraints (COMPLETED)
+
+- Content: 1 hardcoded example post (no CMS/DB yet) - DONE
+- Style: Blogger aesthetic (classic blog layout) - DONE
+- Data: Prepare structure for future Supabase integration - DONE
+- Mobile: Sidebar must be collapsible/hidden - DONE
 
 ### Pending Todos
 
@@ -91,17 +102,17 @@ Summary:
 - [x] Plan and execute Phase 9: Blog Foundation
 - [x] Plan and execute Phase 10: Sidebar (2/2 plans complete)
 - [x] Plan and execute Phase 11: Blog Listing (1/1 plan complete)
-- [ ] Plan and execute Phase 12: Post Detail
+- [x] Plan and execute Phase 12: Post Detail (1/1 plan complete)
 
 ### Blockers/Concerns
 
-None — Phase 11 complete, ready for Phase 12 (Post Detail).
+None - v1.2 Blog Page milestone complete.
 
 ## Session Continuity
 
 Last session: 2026-01-21
-Stopped at: Completed 11-01-PLAN.md (Phase 11 complete)
+Stopped at: Completed 12-01-PLAN.md (v1.2 complete)
 Resume file: None
 
 ---
-*Last updated: 2026-01-21 — Phase 11 complete*
+*Last updated: 2026-01-21 - v1.2 Blog Page complete*
