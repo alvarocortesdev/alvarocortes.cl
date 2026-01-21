@@ -9,13 +9,13 @@ Requirements for Blog Page release. Each maps to roadmap phases.
 
 ### Navigation
 
-- [ ] **NAV-04**: Header includes "Blog" link
-- [ ] **NAV-05**: Blog page accessible at /blog route
-- [ ] **NAV-06**: Blog page uses Layout component with header/footer
+- [x] **NAV-04**: Header includes "Blog" link
+- [x] **NAV-05**: Blog page accessible at /blog route
+- [x] **NAV-06**: Blog page uses Layout component with header/footer
 
 ### Blog Layout
 
-- [ ] **BLOG-01**: Blog page displays Blogger-style layout (sidebar left, content right)
+- [x] **BLOG-01**: Blog page displays Blogger-style layout (sidebar left, content right)
 - [ ] **BLOG-02**: Sidebar is fixed on desktop (doesn't scroll with content)
 - [ ] **BLOG-03**: Sidebar is collapsible/hidden on mobile with toggle
 
@@ -70,10 +70,10 @@ Which phases cover which requirements. Updated by create-roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| NAV-04 | 9 | Pending |
-| NAV-05 | 9 | Pending |
-| NAV-06 | 9 | Pending |
-| BLOG-01 | 9 | Pending |
+| NAV-04 | 9 | Complete |
+| NAV-05 | 9 | Complete |
+| NAV-06 | 9 | Complete |
+| BLOG-01 | 9 | Complete |
 | BLOG-02 | 10 | Pending |
 | BLOG-03 | 10 | Pending |
 | SIDE-01 | 10 | Pending |
