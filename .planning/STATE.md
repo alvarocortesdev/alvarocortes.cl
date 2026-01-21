@@ -10,12 +10,12 @@ See: .planning/PROJECT.md (updated 2026-01-20)
 ## Current Position
 
 Milestone: v1.2 Blog Page
-Phase: 9 - Blog Foundation (in progress)
-Plan: 1/1 complete
-Status: Phase 9 complete
-Last activity: 2026-01-20 — Completed 09-01-PLAN.md
+Phase: 10 - Sidebar (in progress)
+Plan: 1/2 complete
+Status: Plan 10-01 complete
+Last activity: 2026-01-21 — Completed 10-01-PLAN.md
 
-Progress: ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 25% (v1.2 - 1/4 phases)
+Progress: ████████████████████░░░░░░░░░░░░░░░░░░░░ 50% (v1.2 - 2/4 phases)
 
 ## Milestone History
 
@@ -49,6 +49,7 @@ Progress: ██████████░░░░░░░░░░░░░�
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 09-blog-foundation | 1/1 | ~3 min | ~3 min |
+| 10-sidebar | 1/2 | ~3 min | ~3 min |
 
 ## Accumulated Context
 
@@ -66,6 +67,8 @@ Summary:
 - React Router for SPA navigation
 - simple-icons CDN for tech icons
 - Blog: Two-column layout (sidebar left 256px, content right fluid)
+- Sidebar: Sticky positioning with md:top-24 to account for header
+- Sidebar: Hidden by default on mobile with toggle button
 
 ### v1.2 Constraints
 
@@ -79,19 +82,19 @@ Summary:
 - [x] Define v1.2 requirements (17 requirements)
 - [x] Create v1.2 roadmap (phases 9-12)
 - [x] Plan and execute Phase 9: Blog Foundation
-- [ ] Plan and execute Phase 10: Sidebar
+- [ ] Plan and execute Phase 10: Sidebar (1/2 plans complete)
 - [ ] Plan and execute Phase 11: Blog Listing
 - [ ] Plan and execute Phase 12: Post Detail
 
 ### Blockers/Concerns
 
-None — Phase 9 complete, ready for Phase 10.
+None — Plan 10-01 complete, ready for 10-02 (widgets).
 
 ## Session Continuity
 
-Last session: 2026-01-20
-Stopped at: Completed 09-01-PLAN.md
+Last session: 2026-01-21
+Stopped at: Completed 10-01-PLAN.md
 Resume file: None
 
 ---
-*Last updated: 2026-01-20 — Phase 9 complete*
+*Last updated: 2026-01-21 — Plan 10-01 complete*
