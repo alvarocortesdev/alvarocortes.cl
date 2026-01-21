@@ -65,22 +65,25 @@ Phase 12: Post Detail       → Single post view + example content
 
 ---
 
-## Phase 11: Blog Listing & Pagination
+## Phase 11: Blog Listing & Pagination ✓
 
 **Goal:** Display post cards with pagination controls
 
+**Status:** Complete (2026-01-21)
+**Plans:** 1/1
+
 **Requirements:**
-- LIST-01: Blog listing displays posts in grid/list format
-- LIST-02: Each post card shows title, excerpt, date, and tags
-- LIST-03: Pagination shows max 4 posts per page
-- LIST-04: Pagination includes prev/next navigation
+- LIST-01: Blog listing displays posts in grid/list format ✓
+- LIST-02: Each post card shows title, excerpt, date, and tags ✓
+- LIST-03: Pagination shows max 4 posts per page ✓
+- LIST-04: Pagination includes prev/next navigation ✓
 
 **Success criteria:**
-- Post cards render in grid/list layout
-- Each card shows: title, excerpt (truncated), date, tags
-- Maximum 4 posts visible per page
-- Prev/Next buttons navigate between pages
-- Page indicator shows current/total pages
+- Post cards render in grid/list layout ✓
+- Each card shows: title, excerpt (truncated), date, tags ✓
+- Maximum 4 posts visible per page ✓
+- Prev/Next buttons navigate between pages ✓
+- Page indicator shows current/total pages ✓
 
 **Depends on:** Phase 10 (sidebar complete for full layout)
 
