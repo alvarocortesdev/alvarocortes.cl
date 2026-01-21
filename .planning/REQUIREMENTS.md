@@ -35,10 +35,10 @@ Requirements for Blog Page release. Each maps to roadmap phases.
 
 ### Post Detail
 
-- [ ] **POST-01**: Single post view displays full content
-- [ ] **POST-02**: Post shows metadata (date, author, tags, category)
-- [ ] **POST-03**: 1 hardcoded example post with realistic content
-- [ ] **POST-04**: Social sharing buttons (Twitter/X, LinkedIn, copy link)
+- [x] **POST-01**: Single post view displays full content
+- [x] **POST-02**: Post shows metadata (date, author, tags, category)
+- [x] **POST-03**: 1 hardcoded example post with realistic content
+- [x] **POST-04**: Social sharing buttons (Twitter/X, LinkedIn, copy link)
 
 ## v2 Requirements
 
@@ -84,10 +84,10 @@ Which phases cover which requirements. Updated by create-roadmap.
 | LIST-02 | 11 | Complete |
 | LIST-03 | 11 | Complete |
 | LIST-04 | 11 | Complete |
-| POST-01 | 12 | Pending |
-| POST-02 | 12 | Pending |
-| POST-03 | 12 | Pending |
-| POST-04 | 12 | Pending |
+| POST-01 | 12 | Complete |
+| POST-02 | 12 | Complete |
+| POST-03 | 12 | Complete |
+| POST-04 | 12 | Complete |
 
 **Coverage:**
 - v1.2 requirements: 17 total
