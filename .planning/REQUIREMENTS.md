@@ -16,15 +16,15 @@ Requirements for Blog Page release. Each maps to roadmap phases.
 ### Blog Layout
 
 - [x] **BLOG-01**: Blog page displays Blogger-style layout (sidebar left, content right)
-- [ ] **BLOG-02**: Sidebar is fixed on desktop (doesn't scroll with content)
-- [ ] **BLOG-03**: Sidebar is collapsible/hidden on mobile with toggle
+- [x] **BLOG-02**: Sidebar is fixed on desktop (doesn't scroll with content)
+- [x] **BLOG-03**: Sidebar is collapsible/hidden on mobile with toggle
 
 ### Sidebar
 
-- [ ] **SIDE-01**: Sidebar displays search input field (UI only, functionality deferred)
-- [ ] **SIDE-02**: Sidebar displays calendar widget showing post dates
-- [ ] **SIDE-03**: Sidebar displays tags cloud with clickable tags
-- [ ] **SIDE-04**: Sidebar displays categories list with clickable items
+- [x] **SIDE-01**: Sidebar displays search input field (UI only, functionality deferred)
+- [x] **SIDE-02**: Sidebar displays calendar widget showing post dates
+- [x] **SIDE-03**: Sidebar displays tags cloud with clickable tags
+- [x] **SIDE-04**: Sidebar displays categories list with clickable items
 
 ### Blog Listing
 
@@ -74,12 +74,12 @@ Which phases cover which requirements. Updated by create-roadmap.
 | NAV-05 | 9 | Complete |
 | NAV-06 | 9 | Complete |
 | BLOG-01 | 9 | Complete |
-| BLOG-02 | 10 | Pending |
-| BLOG-03 | 10 | Pending |
-| SIDE-01 | 10 | Pending |
-| SIDE-02 | 10 | Pending |
-| SIDE-03 | 10 | Pending |
-| SIDE-04 | 10 | Pending |
+| BLOG-02 | 10 | Complete |
+| BLOG-03 | 10 | Complete |
+| SIDE-01 | 10 | Complete |
+| SIDE-02 | 10 | Complete |
+| SIDE-03 | 10 | Complete |
+| SIDE-04 | 10 | Complete |
 | LIST-01 | 11 | Pending |
 | LIST-02 | 11 | Pending |
 | LIST-03 | 11 | Pending |

@@ -38,25 +38,28 @@ Phase 12: Post Detail       → Single post view + example content
 
 ---
 
-## Phase 10: Sidebar Components
+## Phase 10: Sidebar Components ✓
 
 **Goal:** Build all sidebar widgets with fixed/collapsible behavior
 
+**Status:** Complete (2026-01-21)
+**Plans:** 2/2
+
 **Requirements:**
-- SIDE-01: Sidebar displays search input field (UI only, functionality deferred)
-- SIDE-02: Sidebar displays calendar widget showing post dates
-- SIDE-03: Sidebar displays tags cloud with clickable tags
-- SIDE-04: Sidebar displays categories list with clickable items
-- BLOG-02: Sidebar is fixed on desktop (doesn't scroll with content)
-- BLOG-03: Sidebar is collapsible/hidden on mobile with toggle
+- SIDE-01: Sidebar displays search input field (UI only, functionality deferred) ✓
+- SIDE-02: Sidebar displays calendar widget showing post dates ✓
+- SIDE-03: Sidebar displays tags cloud with clickable tags ✓
+- SIDE-04: Sidebar displays categories list with clickable items ✓
+- BLOG-02: Sidebar is fixed on desktop (doesn't scroll with content) ✓
+- BLOG-03: Sidebar is collapsible/hidden on mobile with toggle ✓
 
 **Success criteria:**
-- Search input renders (no functionality yet)
-- Calendar widget shows current month with highlighted post dates
-- Tags cloud displays clickable tag pills
-- Categories list shows clickable category items
-- Desktop: sidebar stays fixed while content scrolls
-- Mobile: sidebar hidden by default, toggle button reveals it
+- Search input renders (no functionality yet) ✓
+- Calendar widget shows current month with highlighted post dates ✓
+- Tags cloud displays clickable tag pills ✓
+- Categories list shows clickable category items ✓
+- Desktop: sidebar stays fixed while content scrolls ✓
+- Mobile: sidebar hidden by default, toggle button reveals it ✓
 
 **Depends on:** Phase 9 (blog layout structure)
 
