@@ -28,10 +28,10 @@ Requirements for Blog Page release. Each maps to roadmap phases.
 
 ### Blog Listing
 
-- [ ] **LIST-01**: Blog listing displays posts in grid/list format
-- [ ] **LIST-02**: Each post card shows title, excerpt, date, and tags
-- [ ] **LIST-03**: Pagination shows max 4 posts per page
-- [ ] **LIST-04**: Pagination includes prev/next navigation
+- [x] **LIST-01**: Blog listing displays posts in grid/list format
+- [x] **LIST-02**: Each post card shows title, excerpt, date, and tags
+- [x] **LIST-03**: Pagination shows max 4 posts per page
+- [x] **LIST-04**: Pagination includes prev/next navigation
 
 ### Post Detail
 
@@ -80,10 +80,10 @@ Which phases cover which requirements. Updated by create-roadmap.
 | SIDE-02 | 10 | Complete |
 | SIDE-03 | 10 | Complete |
 | SIDE-04 | 10 | Complete |
-| LIST-01 | 11 | Pending |
-| LIST-02 | 11 | Pending |
-| LIST-03 | 11 | Pending |
-| LIST-04 | 11 | Pending |
+| LIST-01 | 11 | Complete |
+| LIST-02 | 11 | Complete |
+| LIST-03 | 11 | Complete |
+| LIST-04 | 11 | Complete |
 | POST-01 | 12 | Pending |
 | POST-02 | 12 | Pending |
 | POST-03 | 12 | Pending |
