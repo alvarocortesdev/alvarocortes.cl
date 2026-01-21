@@ -29,6 +29,12 @@ export function Header() {
           >
             Portfolio
           </Link>
+          <Link
+            to="/blog"
+            className="text-neutral-300 hover:text-white transition-colors duration-200 text-sm font-medium"
+          >
+            Blog
+          </Link>
         </nav>
 
         {/* Mobile hamburger button */}
@@ -63,6 +69,13 @@ export function Header() {
             className="block py-2 text-neutral-300 hover:text-white transition-colors duration-200 text-sm font-medium"
           >
             Portfolio
+          </Link>
+          <Link
+            to="/blog"
+            onClick={() => setMenuOpen(false)}
+            className="block py-2 text-neutral-300 hover:text-white transition-colors duration-200 text-sm font-medium"
+          >
+            Blog
           </Link>
         </nav>
       )}
