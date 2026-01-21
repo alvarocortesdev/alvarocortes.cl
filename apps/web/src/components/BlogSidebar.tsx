@@ -2,6 +2,42 @@ interface BlogSidebarProps {
   className?: string
 }
 
+// Sample post dates for calendar (hardcoded for now)
+const postDates = [5, 12, 18, 25]
+
+function CalendarWidget() {
+  const currentDate = new Date()
+  const currentYear = currentDate.getFullYear()
+  const currentMonth = currentDate.getMonth()
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
+  const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay()
+
+  return (
+    <div className="grid grid-cols-7 gap-1 text-center text-xs">
+      {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map(day => (
+        <div key={day} className="text-neutral-500 py-1">{day}</div>
+      ))}
+      {/* Empty cells for days before first of month */}
+      {Array.from({ length: firstDayOfMonth }).map((_, i) => (
+        <div key={`empty-${i}`} />
+      ))}
+      {/* Day numbers */}
+      {Array.from({ length: daysInMonth }).map((_, i) => {
+        const day = i + 1
+        const hasPost = postDates.includes(day)
+        return (
+          <div
+            key={day}
+            className={`py-1 rounded ${hasPost ? 'bg-blue-600 text-white cursor-pointer hover:bg-blue-500' : 'text-neutral-400'}`}
+          >
+            {day}
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 export function BlogSidebar({ className = '' }: BlogSidebarProps) {
   return (
     <div className={`space-y-6 ${className}`}>
@@ -15,12 +51,12 @@ export function BlogSidebar({ className = '' }: BlogSidebarProps) {
         />
       </div>
 
-      {/* Calendar placeholder - will be implemented in 10-02 */}
+      {/* Calendar widget - SIDE-02 */}
       <div>
-        <h3 className="text-sm font-semibold text-white mb-3">Calendar</h3>
-        <div className="bg-neutral-700 rounded-lg p-4 text-neutral-400 text-sm">
-          Calendar widget
-        </div>
+        <h3 className="text-sm font-semibold text-white mb-3">
+          {new Date().toLocaleString('default', { month: 'long' })} {new Date().getFullYear()}
+        </h3>
+        <CalendarWidget />
       </div>
 
       {/* Tags placeholder - will be implemented in 10-02 */}
