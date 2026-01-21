@@ -15,21 +15,24 @@ Phase 12: Post Detail       → Single post view + example content
 
 ---
 
-## Phase 9: Blog Foundation & Navigation
+## Phase 9: Blog Foundation & Navigation ✓
 
 **Goal:** Add blog route with Blogger-style two-column layout
 
+**Status:** Complete (2026-01-20)
+**Plans:** 1/1
+
 **Requirements:**
-- NAV-04: Header includes "Blog" link
-- NAV-05: Blog page accessible at /blog route
-- NAV-06: Blog page uses Layout component with header/footer
-- BLOG-01: Blog page displays Blogger-style layout (sidebar left, content right)
+- NAV-04: Header includes "Blog" link ✓
+- NAV-05: Blog page accessible at /blog route ✓
+- NAV-06: Blog page uses Layout component with header/footer ✓
+- BLOG-01: Blog page displays Blogger-style layout (sidebar left, content right) ✓
 
 **Success criteria:**
-- /blog route renders with Layout (header + footer)
-- Header navigation includes "Blog" link
-- Two-column layout visible: sidebar placeholder left, content area right
-- Mobile shows stacked layout (sidebar above content)
+- /blog route renders with Layout (header + footer) ✓
+- Header navigation includes "Blog" link ✓
+- Two-column layout visible: sidebar placeholder left, content area right ✓
+- Mobile shows stacked layout (sidebar above content) ✓
 
 **Depends on:** None (first phase of milestone)
 
