@@ -10,12 +10,12 @@ See: .planning/PROJECT.md (updated 2026-01-20)
 ## Current Position
 
 Milestone: v1.2 Blog Page
-Phase: 10 - Sidebar (complete)
-Plan: 2/2 complete
-Status: Phase 10 complete
-Last activity: 2026-01-21 — Completed 10-02-PLAN.md
+Phase: 11 - Blog Listing (complete)
+Plan: 1/1 complete
+Status: Phase 11 complete
+Last activity: 2026-01-21 — Completed 11-01-PLAN.md
 
-Progress: ██████████████████████████████░░░░░░░░░░ 75% (v1.2 - 3/4 phases)
+Progress: ██████████████████████████████████████░░ 95% (v1.2 - 4/5 phases)
 
 ## Milestone History
 
@@ -50,6 +50,7 @@ Progress: ███████████████████████�
 |-------|-------|-------|----------|
 | 09-blog-foundation | 1/1 | ~3 min | ~3 min |
 | 10-sidebar | 2/2 | ~6 min | ~3 min |
+| 11-blog-listing | 1/1 | ~3 min | ~3 min |
 
 ## Accumulated Context
 
@@ -72,6 +73,9 @@ Summary:
 - Sidebar widgets: Hardcoded sample data for future CMS integration
 - Calendar: Native Date API (no external library needed)
 - Tags: Button elements for future filtering support
+- Blog listing: 4 posts per page with prev/next pagination
+- PostCard: Spanish (es-ES) locale date formatting
+- Post data: Structure ready for CMS integration (slug, title, excerpt, date, tags, category)
 
 ### v1.2 Constraints
 
@@ -86,18 +90,18 @@ Summary:
 - [x] Create v1.2 roadmap (phases 9-12)
 - [x] Plan and execute Phase 9: Blog Foundation
 - [x] Plan and execute Phase 10: Sidebar (2/2 plans complete)
-- [ ] Plan and execute Phase 11: Blog Listing
+- [x] Plan and execute Phase 11: Blog Listing (1/1 plan complete)
 - [ ] Plan and execute Phase 12: Post Detail
 
 ### Blockers/Concerns
 
-None — Phase 10 complete, ready for Phase 11 (Blog Listing).
+None — Phase 11 complete, ready for Phase 12 (Post Detail).
 
 ## Session Continuity
 
 Last session: 2026-01-21
-Stopped at: Completed 10-02-PLAN.md (Phase 10 complete)
+Stopped at: Completed 11-01-PLAN.md (Phase 11 complete)
 Resume file: None
 
 ---
-*Last updated: 2026-01-21 — Phase 10 complete*
+*Last updated: 2026-01-21 — Phase 11 complete*
