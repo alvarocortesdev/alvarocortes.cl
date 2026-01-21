@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BlogListing } from './BlogListing'
 import { BlogSidebar } from './BlogSidebar'
 
 export function BlogPage() {
@@ -32,9 +33,7 @@ export function BlogPage() {
 
         {/* Main content area */}
         <main className="flex-1">
-          <div className="bg-neutral-800 rounded-lg p-6">
-            <p className="text-neutral-400">Blog posts will appear here</p>
-          </div>
+          <BlogListing />
         </main>
       </div>
     </div>
