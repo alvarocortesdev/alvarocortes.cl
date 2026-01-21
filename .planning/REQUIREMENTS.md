@@ -70,29 +70,29 @@ Which phases cover which requirements. Updated by create-roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| NAV-04 | TBD | Pending |
-| NAV-05 | TBD | Pending |
-| NAV-06 | TBD | Pending |
-| BLOG-01 | TBD | Pending |
-| BLOG-02 | TBD | Pending |
-| BLOG-03 | TBD | Pending |
-| SIDE-01 | TBD | Pending |
-| SIDE-02 | TBD | Pending |
-| SIDE-03 | TBD | Pending |
-| SIDE-04 | TBD | Pending |
-| LIST-01 | TBD | Pending |
-| LIST-02 | TBD | Pending |
-| LIST-03 | TBD | Pending |
-| LIST-04 | TBD | Pending |
-| POST-01 | TBD | Pending |
-| POST-02 | TBD | Pending |
-| POST-03 | TBD | Pending |
-| POST-04 | TBD | Pending |
+| NAV-04 | 9 | Pending |
+| NAV-05 | 9 | Pending |
+| NAV-06 | 9 | Pending |
+| BLOG-01 | 9 | Pending |
+| BLOG-02 | 10 | Pending |
+| BLOG-03 | 10 | Pending |
+| SIDE-01 | 10 | Pending |
+| SIDE-02 | 10 | Pending |
+| SIDE-03 | 10 | Pending |
+| SIDE-04 | 10 | Pending |
+| LIST-01 | 11 | Pending |
+| LIST-02 | 11 | Pending |
+| LIST-03 | 11 | Pending |
+| LIST-04 | 11 | Pending |
+| POST-01 | 12 | Pending |
+| POST-02 | 12 | Pending |
+| POST-03 | 12 | Pending |
+| POST-04 | 12 | Pending |
 
 **Coverage:**
 - v1.2 requirements: 17 total
-- Mapped to phases: 0 (run /gsd:create-roadmap)
-- Unmapped: 17 ⚠️
+- Mapped to phases: 17 ✓
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-01-20*
