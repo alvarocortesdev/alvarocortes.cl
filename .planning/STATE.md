@@ -10,12 +10,12 @@ See: .planning/PROJECT.md (updated 2026-01-20)
 ## Current Position
 
 Milestone: v1.2 Blog Page
-Phase: Not started (run /gsd:create-roadmap)
+Phase: 9 - Blog Foundation (ready for planning)
 Plan: —
-Status: Defining requirements
-Last activity: 2026-01-20 — Milestone v1.2 started
+Status: Roadmap created, ready for phase planning
+Last activity: 2026-01-20 — Roadmap created (phases 9-12)
 
-Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0% (v1.2 - 0/? plans)
+Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0% (v1.2 - 0/4 phases)
 
 ## Milestone History
 
@@ -69,9 +69,12 @@ Summary:
 
 ### Pending Todos
 
-- [ ] Define v1.2 requirements
-- [ ] Create v1.2 roadmap
-- [ ] Execute phases 9-12 (estimated)
+- [x] Define v1.2 requirements (17 requirements)
+- [x] Create v1.2 roadmap (phases 9-12)
+- [ ] Plan and execute Phase 9: Blog Foundation
+- [ ] Plan and execute Phase 10: Sidebar
+- [ ] Plan and execute Phase 11: Blog Listing
+- [ ] Plan and execute Phase 12: Post Detail
 
 ### Blockers/Concerns
 
@@ -84,4 +87,4 @@ Stopped at: v1.2 milestone started
 Resume file: None
 
 ---
-*Last updated: 2026-01-20 — v1.2 milestone started*
+*Last updated: 2026-01-20 — v1.2 roadmap created*
