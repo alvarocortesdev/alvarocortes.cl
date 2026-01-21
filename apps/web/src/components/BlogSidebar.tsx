@@ -5,6 +5,12 @@ interface BlogSidebarProps {
 // Sample data (hardcoded for now)
 const postDates = [5, 12, 18, 25]
 const tags = ['React', 'TypeScript', 'Tailwind', 'Vite', 'Frontend', 'Backend', 'DevOps', 'Testing']
+const categories = [
+  { name: 'Development', count: 5 },
+  { name: 'Design', count: 3 },
+  { name: 'Career', count: 2 },
+  { name: 'Tutorials', count: 4 },
+]
 
 function CalendarWidget() {
   const currentDate = new Date()
@@ -75,12 +81,19 @@ export function BlogSidebar({ className = '' }: BlogSidebarProps) {
         </div>
       </div>
 
-      {/* Categories placeholder - will be implemented in 10-02 */}
+      {/* Categories list - SIDE-04 */}
       <div>
         <h3 className="text-sm font-semibold text-white mb-3">Categories</h3>
-        <div className="bg-neutral-700 rounded-lg p-4 text-neutral-400 text-sm">
-          Categories list
-        </div>
+        <ul className="space-y-2">
+          {categories.map(category => (
+            <li key={category.name}>
+              <button className="w-full flex justify-between items-center text-sm text-neutral-300 hover:text-white transition-colors">
+                <span>{category.name}</span>
+                <span className="text-neutral-500">({category.count})</span>
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   )
