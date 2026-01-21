@@ -2,8 +2,9 @@ interface BlogSidebarProps {
   className?: string
 }
 
-// Sample post dates for calendar (hardcoded for now)
+// Sample data (hardcoded for now)
 const postDates = [5, 12, 18, 25]
+const tags = ['React', 'TypeScript', 'Tailwind', 'Vite', 'Frontend', 'Backend', 'DevOps', 'Testing']
 
 function CalendarWidget() {
   const currentDate = new Date()
@@ -59,11 +60,18 @@ export function BlogSidebar({ className = '' }: BlogSidebarProps) {
         <CalendarWidget />
       </div>
 
-      {/* Tags placeholder - will be implemented in 10-02 */}
+      {/* Tags cloud - SIDE-03 */}
       <div>
         <h3 className="text-sm font-semibold text-white mb-3">Tags</h3>
-        <div className="bg-neutral-700 rounded-lg p-4 text-neutral-400 text-sm">
-          Tags cloud
+        <div className="flex flex-wrap gap-2">
+          {tags.map(tag => (
+            <button
+              key={tag}
+              className="px-2 py-1 bg-neutral-700 hover:bg-neutral-600 rounded text-xs text-neutral-300 hover:text-white transition-colors"
+            >
+              {tag}
+            </button>
+          ))}
         </div>
       </div>
 
