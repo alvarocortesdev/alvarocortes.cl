@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* Ensure body fills viewport */
+html, body, #root {
+  min-height: 100vh;
+}
+
+body {
+  background-color: theme('colors.neutral.900');
+  color: white;
+}

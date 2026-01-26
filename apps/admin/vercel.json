@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "cd ../.. && bun run build --filter=@alvarocortes/admin",
+  "outputDirectory": "dist",
+  "installCommand": "cd ../.. && bun install",
+  "rewrites": [
+    { "source": "/((?!assets/).*)", "destination": "/index.html" }
+  ]
+}
