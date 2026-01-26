@@ -1,4 +1,4 @@
-import avatar from "@/public/avatar.jpeg"
+import avatar from "@/assets/avatar.jpeg"
 
 export function Banner() {
   return (
