@@ -4,7 +4,11 @@ interface PaginationProps {
   onPageChange: (page: number) => void
 }
 
-export function Pagination({ currentPage, totalPages, onPageChange }: PaginationProps) {
+export function Pagination({
+  currentPage,
+  totalPages,
+  onPageChange,
+}: PaginationProps) {
   const canGoPrev = currentPage > 1
   const canGoNext = currentPage < totalPages
 
@@ -15,8 +19,8 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
         disabled={!canGoPrev}
         className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
           canGoPrev
-            ? 'bg-neutral-700 text-white hover:bg-neutral-600'
-            : 'bg-neutral-800 text-neutral-500 cursor-not-allowed'
+            ? "bg-neutral-700 text-white hover:bg-neutral-600"
+            : "bg-neutral-800 text-neutral-500 cursor-not-allowed"
         }`}
       >
         Previous
@@ -29,8 +33,8 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
         disabled={!canGoNext}
         className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
           canGoNext
-            ? 'bg-neutral-700 text-white hover:bg-neutral-600'
-            : 'bg-neutral-800 text-neutral-500 cursor-not-allowed'
+            ? "bg-neutral-700 text-white hover:bg-neutral-600"
+            : "bg-neutral-800 text-neutral-500 cursor-not-allowed"
         }`}
       >
         Next
