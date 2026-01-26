@@ -1,3 +1,5 @@
+import avatar from "@/public/avatar.jpeg"
+
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
@@ -14,13 +16,13 @@ export function Header() {
           </div> */}
           <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden border border-neutral-700 hover:opacity-80 transition">
             <img
-              src="/avatar.jpg"
+              src={avatar}
               alt="Alvaro Cortes"
               className="w-full h-full object-cover"
             />
           </div>
           <span className="text-base md:text-lg font-semibold text-white">
-            Alvaro Cortes
+            Alvaro Cortés
           </span>
         </div>
 

@@ -1,3 +1,5 @@
+import avatar from "@/public/avatar.jpeg"
+
 export function Banner() {
   return (
     <section className="py-12 md:py-20 lg:py-32">
@@ -9,7 +11,7 @@ export function Banner() {
           </div> */}
           <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden mb-6 md:mb-8 border-4 border-neutral-600">
             <img
-              src="/avatar.jpg"
+              src={avatar}
               alt="Alvaro Cortés"
               className="w-full h-full object-cover"
             />
