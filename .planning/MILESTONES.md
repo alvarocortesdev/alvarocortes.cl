@@ -2,6 +2,33 @@
 
 ## Completed
 
+### v1.2 Blog Page (Shipped: 2026-01-21)
+
+**Delivered:** Blogger-style blog page with responsive sidebar, post listing with pagination, and single post detail with social sharing.
+
+**Phases completed:** 9-12 (5 plans total)
+
+**Key accomplishments:**
+
+- Blogger-style two-column layout (sidebar 256px left, content fluid right)
+- Responsive sidebar: sticky on desktop, collapsible toggle on mobile
+- Sidebar widgets: search input (UI), calendar with post dates, tags cloud, categories list
+- Blog listing with PostCard components and pagination (4 posts/page)
+- Single post detail with full content, metadata, and social sharing buttons
+- Shared data modules pattern (`src/data/posts.ts`) for component reuse
+
+**Stats:**
+
+- 1,444 lines of TypeScript/TSX (total web app)
+- 4 phases, 5 plans, 17 requirements satisfied
+- 1 day execution (2026-01-20 → 2026-01-21)
+
+**Git range:** `feat(09-01)` → `feat(12-01)`
+
+**What's next:** TBD (Admin panel, CMS integration, or enhancements)
+
+---
+
 ### v1.1 Portfolio Page (Shipped: 2026-01-20)
 
 **Delivered:** Portfolio page with work timeline, tech stacks showcase, and interactive projects bento grid with modal.
