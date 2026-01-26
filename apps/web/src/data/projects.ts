@@ -14,13 +14,14 @@ export const PROJECTS: Project[] = [
   {
     id: "portfolio",
     name: "Portfolio Personal",
-    description: "Sitio web personal construido con React, TypeScript y Tailwind CSS",
+    description:
+      "Sitio web personal construido con React, TypeScript y Tailwind CSS",
     techStack: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     featured: true,
     details:
       "Mi portafolio personal showcasing proyectos y experiencia profesional. Construido con un stack moderno enfocado en rendimiento y experiencia de usuario fluida. Incluye animaciones con Framer Motion, diseño responsive, y despliegue automatizado con Vercel.",
-    liveUrl: "https://alvarocortes.vercel.app",
-    repoUrl: "https://github.com/alvarocortes/portfolio",
+    liveUrl: "https://www.alvarocortes.cl",
+    repoUrl: "https://github.com/alvarocortesdev/alvarocortes.cl",
   },
   {
     id: "task-manager-api",
@@ -30,7 +31,7 @@ export const PROJECTS: Project[] = [
     featured: false,
     details:
       "API RESTful completa para gestión de tareas y proyectos. Implementa autenticación JWT, validación de datos con Zod, y documentación con Swagger. Base de datos PostgreSQL con migraciones manejadas por Prisma ORM.",
-    repoUrl: "https://github.com/alvarocortes/task-manager-api",
+    repoUrl: "https://github.com/alvarocortes/",
   },
   {
     id: "ecommerce-dashboard",
@@ -50,6 +51,6 @@ export const PROJECTS: Project[] = [
     featured: false,
     details:
       "Herramienta CLI para automatizar tareas repetitivas de desarrollo. Incluye generación de boilerplate, gestión de configuraciones, y scripts de deployment. Interfaz colorida con Chalk y parsing de argumentos con Commander.",
-    repoUrl: "https://github.com/alvarocortes/dev-cli",
+    repoUrl: "https://github.com/alvarocortes/",
   },
 ]
