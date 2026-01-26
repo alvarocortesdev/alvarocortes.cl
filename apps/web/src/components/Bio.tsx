@@ -7,10 +7,17 @@ export function Bio() {
             <p>🚧 Sitio Web en construcción 🚧</p>
 
             <p>
-              Desarrollador Full Stack apasionado por crear experiencias web
-              excepcionales. Especializado en React, TypeScript y arquitecturas
-              modernas. Comprometido con el código limpio y las mejores
-              prácticas de desarrollo.
+              Desarrollador Full Stack con foco en experiencias web eficientes y
+              robustas. Trabajo principalmente con React y JavaScript,
+              integrando APIs REST, bases de datos SQL y NoSQL, y flujos
+              modernos de despliegue y automatización.
+            </p>
+            <p>
+              Además del desarrollo, tengo experiencia aplicando inteligencia
+              artificial y RAG en soluciones reales, junto con automatización de
+              procesos mediante n8n y scripts a medida. Destaco por mis
+              habilidades comunicacionales y de liderazgo, adquiridas trabajando
+              estrechamente con usuarios finales y guiando equipos de trabajo.
             </p>
           </div>
         </div>
