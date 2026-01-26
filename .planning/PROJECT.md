@@ -8,6 +8,20 @@ Portfolio personal profesional para Alvaro Cortes. Un sitio web con home page re
 
 El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada interacción, animación y detalle visual refleja capacidad de desarrollo frontend de alto nivel.
 
+## Current Milestone: v1.3 Admin Panel
+
+**Goal:** Full CMS with admin interface at separate subdomain, replacing hardcoded data with database-driven content.
+
+**Target features:**
+- Admin Panel App at admin.alvarocortes.cl (new workspace in monorepo)
+- GitHub OAuth via Supabase Auth (single-user owner access)
+- Blog Posts CRUD with rich content editor
+- Projects CRUD for portfolio items
+- Timeline CRUD for work/studies entries
+- Tech Stacks CRUD for categories and icons
+- Database Schema (Supabase PostgreSQL tables)
+- API Integration (main site fetches from Supabase)
+
 ## Current State (v1.2 Shipped)
 
 **Live:** https://alvarocortes.vercel.app
@@ -75,18 +89,19 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 - ✓ 1 hardcoded example post — v1.2
 - ✓ Social sharing buttons (Twitter/X, LinkedIn, copy link) — v1.2
 
-### Active (v1.3+)
-
-*None defined yet — run /gsd:discuss-milestone to plan next milestone*
-
-### Future (v1.3+)
+### Active (v1.3)
 
 **Admin Panel:**
-- [ ] Supabase Auth con GitHub OAuth
-- [ ] Admin en subdominio (admin.dominio.com)
-- [ ] CRUD de posts del blog (ES/EN)
-- [ ] CRUD de proyectos del portfolio (ES/EN)
-- [ ] CRUD de temas
+- [ ] Admin app at admin.alvarocortes.cl (new workspace)
+- [ ] GitHub OAuth via Supabase Auth
+- [ ] Database schema for all entities
+- [ ] Blog Posts CRUD with rich content
+- [ ] Projects CRUD for portfolio
+- [ ] Timeline CRUD for work/studies
+- [ ] Tech Stacks CRUD for categories
+- [ ] Main site API integration (dynamic content)
+
+### Future (v1.4+)
 
 **Enhancements:**
 - [ ] Internacionalización (ES/EN switcher)
@@ -143,4 +158,4 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 | prose-invert typography | Readable blog content | ✓ Good — consistent styling |
 
 ---
-*Last updated: 2026-01-21 after v1.2 milestone completion*
+*Last updated: 2026-01-26 after v1.3 milestone initialization*

@@ -2,20 +2,20 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-01-21)
+See: .planning/PROJECT.md (updated 2026-01-26)
 
 **Core value:** El sitio debe sentirse fluido, profesional y demostrar dominio tecnico
-**Current focus:** Planning next milestone
+**Current focus:** v1.3 Admin Panel
 
 ## Current Position
 
-Milestone: Between milestones (v1.2 shipped)
-Phase: N/A — next milestone not started
-Plan: N/A
-Status: Ready for /gsd:discuss-milestone
-Last activity: 2026-01-21 — v1.2 Blog Page shipped
+Milestone: v1.3 Admin Panel
+Phase: Not started (run /gsd:define-requirements → /gsd:create-roadmap)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-01-26 — Milestone v1.3 started
 
-Progress: ████████████████████████████████████████ 100% (3 milestones shipped)
+Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0% (v1.3 - 0 phases)
 
 ## Milestone History
 
@@ -24,6 +24,7 @@ Progress: ███████████████████████�
 | v1.0 MVP Foundation | 1-4 | 9 | SHIPPED | 2026-01-19 |
 | v1.1 Portfolio Page | 5-8 | 6 | SHIPPED | 2026-01-20 |
 | v1.2 Blog Page | 9-12 | 5 | SHIPPED | 2026-01-21 |
+| v1.3 Admin Panel | 13+ | TBD | IN PROGRESS | — |
 
 ## Performance Metrics
 
@@ -75,6 +76,13 @@ Summary:
 - Shared data modules: src/data/ directory for reusable data
 - Blog content: dangerouslySetInnerHTML (needs sanitization for CMS)
 
+### v1.3 Constraints
+
+- Admin on separate subdomain: admin.alvarocortes.cl
+- GitHub OAuth for authentication (single-user, owner only)
+- Supabase for database and auth
+- Must maintain existing site appearance (only data source changes)
+
 ### Patterns Established
 
 - Shared data modules: src/data/ directory for reusable data
@@ -83,17 +91,18 @@ Summary:
 
 ### Pending Todos
 
-None — milestone complete.
+- [ ] Define v1.3 requirements
+- [ ] Create v1.3 roadmap
 
 ### Blockers/Concerns
 
-None — ready for next milestone planning.
+None — ready for requirements definition.
 
 ## Session Continuity
 
-Last session: 2026-01-21
-Stopped at: v1.2 Blog Page milestone complete
+Last session: 2026-01-26
+Stopped at: Milestone v1.3 initialized
 Resume file: None
 
 ---
-*Last updated: 2026-01-21 — v1.2 Blog Page shipped*
+*Last updated: 2026-01-26 — v1.3 Admin Panel milestone started*
