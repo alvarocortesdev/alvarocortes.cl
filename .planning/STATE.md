@@ -10,10 +10,10 @@ See: .planning/PROJECT.md (updated 2026-01-26)
 ## Current Position
 
 Milestone: v1.3 Admin Panel
-Phase: 13 (Admin Foundation) — ready for planning
+Phase: 13 (Admin Foundation) — research complete, ready for planning
 Plan: —
-Status: Roadmap created, ready for phase planning
-Last activity: 2026-01-26 — Roadmap created (6 phases, 38 requirements)
+Status: Phase 13 research done, ready to create plan
+Last activity: 2026-01-26 — SPA routing fix, Phase 13 research complete
 
 Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0% (v1.3 - 0/6 phases)
 
@@ -82,6 +82,8 @@ Summary:
 - GitHub OAuth for authentication (single-user, owner only)
 - Supabase for database and auth
 - Must maintain existing site appearance (only data source changes)
+- Deploy via GitHub push only (not Vercel CLI)
+- Production is alvarocortes.cl — careful with breaking changes
 
 ### Patterns Established
 
@@ -100,13 +102,18 @@ Summary:
 
 ### Blockers/Concerns
 
-None — ready for requirements definition.
+None — ready for Phase 13 planning.
+
+### Deferred to v1.4+
+
+- Timeline redesign (animated horizontal line, vertical branches, drawer effect)
+- Blog filters (functional search, calendar, tags, categories filtering)
 
 ## Session Continuity
 
 Last session: 2026-01-26
-Stopped at: Roadmap created, ready for Phase 13 planning
-Resume file: None
+Stopped at: Phase 13 research complete, ready for plan-phase
+Resume file: .planning/phases/13-admin-foundation/13-RESEARCH.md
 
 ---
-*Last updated: 2026-01-26 — v1.3 roadmap created (6 phases)*
+*Last updated: 2026-01-26 — SPA routing fix, Phase 13 research, v1.4+ features documented*
