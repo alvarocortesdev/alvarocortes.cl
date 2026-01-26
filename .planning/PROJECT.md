@@ -2,25 +2,13 @@
 
 ## What This Is
 
-Portfolio personal profesional para Alvaro Cortes. Un sitio web con home page responsiva, portfolio page con timeline y proyectos, sistema de carga progresiva, y despliegue automático a Vercel. Inspirado visualmente en adhamdannaway.com.
+Portfolio personal profesional para Alvaro Cortes. Un sitio web con home page responsiva, portfolio page con timeline y proyectos, blog Blogger-style con sidebar y paginación, sistema de carga progresiva, y despliegue automático a Vercel. Inspirado visualmente en adhamdannaway.com.
 
 ## Core Value
 
 El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada interacción, animación y detalle visual refleja capacidad de desarrollo frontend de alto nivel.
 
-## Current Milestone: v1.2 Blog Page
-
-**Goal:** Add a Blogger-style blog page with sidebar navigation, pagination, and responsive design.
-
-**Target features:**
-- Blog page with post listing (Blogger aesthetic)
-- Fixed left sidebar (search, calendar, tags, categories)
-- Collapsible sidebar on mobile
-- Pagination (max 4 posts per page)
-- Single post detail view
-- 1 hardcoded example post (Supabase DB deferred to Admin)
-
-## Current State (v1.1 Shipped)
+## Current State (v1.2 Shipped)
 
 **Live:** https://alvarocortes.vercel.app
 
@@ -33,7 +21,7 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 - Vitest + ESLint + Prettier
 
 **Codebase:**
-- 946 LOC TypeScript/TSX
+- 1,444 LOC TypeScript/TSX
 - 3 workspaces (web, api, shared)
 - 4 tests passing
 
@@ -46,6 +34,12 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
   - Work timeline (7 entries 2019-2025, Work/Studies color distinction)
   - Tech stacks (4 cards with simple-icons CDN)
   - Projects bento grid (hover effects, modal with AnimatePresence)
+- **Blog page** with:
+  - Blogger-style two-column layout (sidebar left 256px, content fluid right)
+  - Responsive sidebar (sticky desktop, toggle on mobile)
+  - Sidebar widgets: search, calendar, tags cloud, categories
+  - Post listing with pagination (4 posts/page)
+  - Single post detail with metadata and social sharing
 
 ## Requirements
 
@@ -72,15 +66,18 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 - ✓ Click opens modal with project details
 - ✓ Responsive layout (mobile/desktop)
 
-### Active (v1.2)
+**v1.2 Blog Page:**
+- ✓ Blog page with Blogger-style aesthetic — v1.2
+- ✓ Fixed left sidebar (search, calendar, tags, categories) — v1.2
+- ✓ Collapsible sidebar on mobile — v1.2
+- ✓ Pagination (max 4 posts per page) — v1.2
+- ✓ Single post detail view with metadata — v1.2
+- ✓ 1 hardcoded example post — v1.2
+- ✓ Social sharing buttons (Twitter/X, LinkedIn, copy link) — v1.2
 
-**Blog Page:**
-- [ ] Blog page with Blogger-style aesthetic
-- [ ] Fixed left sidebar (search, calendar, tags, categories)
-- [ ] Collapsible sidebar on mobile
-- [ ] Pagination (max 4 posts per page)
-- [ ] Single post detail view with metadata
-- [ ] 1 hardcoded example post
+### Active (v1.3+)
+
+*None defined yet — run /gsd:discuss-milestone to plan next milestone*
 
 ### Future (v1.3+)
 
@@ -137,6 +134,13 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 | simple-icons CDN | Tech icons without local assets | ✓ Good — white icons, text fallback |
 | Bento grid col-span-2 | Featured projects | ✓ Good — visual hierarchy |
 | AnimatePresence modal | Smooth enter/exit | ✓ Good — 3 close methods work well |
+| Two-column blog layout | Blogger aesthetic | ✓ Good — sidebar 256px + fluid content |
+| Sticky sidebar | UX consistency | ✓ Good — md:top-24 accounts for header |
+| Mobile sidebar toggle | Clean mobile UX | ✓ Good — hidden by default |
+| Native Date API calendar | No external deps | ✓ Good — sufficient for widget |
+| Shared data modules | Reuse across components | ✓ Good — src/data/posts.ts pattern |
+| dangerouslySetInnerHTML | Hardcoded HTML content | — Needs sanitization for CMS |
+| prose-invert typography | Readable blog content | ✓ Good — consistent styling |
 
 ---
-*Last updated: 2026-01-20 after v1.2 milestone initialization*
+*Last updated: 2026-01-21 after v1.2 milestone completion*
