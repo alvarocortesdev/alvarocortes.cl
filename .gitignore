@@ -12,6 +12,7 @@ dist/
 .env.local
 .env.*.local
 
+
 # Logs
 *.log
 npm-debug.log*
@@ -34,3 +35,9 @@ coverage/
 # Bun
 bun.lockb
 .vercel
+
+# Claude
+.claude
+
+# GSD
+.planning
