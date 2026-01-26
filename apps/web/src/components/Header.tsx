@@ -1,4 +1,4 @@
-import avatar from "@/public/avatar.jpeg"
+import avatar from "@/assets/avatar.jpeg"
 
 import { useState } from "react"
 import { Link } from "react-router-dom"
