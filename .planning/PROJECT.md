@@ -24,7 +24,7 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 
 ## Current State (v1.2 Shipped)
 
-**Live:** https://alvarocortes.vercel.app
+**Live:** https://alvarocortes.cl
 
 **Tech stack:**
 - Bun 1.3.5 + Turborepo 2.7
@@ -103,7 +103,21 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 
 ### Future (v1.4+)
 
-**Enhancements:**
+**Timeline Redesign:**
+- [ ] Horizontal line animation (2-3s draw from left to right)
+- [ ] Vertical lines alternate up/down (most recent = up)
+- [ ] Text unfolds from line to right (drawer effect)
+- [ ] Scroll to most recent, fade indicator on left
+- [ ] Colors match Work (blue) / Studies (green)
+
+**Blog Filters:**
+- [ ] Functional search filtering posts
+- [ ] Calendar date filtering
+- [ ] Tag cloud filtering
+- [ ] Category filtering
+- [ ] Real-time dynamic filtering
+
+**Other Enhancements:**
 - [ ] Internacionalización (ES/EN switcher)
 - [ ] Temas administrables (light/dark variants)
 - [ ] 3 Íconos Flotantes (Contacto, Info, Temas)
@@ -125,11 +139,27 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 
 **Tipografía:** Proxima Nova, Helvetica Neue, Helvetica, Arial, sans-serif
 
+## Deployment
+
+**Production workflow:** GitHub push → Vercel auto-deploy → alvarocortes.cl
+
+| Project | Domain | Purpose |
+|---------|--------|---------|
+| alvarocortes | alvarocortes.cl | Main portfolio site (web app) |
+| TBD | admin.alvarocortes.cl | Admin panel (v1.3) |
+
+**Important:** Ignore project "alvarocortes-cl-web" (created by Vercel CLI, not used).
+
+**Resend integration:** Connected to domain for email automation (future)
+- noreply@alvarocortes.cl — Contact form confirmations
+- contacto@alvarocortes.cl — Inbox/backend with daily digest
+- alerts@alvarocortes.cl — App health monitoring
+
 ## Constraints
 
 - **Stack**: BHVR (Bun, Hono, Vite, React) — no negociable
 - **BD**: Supabase con PostgreSQL
-- **Hosting**: Vercel con GitHub CI/CD
+- **Hosting**: Vercel con GitHub CI/CD (push to main = production deploy)
 - **Testing**: Vitest
 - **Arquitectura**: Monorepo (apps/web, packages/api, packages/shared)
 
@@ -143,7 +173,7 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 | Tailwind v4 @import syntax | Modern CSS approach | ✓ Good — cleaner than directives |
 | Framer Motion for animations | Powerful, declarative | ✓ Good — AnimatePresence works great |
 | Footer scroll-reveal | Clean UX, reveals only when relevant | ✓ Good — 100px threshold feels natural |
-| Photo placeholder with initials | Ship fast, real image later | — Pending real image |
+| Real avatar photo | Professional appearance | ✓ Done — avatar.jpeg in header/banner |
 | BrowserRouter in main.tsx | Routing setup | ✓ Good — wraps entire App |
 | Layout per-route | Route structure | ✓ Good — flexibility for different layouts |
 | simple-icons CDN | Tech icons without local assets | ✓ Good — white icons, text fallback |
@@ -156,6 +186,8 @@ El sitio debe sentirse fluido, profesional y demostrar dominio técnico — cada
 | Shared data modules | Reuse across components | ✓ Good — src/data/posts.ts pattern |
 | dangerouslySetInnerHTML | Hardcoded HTML content | — Needs sanitization for CMS |
 | prose-invert typography | Readable blog content | ✓ Good — consistent styling |
+| Vercel rewrites for SPA | Direct URL access works | ✓ Fixed — F5 on /portfolio works |
+| GitHub push for deploy | Avoid Vercel CLI issues | ✓ Good — simpler workflow |
 
 ---
-*Last updated: 2026-01-26 after v1.3 milestone initialization*
+*Last updated: 2026-01-26 — deployment context, v1.4+ features documented*
