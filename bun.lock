@@ -18,6 +18,26 @@
         "vitest": "^3.2.0",
       },
     },
+    "apps/admin": {
+      "name": "@alvarocortes/admin",
+      "dependencies": {
+        "@alvarocortes/shared": "workspace:*",
+        "@supabase/supabase-js": "^2.49.0",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "react-router-dom": "^7.12.0",
+      },
+      "devDependencies": {
+        "@tailwindcss/vite": "^4.1.18",
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0",
+        "@vitejs/plugin-react": "^4.4.0",
+        "tailwindcss": "^4.1.18",
+        "typescript": "^5.7.2",
+        "vite": "^6.3.1",
+        "vite-tsconfig-paths": "^5.0.0",
+      },
+    },
     "apps/web": {
       "name": "@alvarocortes/web",
       "dependencies": {
@@ -68,6 +88,8 @@
   },
   "packages": {
     "@adobe/css-tools": ["@adobe/css-tools@4.4.4", "", {}, "sha512-Elp+iwUx5rN5+Y8xLt5/GRoG20WGoDCQ/1Fb+1LiGtvwbDavuSk0jhD/eZdckHAuzcDzccnkv+rEjyWfRx18gg=="],
+
+    "@alvarocortes/admin": ["@alvarocortes/admin@workspace:apps/admin"],
 
     "@alvarocortes/api": ["@alvarocortes/api@workspace:packages/api"],
 
