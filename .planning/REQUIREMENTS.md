@@ -98,50 +98,50 @@ Which phases cover which requirements. Updated by create-roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFRA-01 | TBD | Pending |
-| INFRA-02 | TBD | Pending |
-| INFRA-03 | TBD | Pending |
-| AUTH-01 | TBD | Pending |
-| AUTH-02 | TBD | Pending |
-| AUTH-03 | TBD | Pending |
-| AUTH-04 | TBD | Pending |
-| AUTH-05 | TBD | Pending |
-| BLOG-01 | TBD | Pending |
-| BLOG-02 | TBD | Pending |
-| BLOG-03 | TBD | Pending |
-| BLOG-04 | TBD | Pending |
-| BLOG-05 | TBD | Pending |
-| BLOG-06 | TBD | Pending |
-| BLOG-07 | TBD | Pending |
-| BLOG-08 | TBD | Pending |
-| BLOG-09 | TBD | Pending |
-| PROJ-01 | TBD | Pending |
-| PROJ-02 | TBD | Pending |
-| PROJ-03 | TBD | Pending |
-| PROJ-04 | TBD | Pending |
-| PROJ-05 | TBD | Pending |
-| PROJ-06 | TBD | Pending |
-| TIME-01 | TBD | Pending |
-| TIME-02 | TBD | Pending |
-| TIME-03 | TBD | Pending |
-| TIME-04 | TBD | Pending |
-| TIME-05 | TBD | Pending |
-| TECH-01 | TBD | Pending |
-| TECH-02 | TBD | Pending |
-| TECH-03 | TBD | Pending |
-| TECH-04 | TBD | Pending |
-| TECH-05 | TBD | Pending |
-| SITE-01 | TBD | Pending |
-| SITE-02 | TBD | Pending |
-| SITE-03 | TBD | Pending |
-| SITE-04 | TBD | Pending |
-| SITE-05 | TBD | Pending |
+| INFRA-01 | 13 | Pending |
+| INFRA-02 | 13 | Pending |
+| INFRA-03 | 13 | Pending |
+| AUTH-01 | 14 | Pending |
+| AUTH-02 | 14 | Pending |
+| AUTH-03 | 14 | Pending |
+| AUTH-04 | 14 | Pending |
+| AUTH-05 | 14 | Pending |
+| BLOG-01 | 15 | Pending |
+| BLOG-02 | 15 | Pending |
+| BLOG-03 | 15 | Pending |
+| BLOG-04 | 15 | Pending |
+| BLOG-05 | 15 | Pending |
+| BLOG-06 | 15 | Pending |
+| BLOG-07 | 15 | Pending |
+| BLOG-08 | 15 | Pending |
+| BLOG-09 | 15 | Pending |
+| PROJ-01 | 16 | Pending |
+| PROJ-02 | 16 | Pending |
+| PROJ-03 | 16 | Pending |
+| PROJ-04 | 16 | Pending |
+| PROJ-05 | 16 | Pending |
+| PROJ-06 | 16 | Pending |
+| TIME-01 | 17 | Pending |
+| TIME-02 | 17 | Pending |
+| TIME-03 | 17 | Pending |
+| TIME-04 | 17 | Pending |
+| TIME-05 | 17 | Pending |
+| TECH-01 | 17 | Pending |
+| TECH-02 | 17 | Pending |
+| TECH-03 | 17 | Pending |
+| TECH-04 | 17 | Pending |
+| TECH-05 | 17 | Pending |
+| SITE-01 | 18 | Pending |
+| SITE-02 | 18 | Pending |
+| SITE-03 | 18 | Pending |
+| SITE-04 | 18 | Pending |
+| SITE-05 | 18 | Pending |
 
 **Coverage:**
 - v1.3 requirements: 38 total
-- Mapped to phases: 0 (pending create-roadmap)
-- Unmapped: 38
+- Mapped to phases: 38 ✓
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-01-26*
-*Last updated: 2026-01-26 after initial definition*
+*Last updated: 2026-01-26 — phases mapped by create-roadmap*
