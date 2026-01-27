@@ -1,5 +1,4 @@
 import { Hono } from 'hono'
-import { handle } from '@hono/node-server/vercel'
 import { cors } from 'hono/cors'
 
 const allowedOrigins = [
@@ -9,7 +8,8 @@ const allowedOrigins = [
   'https://admin.alvarocortes.cl',
 ]
 
-const app = new Hono().use(
+const app = new Hono()
+  .use(
     '*',
     cors({
       origin: allowedOrigins,
@@ -27,4 +27,4 @@ const app = new Hono().use(
     return c.json({ status: 'ok', timestamp: new Date().toISOString() })
   })
 
-export default handle(app)
+export default app
