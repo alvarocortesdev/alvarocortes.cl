@@ -48,6 +48,9 @@ export function PostForm() {
   const [status, setStatus] = useState<'draft' | 'published'>('draft')
   const [createdAt, setCreatedAt] = useState('')
 
+  // Track original images for orphan cleanup on edit
+  const [originalImageIds, setOriginalImageIds] = useState<string[]>([])
+
   // Modal state
   const [deleteModal, setDeleteModal] = useState(false)
   const [cancelModal, setCancelModal] = useState(false)
@@ -72,6 +75,8 @@ export function PostForm() {
           setTags(post.tags || [])
           setStatus(post.status === 'published' ? 'published' : 'draft')
           setCreatedAt(post.created_at.slice(0, 16)) // Format for datetime-local input
+          // Store original images for orphan cleanup
+          setOriginalImageIds(extractCloudinaryIds(post.content))
         })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false))
@@ -100,6 +105,15 @@ export function PostForm() {
       }
 
       if (isEditing && id) {
+        // Clean up orphaned images (images that were in original but not in current content)
+        const currentImageIds = extractCloudinaryIds(content)
+        const orphanedImageIds = originalImageIds.filter(
+          (imgId) => !currentImageIds.includes(imgId)
+        )
+        if (orphanedImageIds.length > 0) {
+          await Promise.all(orphanedImageIds.map((imgId) => deleteImage(imgId)))
+        }
+
         await updatePost(id, postData)
         toast.success('Post updated')
       } else {
