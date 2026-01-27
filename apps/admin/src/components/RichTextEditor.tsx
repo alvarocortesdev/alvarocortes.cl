@@ -24,12 +24,12 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
         },
         bulletList: {
           HTMLAttributes: {
-            class: 'list-disc list-inside',
+            class: 'list-disc pl-6',
           },
         },
         orderedList: {
           HTMLAttributes: {
-            class: 'list-decimal list-inside',
+            class: 'list-decimal pl-6',
           },
         },
       }),
@@ -54,7 +54,7 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
     },
     editorProps: {
       attributes: {
-        class: 'prose prose-invert max-w-none min-h-[300px] p-4 focus:outline-none [&_ul]:list-disc [&_ul]:ml-6 [&_ol]:list-decimal [&_ol]:ml-6 [&_li]:my-1',
+        class: 'prose prose-invert max-w-none min-h-[300px] p-4 focus:outline-none [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:my-1',
       },
     },
   })
