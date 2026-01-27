@@ -2,7 +2,8 @@ import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Link from '@tiptap/extension-link'
 import Image from '@tiptap/extension-image'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
+import { toast } from 'react-toastify'
 import { uploadImage } from '../lib/storage'
 
 interface RichTextEditorProps {
@@ -12,11 +13,26 @@ interface RichTextEditorProps {
 
 export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
   const [uploading, setUploading] = useState(false)
+  const [isLinkActive, setIsLinkActive] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      StarterKit.configure({
+        heading: {
+          levels: [2, 3],
+        },
+        bulletList: {
+          HTMLAttributes: {
+            class: 'list-disc list-inside',
+          },
+        },
+        orderedList: {
+          HTMLAttributes: {
+            class: 'list-decimal list-inside',
+          },
+        },
+      }),
       Link.configure({
         openOnClick: false,
         HTMLAttributes: {
@@ -33,9 +49,12 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
     onUpdate: ({ editor }) => {
       onChange(editor.getHTML())
     },
+    onSelectionUpdate: ({ editor }) => {
+      setIsLinkActive(editor.isActive('link'))
+    },
     editorProps: {
       attributes: {
-        class: 'prose prose-invert max-w-none min-h-[300px] p-4 focus:outline-none',
+        class: 'prose prose-invert max-w-none min-h-[300px] p-4 focus:outline-none [&_ul]:list-disc [&_ul]:ml-6 [&_ol]:list-decimal [&_ol]:ml-6 [&_li]:my-1',
       },
     },
   })
@@ -47,30 +66,41 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
     }
   }, [content, editor])
 
-  if (!editor) {
-    return null
-  }
+  // Toggle heading with mutual exclusion
+  const toggleHeading = useCallback((level: 2 | 3) => {
+    if (!editor) return
 
-  const addLink = () => {
+    if (editor.isActive('heading', { level })) {
+      // Same heading active - remove it
+      editor.chain().focus().setParagraph().run()
+    } else {
+      // Different or no heading - set this level
+      editor.chain().focus().setHeading({ level }).run()
+    }
+  }, [editor])
+
+  const addLink = useCallback(() => {
+    if (!editor) return
     const url = window.prompt('Enter URL:')
     if (url) {
       editor.chain().focus().setLink({ href: url }).run()
+      toast.success('Link added')
     }
-  }
+  }, [editor])
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
-    if (!file) return
+    if (!file || !editor) return
 
     // Validate file type
     if (!file.type.startsWith('image/')) {
-      alert('Please select an image file')
+      toast.error('Please select an image file')
       return
     }
 
     // Validate file size (5MB max)
     if (file.size > 5 * 1024 * 1024) {
-      alert('Image must be less than 5MB')
+      toast.error('Image must be less than 5MB')
       return
     }
 
@@ -78,8 +108,9 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
     try {
       const result = await uploadImage(file)
       editor.chain().focus().setImage({ src: result.url }).run()
+      toast.success('Image uploaded')
     } catch (error) {
-      alert('Failed to upload image')
+      toast.error('Failed to upload image')
       console.error(error)
     } finally {
       setUploading(false)
@@ -88,6 +119,10 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
         fileInputRef.current.value = ''
       }
     }
+  }
+
+  if (!editor) {
+    return null
   }
 
   return (
@@ -106,14 +141,14 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
         <ToolbarButton
           onClick={() => editor.chain().focus().toggleBold().run()}
           active={editor.isActive('bold')}
-          title="Bold"
+          title="Bold (Ctrl+B)"
         >
-          B
+          <strong>B</strong>
         </ToolbarButton>
         <ToolbarButton
           onClick={() => editor.chain().focus().toggleItalic().run()}
           active={editor.isActive('italic')}
-          title="Italic"
+          title="Italic (Ctrl+I)"
         >
           <em>I</em>
         </ToolbarButton>
@@ -128,14 +163,14 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
         <div className="w-px bg-neutral-600 mx-1" />
 
         <ToolbarButton
-          onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+          onClick={() => toggleHeading(2)}
           active={editor.isActive('heading', { level: 2 })}
           title="Heading 2"
         >
           H2
         </ToolbarButton>
         <ToolbarButton
-          onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
+          onClick={() => toggleHeading(3)}
           active={editor.isActive('heading', { level: 3 })}
           title="Heading 3"
         >
@@ -149,7 +184,7 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
           active={editor.isActive('bulletList')}
           title="Bullet List"
         >
-          *
+          •
         </ToolbarButton>
         <ToolbarButton
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
@@ -185,15 +220,14 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
         >
           Link
         </ToolbarButton>
-        {editor.isActive('link') && (
-          <ToolbarButton
-            onClick={() => editor.chain().focus().unsetLink().run()}
-            active={false}
-            title="Remove Link"
-          >
-            Unlink
-          </ToolbarButton>
-        )}
+        <ToolbarButton
+          onClick={() => editor.chain().focus().unsetLink().run()}
+          active={false}
+          title="Remove Link"
+          disabled={!isLinkActive}
+        >
+          Unlink
+        </ToolbarButton>
 
         <div className="w-px bg-neutral-600 mx-1" />
 

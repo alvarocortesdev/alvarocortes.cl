@@ -43,14 +43,14 @@ const app = new Hono()
         return c.json({ error: 'No image data provided' }, 400)
       }
 
-      // Generate unique public_id
+      // Generate unique filename
       const timestamp = Date.now()
       const randomStr = Math.random().toString(36).substring(7)
       const baseName = filename?.split('.')[0] || 'image'
-      const publicId = `alvarocortes/blog/${timestamp}-${randomStr}-${baseName}`
 
       const result = await cloudinary.uploader.upload(data, {
-        public_id: publicId,
+        folder: 'alvarocortes/blog',
+        public_id: `${timestamp}-${randomStr}-${baseName}`,
         resource_type: 'image',
         overwrite: false,
       })
