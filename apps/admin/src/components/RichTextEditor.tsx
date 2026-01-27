@@ -2,7 +2,8 @@ import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Link from '@tiptap/extension-link'
 import Image from '@tiptap/extension-image'
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { uploadImage } from '../lib/storage'
 
 interface RichTextEditorProps {
   content: string
@@ -10,6 +11,9 @@ interface RichTextEditorProps {
 }
 
 export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
+  const [uploading, setUploading] = useState(false)
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -21,7 +25,7 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
       }),
       Image.configure({
         HTMLAttributes: {
-          class: 'max-w-full rounded-lg',
+          class: 'max-w-full rounded-lg my-4',
         },
       }),
     ],
@@ -54,8 +58,49 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
     }
   }
 
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    // Validate file type
+    if (!file.type.startsWith('image/')) {
+      alert('Please select an image file')
+      return
+    }
+
+    // Validate file size (5MB max)
+    if (file.size > 5 * 1024 * 1024) {
+      alert('Image must be less than 5MB')
+      return
+    }
+
+    setUploading(true)
+    try {
+      const result = await uploadImage(file)
+      editor.chain().focus().setImage({ src: result.url }).run()
+    } catch (error) {
+      alert('Failed to upload image')
+      console.error(error)
+    } finally {
+      setUploading(false)
+      // Clear input so same file can be selected again
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
+    }
+  }
+
   return (
     <div className="border border-neutral-700 rounded-lg overflow-hidden">
+      {/* Hidden file input */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/*"
+        onChange={handleImageUpload}
+        className="hidden"
+      />
+
       {/* Toolbar */}
       <div className="flex flex-wrap gap-1 p-2 bg-neutral-800 border-b border-neutral-700">
         <ToolbarButton
@@ -149,6 +194,17 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
             Unlink
           </ToolbarButton>
         )}
+
+        <div className="w-px bg-neutral-600 mx-1" />
+
+        <ToolbarButton
+          onClick={() => fileInputRef.current?.click()}
+          active={false}
+          title="Upload Image"
+          disabled={uploading}
+        >
+          {uploading ? 'Uploading...' : 'Image'}
+        </ToolbarButton>
       </div>
 
       {/* Editor content */}
@@ -164,18 +220,22 @@ interface ToolbarButtonProps {
   active: boolean
   title: string
   children: React.ReactNode
+  disabled?: boolean
 }
 
-function ToolbarButton({ onClick, active, title, children }: ToolbarButtonProps) {
+function ToolbarButton({ onClick, active, title, children, disabled }: ToolbarButtonProps) {
   return (
     <button
       type="button"
       onClick={onClick}
       title={title}
+      disabled={disabled}
       className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
-        active
-          ? 'bg-blue-600 text-white'
-          : 'bg-neutral-700 text-neutral-300 hover:bg-neutral-600'
+        disabled
+          ? 'opacity-50 cursor-not-allowed bg-neutral-700 text-neutral-400'
+          : active
+            ? 'bg-blue-600 text-white'
+            : 'bg-neutral-700 text-neutral-300 hover:bg-neutral-600'
       }`}
     >
       {children}
