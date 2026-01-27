@@ -244,9 +244,11 @@ export function PostList() {
                             ? 'bg-green-900 text-green-300'
                             : post.status === 'draft'
                               ? 'bg-yellow-900 text-yellow-300'
-                              : post.status === 'archived'
-                                ? 'bg-neutral-700 text-neutral-400'
-                                : 'bg-neutral-700 text-neutral-300'
+                              : post.status === 'scheduled'
+                                ? 'bg-purple-900 text-purple-300'
+                                : post.status === 'archived'
+                                  ? 'bg-neutral-700 text-neutral-400'
+                                  : 'bg-neutral-700 text-neutral-300'
                         }`}
                       >
                         {post.status}

@@ -47,6 +47,7 @@ export type Database = {
           created_at: string
           excerpt: string
           id: string
+          publish_at: string | null
           published_at: string | null
           slug: string
           status: Database["public"]["Enums"]["post_status"]
@@ -61,6 +62,7 @@ export type Database = {
           created_at?: string
           excerpt: string
           id?: string
+          publish_at?: string | null
           published_at?: string | null
           slug: string
           status?: Database["public"]["Enums"]["post_status"]
@@ -75,6 +77,7 @@ export type Database = {
           created_at?: string
           excerpt?: string
           id?: string
+          publish_at?: string | null
           published_at?: string | null
           slug?: string
           status?: Database["public"]["Enums"]["post_status"]
@@ -232,7 +235,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      post_status: "draft" | "published" | "archived"
+      post_status: "draft" | "published" | "archived" | "scheduled"
       timeline_entry_type: "work" | "studies"
     }
     CompositeTypes: {
@@ -364,7 +367,7 @@ export const Constants = {
   },
   public: {
     Enums: {
-      post_status: ["draft", "published", "archived"],
+      post_status: ["draft", "published", "archived", "scheduled"],
       timeline_entry_type: ["work", "studies"],
     },
   },

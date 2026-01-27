@@ -69,6 +69,22 @@ export async function unpublishPost(id: string) {
   return updatePost(id, {
     status: 'draft',
     published_at: null,
+    publish_at: null,
+  })
+}
+
+export async function schedulePost(id: string, publishAt: string) {
+  return updatePost(id, {
+    status: 'scheduled',
+    publish_at: publishAt,
+    published_at: null,
+  })
+}
+
+export async function unschedulePost(id: string) {
+  return updatePost(id, {
+    status: 'draft',
+    publish_at: null,
   })
 }
 

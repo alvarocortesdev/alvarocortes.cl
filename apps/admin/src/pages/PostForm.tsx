@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { RichTextEditor } from '@/components/RichTextEditor'
 import { ConfirmModal, MultiActionModal } from '@/components/ConfirmModal'
+import { PreviewModal } from '@/components/PreviewModal'
 import { deleteImage } from '@/lib/storage'
 import {
   getPost,
@@ -11,6 +12,8 @@ import {
   deletePost,
   publishPost,
   unpublishPost,
+  schedulePost,
+  unschedulePost,
   generateSlug,
   CATEGORIES,
   type PostInsert,
@@ -45,8 +48,9 @@ export function PostForm() {
   const [category, setCategory] = useState(CATEGORIES[0] ?? 'Development')
   const [tags, setTags] = useState<string[]>([])
   const [tagInput, setTagInput] = useState('')
-  const [status, setStatus] = useState<'draft' | 'published'>('draft')
+  const [status, setStatus] = useState<'draft' | 'published' | 'scheduled'>('draft')
   const [createdAt, setCreatedAt] = useState('')
+  const [publishAt, setPublishAt] = useState('')
 
   // Track original images for orphan cleanup on edit
   const [originalImageIds, setOriginalImageIds] = useState<string[]>([])
@@ -54,6 +58,9 @@ export function PostForm() {
   // Modal state
   const [deleteModal, setDeleteModal] = useState(false)
   const [cancelModal, setCancelModal] = useState(false)
+  const [scheduleModal, setScheduleModal] = useState(false)
+  const [scheduleDate, setScheduleDate] = useState('')
+  const [previewModal, setPreviewModal] = useState(false)
 
   // Auto-generate slug from title (only for new posts)
   useEffect(() => {
@@ -73,8 +80,11 @@ export function PostForm() {
           setContent(post.content)
           setCategory(post.category)
           setTags(post.tags || [])
-          setStatus(post.status === 'published' ? 'published' : 'draft')
+          setStatus(post.status === 'published' ? 'published' : post.status === 'scheduled' ? 'scheduled' : 'draft')
           setCreatedAt(post.created_at.slice(0, 16)) // Format for datetime-local input
+          if (post.publish_at) {
+            setPublishAt(post.publish_at.slice(0, 16)) // Format for datetime-local input
+          }
           // Store original images for orphan cleanup
           setOriginalImageIds(extractCloudinaryIds(post.content))
         })
@@ -157,7 +167,13 @@ export function PostForm() {
       if (status === 'published') {
         await unpublishPost(id)
         setStatus('draft')
+        setPublishAt('')
         toast.success('Post unpublished')
+      } else if (status === 'scheduled') {
+        await unschedulePost(id)
+        setStatus('draft')
+        setPublishAt('')
+        toast.success('Schedule cancelled')
       } else {
         await publishPost(id)
         setStatus('published')
@@ -167,6 +183,32 @@ export function PostForm() {
       setError(err instanceof Error ? err.message : 'Failed to update status')
       toast.error('Failed to update status')
     }
+  }
+
+  const handleScheduleClick = () => {
+    // Default to tomorrow at 9am Chile time
+    const tomorrow = new Date()
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    tomorrow.setHours(9, 0, 0, 0)
+    setScheduleDate(tomorrow.toISOString().slice(0, 16))
+    setScheduleModal(true)
+  }
+
+  const handleScheduleConfirm = async () => {
+    if (!id || !scheduleDate) return
+
+    try {
+      // Convert local datetime to ISO string (browser handles timezone)
+      const publishAtDate = new Date(scheduleDate).toISOString()
+      await schedulePost(id, publishAtDate)
+      setStatus('scheduled')
+      setPublishAt(scheduleDate)
+      toast.success('Post scheduled')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to schedule post')
+      toast.error('Failed to schedule post')
+    }
+    setScheduleModal(false)
   }
 
   const addTag = () => {
@@ -234,16 +276,27 @@ export function PostForm() {
           </div>
           {isEditing && (
             <div className="flex items-center gap-2">
+              {status === 'draft' && (
+                <button
+                  type="button"
+                  onClick={handleScheduleClick}
+                  className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm"
+                >
+                  Schedule
+                </button>
+              )}
               <button
                 type="button"
                 onClick={handlePublishToggle}
                 className={`px-4 py-2 rounded-lg text-sm ${
                   status === 'published'
                     ? 'bg-yellow-600 hover:bg-yellow-700'
-                    : 'bg-green-600 hover:bg-green-700'
+                    : status === 'scheduled'
+                      ? 'bg-orange-600 hover:bg-orange-700'
+                      : 'bg-green-600 hover:bg-green-700'
                 } text-white`}
               >
-                {status === 'published' ? 'Unpublish' : 'Publish'}
+                {status === 'published' ? 'Unpublish' : status === 'scheduled' ? 'Cancel Schedule' : 'Publish Now'}
               </button>
               <button
                 type="button"
@@ -258,6 +311,26 @@ export function PostForm() {
       </header>
 
       <main className="p-6 max-w-4xl mx-auto">
+        {/* Scheduled indicator */}
+        {status === 'scheduled' && publishAt && (
+          <div className="bg-purple-900/50 text-purple-300 p-4 rounded-lg mb-6 flex items-center justify-between">
+            <span>
+              Scheduled for: {new Date(publishAt).toLocaleString('es-CL', {
+                dateStyle: 'full',
+                timeStyle: 'short',
+                timeZone: 'America/Santiago'
+              })}
+            </span>
+            <button
+              type="button"
+              onClick={handleScheduleClick}
+              className="text-purple-300 hover:text-white underline text-sm"
+            >
+              Change
+            </button>
+          </div>
+        )}
+
         {error && (
           <div className="bg-red-900/50 text-red-300 p-4 rounded-lg mb-6">
             {error}
@@ -377,7 +450,16 @@ export function PostForm() {
 
           {/* Content */}
           <div>
-            <label className="block text-neutral-300 mb-2">Content</label>
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-neutral-300">Content</label>
+              <button
+                type="button"
+                onClick={() => setPreviewModal(true)}
+                className="text-sm text-blue-400 hover:text-blue-300"
+              >
+                Preview
+              </button>
+            </div>
             <RichTextEditor content={content} onChange={setContent} />
           </div>
 
@@ -424,6 +506,43 @@ export function PostForm() {
           { label: 'Continue Editing', variant: 'secondary', onClick: () => setCancelModal(false) },
         ]}
         onClose={() => setCancelModal(false)}
+      />
+
+      {/* Schedule Modal */}
+      <ConfirmModal
+        isOpen={scheduleModal}
+        title="Schedule Post"
+        message="Select when this post should be published:"
+        confirmLabel="Schedule"
+        cancelLabel="Cancel"
+        confirmVariant="primary"
+        onConfirm={handleScheduleConfirm}
+        onCancel={() => setScheduleModal(false)}
+      >
+        <div className="mt-4">
+          <input
+            type="datetime-local"
+            value={scheduleDate}
+            onChange={(e) => setScheduleDate(e.target.value)}
+            min={new Date().toISOString().slice(0, 16)}
+            className="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-4 py-2 text-white focus:border-purple-500 focus:outline-none"
+          />
+          <p className="text-neutral-400 text-sm mt-2">
+            Timezone: Chile (America/Santiago)
+          </p>
+        </div>
+      </ConfirmModal>
+
+      {/* Preview Modal */}
+      <PreviewModal
+        isOpen={previewModal}
+        onClose={() => setPreviewModal(false)}
+        title={title}
+        excerpt={excerpt}
+        content={content}
+        category={category}
+        tags={tags}
+        createdAt={createdAt || new Date().toISOString()}
       />
     </div>
   )
