@@ -12,6 +12,11 @@
   "dependencies": {
     "@alvarocortes/shared": "workspace:*",
     "@supabase/supabase-js": "^2.49.0",
+    "@tiptap/extension-image": "^3.17.1",
+    "@tiptap/extension-link": "^3.17.1",
+    "@tiptap/pm": "^3.17.1",
+    "@tiptap/react": "^3.17.1",
+    "@tiptap/starter-kit": "^3.17.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.12.0"
