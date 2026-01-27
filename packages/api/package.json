@@ -9,6 +9,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "cloudinary": "^2.9.0",
     "hono": "^4.11.4"
   },
   "devDependencies": {
