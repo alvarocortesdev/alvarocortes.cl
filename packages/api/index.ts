@@ -1,5 +1,4 @@
 import { Hono } from 'hono'
-import { handle } from 'hono/vercel'
 import { cors } from 'hono/cors'
 
 const allowedOrigins = [
@@ -17,7 +16,7 @@ const app = new Hono()
       credentials: true,
     })
   )
-  .get('/info', (c) => {
+  .get('/', (c) => {
     return c.json({
       message: 'Alvaro Cortes API',
       version: '0.0.1',
@@ -28,10 +27,4 @@ const app = new Hono()
     return c.json({ status: 'ok', timestamp: new Date().toISOString() })
   })
 
-const handler = handle(app)
-
-export const GET = handler
-export const POST = handler
-export const PUT = handler
-export const DELETE = handler
-export const PATCH = handler
+export default app
