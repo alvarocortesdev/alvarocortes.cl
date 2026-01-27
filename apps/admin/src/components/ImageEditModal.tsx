@@ -9,13 +9,15 @@ interface ImageEditModalProps {
   onConfirm: (croppedImage: Blob, insertMode: 'embedded' | 'link') => void
 }
 
-type AspectRatio = '1:1' | '16:9' | '4:3' | 'free'
+type AspectRatio = '1:1' | '16:9' | '9:16' | '4:3' | '3:4' | 'free'
 
 const ASPECT_RATIOS: { label: string; value: AspectRatio; ratio?: number }[] = [
   { label: 'Free', value: 'free', ratio: undefined },
   { label: '1:1', value: '1:1', ratio: 1 },
   { label: '16:9', value: '16:9', ratio: 16 / 9 },
+  { label: '9:16', value: '9:16', ratio: 9 / 16 },
   { label: '4:3', value: '4:3', ratio: 4 / 3 },
+  { label: '3:4', value: '3:4', ratio: 3 / 4 },
 ]
 
 export function ImageEditModal({

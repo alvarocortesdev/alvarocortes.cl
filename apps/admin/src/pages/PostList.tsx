@@ -33,6 +33,11 @@ export function PostList() {
     isOpen: false,
     post: null,
   })
+  const [scheduleModal, setScheduleModal] = useState<{ isOpen: boolean; post: Post | null }>({
+    isOpen: false,
+    post: null,
+  })
+  const [scheduleDate, setScheduleDate] = useState('')
 
   const fetchPosts = async () => {
     const { data, error } = await supabase
@@ -101,6 +106,61 @@ export function PostList() {
       toast.error('Failed to unarchive post')
     } else {
       toast.success('Post restored to draft')
+      fetchPosts()
+    }
+  }
+
+  const handleScheduleClick = (post: Post) => {
+    // Default to tomorrow at 9am
+    const tomorrow = new Date()
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    tomorrow.setHours(9, 0, 0, 0)
+    setScheduleDate(tomorrow.toISOString().slice(0, 16))
+    setScheduleModal({ isOpen: true, post })
+  }
+
+  const handleScheduleConfirm = async () => {
+    if (!scheduleModal.post || !scheduleDate) return
+
+    // Validate not scheduling in the past
+    const selectedDate = new Date(scheduleDate)
+    if (selectedDate <= new Date()) {
+      toast.error('Cannot schedule in the past')
+      return
+    }
+
+    const { error } = await supabase
+      .from('posts')
+      .update({
+        status: 'scheduled',
+        publish_at: selectedDate.toISOString(),
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', scheduleModal.post.id)
+
+    if (error) {
+      toast.error('Failed to schedule post')
+    } else {
+      toast.success('Post scheduled')
+      fetchPosts()
+    }
+    setScheduleModal({ isOpen: false, post: null })
+  }
+
+  const handleUnschedule = async (post: Post) => {
+    const { error } = await supabase
+      .from('posts')
+      .update({
+        status: 'draft',
+        publish_at: null,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', post.id)
+
+    if (error) {
+      toast.error('Failed to cancel schedule')
+    } else {
+      toast.success('Schedule cancelled')
       fetchPosts()
     }
   }
@@ -273,8 +333,23 @@ export function PostList() {
                           >
                             Restore
                           </button>
+                        ) : post.status === 'scheduled' ? (
+                          <button
+                            onClick={() => handleUnschedule(post)}
+                            className="px-3 py-1 text-sm bg-orange-600 hover:bg-orange-700 text-white rounded"
+                          >
+                            Cancel Schedule
+                          </button>
                         ) : (
                           <>
+                            {post.status === 'draft' && (
+                              <button
+                                onClick={() => handleScheduleClick(post)}
+                                className="px-3 py-1 text-sm bg-purple-600 hover:bg-purple-700 text-white rounded"
+                              >
+                                Schedule
+                              </button>
+                            )}
                             <button
                               onClick={() => handlePublishToggle(post)}
                               className={`px-3 py-1 text-sm rounded ${
@@ -321,6 +396,30 @@ export function PostList() {
         onConfirm={handleDeleteConfirm}
         onCancel={() => setDeleteModal({ isOpen: false, post: null })}
       />
+
+      <ConfirmModal
+        isOpen={scheduleModal.isOpen}
+        title="Schedule Post"
+        message={`Select when "${scheduleModal.post?.title}" should be published:`}
+        confirmLabel="Schedule"
+        cancelLabel="Cancel"
+        confirmVariant="primary"
+        onConfirm={handleScheduleConfirm}
+        onCancel={() => setScheduleModal({ isOpen: false, post: null })}
+      >
+        <div className="mt-4">
+          <input
+            type="datetime-local"
+            value={scheduleDate}
+            onChange={(e) => setScheduleDate(e.target.value)}
+            min={new Date().toISOString().slice(0, 16)}
+            className="w-full bg-neutral-700 border border-neutral-600 rounded-lg px-4 py-2 text-white focus:border-purple-500 focus:outline-none"
+          />
+          <p className="text-neutral-400 text-sm mt-2">
+            Timezone: Chile (America/Santiago)
+          </p>
+        </div>
+      </ConfirmModal>
     </div>
   )
 }

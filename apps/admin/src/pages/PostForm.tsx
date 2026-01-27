@@ -140,6 +140,82 @@ export function PostForm() {
     }
   }
 
+  const handleCreateWithStatus = async (targetStatus: 'draft' | 'published') => {
+    setError(null)
+    setSaving(true)
+
+    try {
+      const postData: PostInsert = {
+        title,
+        slug,
+        excerpt,
+        content,
+        category,
+        tags,
+        status: targetStatus,
+      }
+
+      if (targetStatus === 'published') {
+        ;(postData as Record<string, unknown>).published_at = new Date().toISOString()
+      }
+
+      await createPost(postData)
+      toast.success(targetStatus === 'published' ? 'Post published' : 'Draft saved')
+      navigate('/posts')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to save post')
+      toast.error('Failed to save post')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  const handleCreateScheduled = async () => {
+    if (!scheduleDate) return
+
+    // Validate not scheduling in the past
+    const selectedDate = new Date(scheduleDate)
+    if (selectedDate <= new Date()) {
+      toast.error('Cannot schedule in the past')
+      return
+    }
+
+    setError(null)
+    setSaving(true)
+
+    try {
+      const postData: PostInsert = {
+        title,
+        slug,
+        excerpt,
+        content,
+        category,
+        tags,
+        status: 'scheduled',
+      }
+      ;(postData as Record<string, unknown>).publish_at = selectedDate.toISOString()
+
+      await createPost(postData)
+      toast.success('Post scheduled')
+      navigate('/posts')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to schedule post')
+      toast.error('Failed to schedule post')
+    } finally {
+      setSaving(false)
+      setScheduleModal(false)
+    }
+  }
+
+  const handleNewPostScheduleClick = () => {
+    // Default to tomorrow at 9am
+    const tomorrow = new Date()
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    tomorrow.setHours(9, 0, 0, 0)
+    setScheduleDate(tomorrow.toISOString().slice(0, 16))
+    setScheduleModal(true)
+  }
+
   const handleDelete = async () => {
     if (!id) return
 
@@ -197,9 +273,16 @@ export function PostForm() {
   const handleScheduleConfirm = async () => {
     if (!id || !scheduleDate) return
 
+    // Validate not scheduling in the past
+    const selectedDate = new Date(scheduleDate)
+    if (selectedDate <= new Date()) {
+      toast.error('Cannot schedule in the past')
+      return
+    }
+
     try {
       // Convert local datetime to ISO string (browser handles timezone)
-      const publishAtDate = new Date(scheduleDate).toISOString()
+      const publishAtDate = selectedDate.toISOString()
       await schedulePost(id, publishAtDate)
       setStatus('scheduled')
       setPublishAt(scheduleDate)
@@ -464,21 +547,51 @@ export function PostForm() {
           </div>
 
           {/* Submit */}
-          <div className="flex justify-end gap-4 pt-4 border-t border-neutral-800">
+          <div className="flex justify-end gap-3 pt-4 border-t border-neutral-800">
             <button
               type="button"
               onClick={handleCancelClick}
-              className="px-6 py-2 text-neutral-400 hover:text-white"
+              disabled={saving}
+              className="px-5 py-2 text-neutral-400 hover:text-white disabled:opacity-50"
             >
               Cancel
             </button>
-            <button
-              type="submit"
-              disabled={saving}
-              className="bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white px-6 py-2 rounded-lg"
-            >
-              {saving ? 'Saving...' : isEditing ? 'Update Post' : 'Create Post'}
-            </button>
+            {isEditing ? (
+              <button
+                type="submit"
+                disabled={saving}
+                className="bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white px-5 py-2 rounded-lg"
+              >
+                {saving ? 'Saving...' : 'Update Post'}
+              </button>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  onClick={() => handleCreateWithStatus('draft')}
+                  disabled={saving}
+                  className="bg-neutral-700 hover:bg-neutral-600 disabled:opacity-50 text-white px-5 py-2 rounded-lg"
+                >
+                  {saving ? 'Saving...' : 'Save Draft'}
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNewPostScheduleClick}
+                  disabled={saving}
+                  className="bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white px-5 py-2 rounded-lg"
+                >
+                  Schedule
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleCreateWithStatus('published')}
+                  disabled={saving}
+                  className="bg-green-600 hover:bg-green-700 disabled:opacity-50 text-white px-5 py-2 rounded-lg"
+                >
+                  Publish
+                </button>
+              </>
+            )}
           </div>
         </form>
       </main>
@@ -516,7 +629,7 @@ export function PostForm() {
         confirmLabel="Schedule"
         cancelLabel="Cancel"
         confirmVariant="primary"
-        onConfirm={handleScheduleConfirm}
+        onConfirm={isEditing ? handleScheduleConfirm : handleCreateScheduled}
         onCancel={() => setScheduleModal(false)}
       >
         <div className="mt-4">
