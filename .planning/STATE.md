@@ -11,11 +11,11 @@ See: .planning/PROJECT.md (updated 2026-01-26)
 
 Milestone: v1.3 Admin Panel
 Phase: 15 (Blog CRUD) — IN PROGRESS
-Plan: 1 of 4
-Status: Plan 15-01 complete, ready for 15-02
-Last activity: 2026-01-27 — Completed 15-01-PLAN.md (Posts List Page)
+Plan: 2 of 4
+Status: Plan 15-02 complete, ready for 15-03
+Last activity: 2026-01-27 — Completed 15-02-PLAN.md (Rich Text Editor Setup)
 
-Progress: █████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 38% (v1.3 - 3/8 phases in progress)
+Progress: █████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 40% (v1.3 - 3/8 phases in progress)
 
 ## Milestone History
 
@@ -61,7 +61,7 @@ Progress: █████████████░░░░░░░░░░�
 |-------|-------|-------|----------|
 | 13-admin-foundation | 3/3 | ~15 min | ~5 min |
 | 14-authentication | 3/3 | ~15 min | ~5 min |
-| 15-blog-crud | 1/4 | ~4 min | ~4 min |
+| 15-blog-crud | 2/4 | ~5 min | ~2.5 min |
 
 ## Accumulated Context
 
@@ -107,19 +107,21 @@ Summary:
 - Admin page header with back navigation
 - Content Management card grid on Dashboard
 - Tables helper type for supabase row types
+- TipTap useEditor hook pattern for rich text
+- ToolbarButton component for editor toolbar
 
 ### Pending Todos
 
 - [x] Plan and execute Phase 13 (Admin Foundation)
 - [x] Plan and execute Phase 14 (Authentication)
-- [ ] Plan and execute Phase 15 (Blog CRUD) — in progress (1/4 plans complete)
+- [ ] Plan and execute Phase 15 (Blog CRUD) — in progress (2/4 plans complete)
 - [ ] Plan and execute Phase 16 (Projects CRUD)
 - [ ] Plan and execute Phase 17 (Timeline & Tech CRUD)
 - [ ] Plan and execute Phase 18 (Site Integration)
 
 ### Blockers/Concerns
 
-None — ready for Phase 15 Plan 02 (Create/Edit Post form).
+None — ready for Phase 15 Plan 03 (Blog Form).
 
 ### Deferred to v1.4+
 
@@ -129,8 +131,8 @@ None — ready for Phase 15 Plan 02 (Create/Edit Post form).
 ## Session Continuity
 
 Last session: 2026-01-27
-Stopped at: Completed 15-01-PLAN.md (Posts List Page)
-Resume file: .planning/phases/15-blog-crud/15-01-SUMMARY.md
+Stopped at: Completed 15-02-PLAN.md (Rich Text Editor Setup)
+Resume file: .planning/phases/15-blog-crud/15-02-SUMMARY.md
 
 ---
-*Last updated: 2026-01-27 — Phase 15 Blog CRUD in progress, Plan 01 complete*
+*Last updated: 2026-01-27 — Phase 15 Blog CRUD in progress, Plan 02 complete*
