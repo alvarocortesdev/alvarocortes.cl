@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Login } from '@/pages/Login'
 import { AuthCallback } from '@/pages/AuthCallback'
 import { Dashboard } from '@/pages/Dashboard'
+import { PostList } from '@/pages/PostList'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
 
 export function App() {
@@ -14,6 +15,14 @@ export function App() {
         element={
           <ProtectedRoute>
             <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/posts"
+        element={
+          <ProtectedRoute>
+            <PostList />
           </ProtectedRoute>
         }
       />
