@@ -3,13 +3,20 @@ import { cors } from "hono/cors"
 import { logger } from "hono/logger"
 import { health } from "./routes/health"
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:4173",
+  "https://alvarocortes.cl",
+  "https://admin.alvarocortes.cl",
+]
+
 const app = new Hono()
   // Middleware
   .use("*", logger())
   .use(
     "*",
     cors({
-      origin: ["http://localhost:5173", "http://localhost:4173"],
+      origin: allowedOrigins,
       credentials: true,
     })
   )
