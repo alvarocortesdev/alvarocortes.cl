@@ -9,6 +9,22 @@ export function AuthCallback() {
   useEffect(() => {
     // Handle the OAuth callback
     const handleCallback = async () => {
+      // Check if we have a code in the URL (PKCE flow)
+      const url = new URL(window.location.href)
+      const code = url.searchParams.get('code')
+
+      // If no code, check if already authenticated
+      if (!code) {
+        const { data: { session } } = await supabase.auth.getSession()
+        if (session) {
+          navigate('/', { replace: true })
+          return
+        }
+        // No code and no session - redirect to login
+        navigate('/login', { replace: true })
+        return
+      }
+
       const { error } = await supabase.auth.exchangeCodeForSession(
         window.location.href
       )
