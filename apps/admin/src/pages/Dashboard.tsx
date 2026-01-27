@@ -7,7 +7,7 @@ export function Dashboard() {
   return (
     <div className="min-h-screen bg-neutral-900">
       <header className="border-b border-neutral-800 px-6 py-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between max-w-4xl mx-auto">
           <h1 className="text-xl font-bold text-white">Admin Panel</h1>
           <div className="flex items-center gap-4">
             <span className="text-neutral-400 text-sm">
@@ -23,10 +23,10 @@ export function Dashboard() {
         </div>
       </header>
 
-      <main className="p-6">
+      <main className="p-6 max-w-4xl mx-auto">
         <h2 className="text-2xl font-bold text-white mb-6">Content Management</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Link
             to="/posts"
             className="bg-neutral-800 hover:bg-neutral-700 p-6 rounded-lg transition-colors"

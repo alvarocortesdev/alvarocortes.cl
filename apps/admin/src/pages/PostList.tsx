@@ -174,7 +174,7 @@ export function PostList() {
   return (
     <div className="min-h-screen bg-neutral-900">
       <header className="border-b border-neutral-800 px-6 py-4">
-        <div className="flex items-center justify-between max-w-6xl mx-auto">
+        <div className="flex items-center justify-between max-w-4xl mx-auto">
           <div className="flex items-center gap-4">
             <Link to="/" className="text-neutral-400 hover:text-white">
               ← Back
@@ -190,7 +190,7 @@ export function PostList() {
         </div>
       </header>
 
-      <main className="p-6 max-w-6xl mx-auto">
+      <main className="p-6 max-w-4xl mx-auto">
         {/* Tabs */}
         <div className="flex gap-4 mb-6 border-b border-neutral-800">
           <button
