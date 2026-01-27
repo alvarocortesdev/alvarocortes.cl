@@ -10,12 +10,12 @@ See: .planning/PROJECT.md (updated 2026-01-26)
 ## Current Position
 
 Milestone: v1.3 Admin Panel
-Phase: 15 (Blog CRUD) — COMPLETE
-Plan: 4 of 4
-Status: All plans complete, ready for Phase 16
-Last activity: 2026-01-27 — Completed 15-04-PLAN.md (Image Uploads + UX)
+Phase: 16 (Projects CRUD) — IN PROGRESS
+Plan: 1 of 3
+Status: Plan 16-01 complete, continuing Phase 16
+Last activity: 2026-01-27 — Completed 16-01-PLAN.md (Projects CRUD Library + List)
 
-Progress: █████████████████░░░░░░░░░░░░░░░░░░░░░░░░ 50% (v1.3 - Phase 15 complete)
+Progress: ██████████████████░░░░░░░░░░░░░░░░░░░░░░░ 52% (v1.3 - Phase 16 started)
 
 ## Milestone History
 
@@ -62,6 +62,7 @@ Progress: █████████████████░░░░░░�
 | 13-admin-foundation | 3/3 | ~15 min | ~5 min |
 | 14-authentication | 3/3 | ~15 min | ~5 min |
 | 15-blog-crud | 4/4 | ~45 min | ~11 min |
+| 16-projects-crud | 1/3 | ~2 min | ~2 min |
 
 ## Accumulated Context
 
@@ -112,6 +113,8 @@ Summary:
 - CRUD library pattern: lib/posts.ts with typed functions
 - generateSlug utility for URL-safe slugs
 - Form mode detection via useParams
+- Projects CRUD follows same patterns as Posts CRUD
+- Featured toggle helper function in CRUD libraries
 
 ### Pending Todos
 
@@ -124,7 +127,7 @@ Summary:
 
 ### Blockers/Concerns
 
-None — ready for Phase 16 (Projects CRUD).
+None — continuing Phase 16 (Projects CRUD).
 
 ### Deferred to v1.4+
 
@@ -134,8 +137,8 @@ None — ready for Phase 16 (Projects CRUD).
 ## Session Continuity
 
 Last session: 2026-01-27
-Stopped at: Phase 15 complete, ready for Phase 16
+Stopped at: Completed 16-01-PLAN.md (Projects CRUD Library + List)
 Resume file: None
 
 ---
-*Last updated: 2026-01-27 — Phase 15 Blog CRUD complete*
+*Last updated: 2026-01-27 — Plan 16-01 complete*
