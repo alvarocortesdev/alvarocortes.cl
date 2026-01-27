@@ -5,6 +5,7 @@ import Image from '@tiptap/extension-image'
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { toast } from 'react-toastify'
 import { uploadImage } from '../lib/storage'
+import { ImageEditModal } from './ImageEditModal'
 
 interface RichTextEditorProps {
   content: string
@@ -15,6 +16,10 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
   const [uploading, setUploading] = useState(false)
   const [isLinkActive, setIsLinkActive] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
+
+  // Image edit modal state
+  const [editModalOpen, setEditModalOpen] = useState(false)
+  const [selectedImageUrl, setSelectedImageUrl] = useState<string | null>(null)
 
   const editor = useEditor({
     extensions: [
@@ -88,9 +93,9 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
     }
   }, [editor])
 
-  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
-    if (!file || !editor) return
+    if (!file) return
 
     // Validate file type
     if (!file.type.startsWith('image/')) {
@@ -104,20 +109,64 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
       return
     }
 
+    // Create object URL for preview in edit modal
+    const objectUrl = URL.createObjectURL(file)
+    setSelectedImageUrl(objectUrl)
+    setEditModalOpen(true)
+
+    // Clear input so same file can be selected again
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+    }
+  }
+
+  const handleImageEditCancel = () => {
+    if (selectedImageUrl) {
+      URL.revokeObjectURL(selectedImageUrl)
+    }
+    setSelectedImageUrl(null)
+    setEditModalOpen(false)
+  }
+
+  const handleImageEditConfirm = async (
+    croppedImage: Blob,
+    insertMode: 'embedded' | 'link'
+  ) => {
+    if (!editor) return
+
+    // Clean up the object URL
+    if (selectedImageUrl) {
+      URL.revokeObjectURL(selectedImageUrl)
+    }
+    setSelectedImageUrl(null)
+    setEditModalOpen(false)
+
+    // Convert blob to file for upload
+    const file = new File([croppedImage], 'cropped-image.jpg', {
+      type: 'image/jpeg',
+    })
+
     setUploading(true)
     try {
       const result = await uploadImage(file)
-      editor.chain().focus().setImage({ src: result.url }).run()
-      toast.success('Image uploaded')
+
+      if (insertMode === 'embedded') {
+        editor.chain().focus().setImage({ src: result.url }).run()
+        toast.success('Image uploaded')
+      } else {
+        // Link mode - insert as text link
+        editor
+          .chain()
+          .focus()
+          .insertContent(`<a href="${result.url}" target="_blank">${result.url}</a>`)
+          .run()
+        toast.success('Image link inserted')
+      }
     } catch (error) {
       toast.error('Failed to upload image')
       console.error(error)
     } finally {
       setUploading(false)
-      // Clear input so same file can be selected again
-      if (fileInputRef.current) {
-        fileInputRef.current.value = ''
-      }
     }
   }
 
@@ -132,7 +181,7 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
         ref={fileInputRef}
         type="file"
         accept="image/*"
-        onChange={handleImageUpload}
+        onChange={handleFileSelect}
         className="hidden"
       />
 
@@ -245,6 +294,16 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
       <div className="bg-neutral-900">
         <EditorContent editor={editor} />
       </div>
+
+      {/* Image Edit Modal */}
+      {selectedImageUrl && (
+        <ImageEditModal
+          isOpen={editModalOpen}
+          imageUrl={selectedImageUrl}
+          onCancel={handleImageEditCancel}
+          onConfirm={handleImageEditConfirm}
+        />
+      )}
     </div>
   )
 }
