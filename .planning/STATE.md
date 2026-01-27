@@ -134,8 +134,8 @@ None — ready for Phase 15 Plan 04 (Image Uploads).
 ## Session Continuity
 
 Last session: 2026-01-27
-Stopped at: Completed 15-03-PLAN.md (Blog Form)
-Resume file: .planning/phases/15-blog-crud/15-03-SUMMARY.md
+Stopped at: Plan 15-04 code complete, pending visual verification
+Resume file: .planning/phases/15-blog-crud/.continue-here.md
 
 ---
 *Last updated: 2026-01-27 — Phase 15 Blog CRUD in progress, Plan 03 complete*
