@@ -3,6 +3,7 @@ import { Login } from '@/pages/Login'
 import { AuthCallback } from '@/pages/AuthCallback'
 import { Dashboard } from '@/pages/Dashboard'
 import { PostList } from '@/pages/PostList'
+import { PostForm } from '@/pages/PostForm'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
 
 export function App() {
@@ -23,6 +24,22 @@ export function App() {
         element={
           <ProtectedRoute>
             <PostList />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/posts/new"
+        element={
+          <ProtectedRoute>
+            <PostForm />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/posts/:id/edit"
+        element={
+          <ProtectedRoute>
+            <PostForm />
           </ProtectedRoute>
         }
       />
