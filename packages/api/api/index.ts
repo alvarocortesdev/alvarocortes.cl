@@ -17,7 +17,7 @@ const app = new Hono()
       credentials: true,
     })
   )
-  .get('/', (c) => {
+  .get('/info', (c) => {
     return c.json({
       message: 'Alvaro Cortes API',
       version: '0.0.1',
