@@ -9,7 +9,6 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@hono/node-server": "^1.19.9",
     "hono": "^4.11.4"
   },
   "devDependencies": {
