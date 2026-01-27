@@ -1,8 +1,22 @@
+import { Routes, Route } from 'react-router-dom'
+import { Login } from '@/pages/Login'
+import { AuthCallback } from '@/pages/AuthCallback'
+import { Dashboard } from '@/pages/Dashboard'
+import { ProtectedRoute } from '@/components/ProtectedRoute'
+
 export function App() {
   return (
-    <div className="bg-neutral-900 min-h-screen text-white flex flex-col items-center justify-center">
-      <h1 className="text-4xl font-bold mb-4">Admin Panel</h1>
-      <p className="text-neutral-400">Phase 14 will add authentication</p>
-    </div>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/auth/callback" element={<AuthCallback />} />
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+    </Routes>
   )
 }
