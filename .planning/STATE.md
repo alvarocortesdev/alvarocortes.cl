@@ -10,12 +10,12 @@ See: .planning/PROJECT.md (updated 2026-01-26)
 ## Current Position
 
 Milestone: v1.3 Admin Panel
-Phase: 16 (Projects CRUD) — IN PROGRESS
-Plan: 2 of 3
-Status: Plan 16-02 complete, continuing Phase 16
-Last activity: 2026-01-28 — Completed 16-02-PLAN.md (Project Form Page)
+Phase: 16 (Projects CRUD) — COMPLETE
+Plan: 3 of 3
+Status: Phase 16 complete, ready for Phase 17
+Last activity: 2026-01-28 — Completed 16-03-PLAN.md (Routes and Dashboard Wiring)
 
-Progress: ███████████████████░░░░░░░░░░░░░░░░░░░░░░ 55% (v1.3 - Phase 16 progress)
+Progress: ████████████████████████░░░░░░░░░░░░░░░░░ 60% (v1.3 - Phase 16 complete)
 
 ## Milestone History
 
@@ -62,7 +62,7 @@ Progress: ███████████████████░░░░�
 | 13-admin-foundation | 3/3 | ~15 min | ~5 min |
 | 14-authentication | 3/3 | ~15 min | ~5 min |
 | 15-blog-crud | 4/4 | ~45 min | ~11 min |
-| 16-projects-crud | 2/3 | ~3.5 min | ~2 min |
+| 16-projects-crud | 3/3 | ~5 min | ~2 min |
 
 ## Accumulated Context
 
@@ -123,13 +123,13 @@ Summary:
 - [x] Plan and execute Phase 13 (Admin Foundation)
 - [x] Plan and execute Phase 14 (Authentication)
 - [x] Plan and execute Phase 15 (Blog CRUD) — complete (4/4 plans)
-- [ ] Plan and execute Phase 16 (Projects CRUD)
+- [x] Plan and execute Phase 16 (Projects CRUD)
 - [ ] Plan and execute Phase 17 (Timeline & Tech CRUD)
 - [ ] Plan and execute Phase 18 (Site Integration)
 
 ### Blockers/Concerns
 
-None — continuing Phase 16 (Projects CRUD).
+None — Phase 16 complete, ready for Phase 17 (Timeline & Tech CRUD).
 
 ### Deferred to v1.4+
 
@@ -139,8 +139,8 @@ None — continuing Phase 16 (Projects CRUD).
 ## Session Continuity
 
 Last session: 2026-01-28
-Stopped at: Completed 16-02-PLAN.md (Project Form Page)
+Stopped at: Completed 16-03-PLAN.md (Routes and Dashboard Wiring)
 Resume file: None
 
 ---
-*Last updated: 2026-01-28 — Plan 16-02 complete*
+*Last updated: 2026-01-28 — Phase 16 complete*
