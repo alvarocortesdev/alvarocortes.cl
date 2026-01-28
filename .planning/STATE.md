@@ -11,11 +11,11 @@ See: .planning/PROJECT.md (updated 2026-01-26)
 
 Milestone: v1.3 Admin Panel
 Phase: 16 (Projects CRUD) — IN PROGRESS
-Plan: 1 of 3
-Status: Plan 16-01 complete, continuing Phase 16
-Last activity: 2026-01-27 — Completed 16-01-PLAN.md (Projects CRUD Library + List)
+Plan: 2 of 3
+Status: Plan 16-02 complete, continuing Phase 16
+Last activity: 2026-01-28 — Completed 16-02-PLAN.md (Project Form Page)
 
-Progress: ██████████████████░░░░░░░░░░░░░░░░░░░░░░░ 52% (v1.3 - Phase 16 started)
+Progress: ███████████████████░░░░░░░░░░░░░░░░░░░░░░ 55% (v1.3 - Phase 16 progress)
 
 ## Milestone History
 
@@ -62,7 +62,7 @@ Progress: ██████████████████░░░░░�
 | 13-admin-foundation | 3/3 | ~15 min | ~5 min |
 | 14-authentication | 3/3 | ~15 min | ~5 min |
 | 15-blog-crud | 4/4 | ~45 min | ~11 min |
-| 16-projects-crud | 1/3 | ~2 min | ~2 min |
+| 16-projects-crud | 2/3 | ~3.5 min | ~2 min |
 
 ## Accumulated Context
 
@@ -115,6 +115,8 @@ Summary:
 - Form mode detection via useParams
 - Projects CRUD follows same patterns as Posts CRUD
 - Featured toggle helper function in CRUD libraries
+- ProjectForm follows PostForm pattern for consistency
+- Image upload with preview, replace, and cleanup on form submit
 
 ### Pending Todos
 
@@ -136,9 +138,9 @@ None — continuing Phase 16 (Projects CRUD).
 
 ## Session Continuity
 
-Last session: 2026-01-27
-Stopped at: Completed 16-01-PLAN.md (Projects CRUD Library + List)
+Last session: 2026-01-28
+Stopped at: Completed 16-02-PLAN.md (Project Form Page)
 Resume file: None
 
 ---
-*Last updated: 2026-01-27 — Plan 16-01 complete*
+*Last updated: 2026-01-28 — Plan 16-02 complete*
