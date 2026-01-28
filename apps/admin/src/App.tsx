@@ -4,6 +4,8 @@ import { AuthCallback } from '@/pages/AuthCallback'
 import { Dashboard } from '@/pages/Dashboard'
 import { PostList } from '@/pages/PostList'
 import { PostForm } from '@/pages/PostForm'
+import { ProjectList } from '@/pages/ProjectList'
+import { ProjectForm } from '@/pages/ProjectForm'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
 
 export function App() {
@@ -40,6 +42,30 @@ export function App() {
         element={
           <ProtectedRoute>
             <PostForm />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/projects"
+        element={
+          <ProtectedRoute>
+            <ProjectList />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/projects/new"
+        element={
+          <ProtectedRoute>
+            <ProjectForm />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/projects/:id/edit"
+        element={
+          <ProtectedRoute>
+            <ProjectForm />
           </ProtectedRoute>
         }
       />
