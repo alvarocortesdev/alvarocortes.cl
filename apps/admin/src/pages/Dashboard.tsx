@@ -35,10 +35,13 @@ export function Dashboard() {
             <p className="text-neutral-400 text-sm">Create and manage blog articles</p>
           </Link>
 
-          <div className="bg-neutral-800/50 p-6 rounded-lg opacity-50 cursor-not-allowed">
+          <Link
+            to="/projects"
+            className="bg-neutral-800 hover:bg-neutral-700 p-6 rounded-lg transition-colors"
+          >
             <h3 className="text-lg font-semibold text-white mb-2">Projects</h3>
-            <p className="text-neutral-400 text-sm">Coming in Phase 16</p>
-          </div>
+            <p className="text-neutral-400 text-sm">Manage portfolio projects</p>
+          </Link>
 
           <div className="bg-neutral-800/50 p-6 rounded-lg opacity-50 cursor-not-allowed">
             <h3 className="text-lg font-semibold text-white mb-2">Timeline</h3>
