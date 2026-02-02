@@ -11,11 +11,11 @@ See: .planning/PROJECT.md (updated 2026-01-26)
 
 Milestone: v1.3 Admin Panel
 Phase: 17 (Timeline & Tech CRUD) — IN PROGRESS
-Plan: 2 of 4
+Plan: 4 of 5
 Status: In progress
-Last activity: 2026-02-02 — Completed 17-02-PLAN.md (Tech CRUD and IconPicker)
+Last activity: 2026-02-02 — Completed 17-04-PLAN.md (Tech Category CRUD UI)
 
-Progress: ██████████████████████████░░░░░░░░░░░░░░░ 65% (v1.3 - Phase 17 in progress)
+Progress: ████████████████████████████░░░░░░░░░░░░░ 70% (v1.3 - Phase 17 in progress)
 
 ## Milestone History
 
@@ -63,7 +63,7 @@ Progress: ███████████████████████�
 | 14-authentication | 3/3 | ~15 min | ~5 min |
 | 15-blog-crud | 4/4 | ~45 min | ~11 min |
 | 16-projects-crud | 3/3 | ~5 min | ~2 min |
-| 17-timeline-tech-crud | 2/4 | ~3 min | ~2 min |
+| 17-timeline-tech-crud | 4/5 | ~6 min | ~2 min |
 
 ## Accumulated Context
 
@@ -124,6 +124,10 @@ Summary:
 - IconPicker component for icon selection (simple-icons CDN + custom upload)
 - CRUD updateOrders functions for batch display_order updates (drag-drop)
 - dnd-kit for drag-drop functionality
+- Nested DndContext for parent-child drag-drop hierarchies
+- Expandable/collapsible list items with Set-based state
+- Create-then-edit pattern for parent-child form relationships
+- Inline entity management within parent form (edit mode only)
 
 ### Pending Todos
 
@@ -136,7 +140,7 @@ Summary:
 
 ### Blockers/Concerns
 
-None — Phase 17 Plan 02 complete, ready for Plan 03 (Tech Forms).
+None — Phase 17 Plan 04 complete, ready for Plan 05 (Timeline Form).
 
 ### Deferred to v1.4+
 
@@ -146,8 +150,8 @@ None — Phase 17 Plan 02 complete, ready for Plan 03 (Tech Forms).
 ## Session Continuity
 
 Last session: 2026-02-02
-Stopped at: Completed 17-01-PLAN.md (Timeline CRUD Foundation) and 17-02-PLAN.md (Tech CRUD and IconPicker)
+Stopped at: Completed 17-04-PLAN.md (Tech Category CRUD UI)
 Resume file: None
 
 ---
-*Last updated: 2026-02-02 — Phase 17 Plans 01 and 02 complete*
+*Last updated: 2026-02-02 — Phase 17 Plan 04 complete*
