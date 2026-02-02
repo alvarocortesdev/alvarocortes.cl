@@ -10,12 +10,12 @@ See: .planning/PROJECT.md (updated 2026-01-26)
 ## Current Position
 
 Milestone: v1.3 Admin Panel
-Phase: 16 (Projects CRUD) — COMPLETE
-Plan: 3 of 3
-Status: Phase 16 complete, ready for Phase 17
-Last activity: 2026-01-28 — Completed 16-03-PLAN.md (Routes and Dashboard Wiring)
+Phase: 17 (Timeline & Tech CRUD) — IN PROGRESS
+Plan: 2 of 4
+Status: In progress
+Last activity: 2026-02-02 — Completed 17-02-PLAN.md (Tech CRUD and IconPicker)
 
-Progress: ████████████████████████░░░░░░░░░░░░░░░░░ 60% (v1.3 - Phase 16 complete)
+Progress: ██████████████████████████░░░░░░░░░░░░░░░ 65% (v1.3 - Phase 17 in progress)
 
 ## Milestone History
 
@@ -63,6 +63,7 @@ Progress: ███████████████████████�
 | 14-authentication | 3/3 | ~15 min | ~5 min |
 | 15-blog-crud | 4/4 | ~45 min | ~11 min |
 | 16-projects-crud | 3/3 | ~5 min | ~2 min |
+| 17-timeline-tech-crud | 2/4 | ~3 min | ~2 min |
 
 ## Accumulated Context
 
@@ -117,6 +118,12 @@ Summary:
 - Featured toggle helper function in CRUD libraries
 - ProjectForm follows PostForm pattern for consistency
 - Image upload with preview, replace, and cleanup on form submit
+- Timeline CRUD library pattern with 6 typed operations
+- DateInput component with hybrid text/dropdown date parsing
+- Canonical 'Mon YYYY' date format (e.g., 'Mar 2023')
+- IconPicker component for icon selection (simple-icons CDN + custom upload)
+- CRUD updateOrders functions for batch display_order updates (drag-drop)
+- dnd-kit for drag-drop functionality
 
 ### Pending Todos
 
@@ -129,7 +136,7 @@ Summary:
 
 ### Blockers/Concerns
 
-None — Phase 16 complete, ready for Phase 17 (Timeline & Tech CRUD).
+None — Phase 17 Plan 02 complete, ready for Plan 03 (Tech Forms).
 
 ### Deferred to v1.4+
 
@@ -138,9 +145,9 @@ None — Phase 16 complete, ready for Phase 17 (Timeline & Tech CRUD).
 
 ## Session Continuity
 
-Last session: 2026-01-28
-Stopped at: Completed 16-03-PLAN.md (Routes and Dashboard Wiring)
+Last session: 2026-02-02
+Stopped at: Completed 17-01-PLAN.md (Timeline CRUD Foundation) and 17-02-PLAN.md (Tech CRUD and IconPicker)
 Resume file: None
 
 ---
-*Last updated: 2026-01-28 — Phase 16 complete*
+*Last updated: 2026-02-02 — Phase 17 Plans 01 and 02 complete*
