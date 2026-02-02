@@ -8,6 +8,7 @@ import { ProjectList } from '@/pages/ProjectList'
 import { ProjectForm } from '@/pages/ProjectForm'
 import { TimelineList } from '@/pages/TimelineList'
 import { TechCategoryList } from '@/pages/TechCategoryList'
+import { TechCategoryForm } from '@/pages/TechCategoryForm'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
 
 export function App() {
@@ -84,6 +85,22 @@ export function App() {
         element={
           <ProtectedRoute>
             <TechCategoryList />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/tech-categories/new"
+        element={
+          <ProtectedRoute>
+            <TechCategoryForm />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/tech-categories/:id/edit"
+        element={
+          <ProtectedRoute>
+            <TechCategoryForm />
           </ProtectedRoute>
         }
       />
