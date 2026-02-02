@@ -7,6 +7,7 @@ import { PostForm } from '@/pages/PostForm'
 import { ProjectList } from '@/pages/ProjectList'
 import { ProjectForm } from '@/pages/ProjectForm'
 import { TimelineList } from '@/pages/TimelineList'
+import { TimelineForm } from '@/pages/TimelineForm'
 import { TechCategoryList } from '@/pages/TechCategoryList'
 import { TechCategoryForm } from '@/pages/TechCategoryForm'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
@@ -77,6 +78,22 @@ export function App() {
         element={
           <ProtectedRoute>
             <TimelineList />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/timeline/new"
+        element={
+          <ProtectedRoute>
+            <TimelineForm />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/timeline/:id/edit"
+        element={
+          <ProtectedRoute>
+            <TimelineForm />
           </ProtectedRoute>
         }
       />
