@@ -197,6 +197,7 @@ export type Database = {
       timeline_entries: {
         Row: {
           created_at: string
+          description: string | null
           display_order: number
           id: string
           organization: string
@@ -207,6 +208,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          description?: string | null
           display_order?: number
           id?: string
           organization: string
@@ -217,6 +219,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          description?: string | null
           display_order?: number
           id?: string
           organization?: string
