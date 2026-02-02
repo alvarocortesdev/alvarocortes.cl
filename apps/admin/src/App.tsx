@@ -6,6 +6,8 @@ import { PostList } from '@/pages/PostList'
 import { PostForm } from '@/pages/PostForm'
 import { ProjectList } from '@/pages/ProjectList'
 import { ProjectForm } from '@/pages/ProjectForm'
+import { TimelineList } from '@/pages/TimelineList'
+import { TechCategoryList } from '@/pages/TechCategoryList'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
 
 export function App() {
@@ -66,6 +68,22 @@ export function App() {
         element={
           <ProtectedRoute>
             <ProjectForm />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/timeline"
+        element={
+          <ProtectedRoute>
+            <TimelineList />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/tech-categories"
+        element={
+          <ProtectedRoute>
+            <TechCategoryList />
           </ProtectedRoute>
         }
       />
