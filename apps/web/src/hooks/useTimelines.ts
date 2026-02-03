@@ -10,6 +10,7 @@ export interface TimelineEntry {
   description: string | null
   display_order: number
   created_at: string
+  updated_at: string
 }
 
 export function useTimelines() {

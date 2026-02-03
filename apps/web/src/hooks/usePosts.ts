@@ -7,11 +7,14 @@ export interface Post {
   slug: string
   content: string
   excerpt: string
+  author: string
   category: string
   tags: string[]
   status: string
+  publish_at: string | null
   published_at: string | null
   created_at: string
+  updated_at: string
 }
 
 export function usePosts() {

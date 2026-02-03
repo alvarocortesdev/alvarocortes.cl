@@ -5,13 +5,15 @@ export interface Project {
   id: string
   name: string
   description: string
+  details: string
   tech_stack: string[]
   live_url: string | null
   repo_url: string | null
-  thumbnail_url: string | null
+  image_url: string | null
   featured: boolean
   display_order: number
   created_at: string
+  updated_at: string
 }
 
 export function useProjects() {

@@ -5,13 +5,18 @@ export interface Technology {
   id: string
   name: string
   icon: string
+  category_id: string
   display_order: number
+  created_at: string
+  updated_at: string
 }
 
 export interface TechCategory {
   id: string
   name: string
   display_order: number
+  created_at: string
+  updated_at: string
   technologies: Technology[]
 }
 
@@ -35,7 +40,7 @@ export function useTechCategories() {
 
       return categories.map(cat => ({
         ...cat,
-        technologies: technologies.filter(tech => tech.tech_category_id === cat.id)
+        technologies: technologies.filter(tech => tech.category_id === cat.id)
       })) as TechCategory[]
     },
   })
