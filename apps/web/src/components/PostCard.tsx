@@ -4,12 +4,13 @@ interface PostCardProps {
   slug: string
   title: string
   excerpt: string
-  date: string
+  published_at: string | null
+  created_at: string
   tags: string[]
 }
 
-export function PostCard({ slug, title, excerpt, date, tags }: PostCardProps) {
-  const formattedDate = new Date(date).toLocaleDateString('es-ES', {
+export function PostCard({ slug, title, excerpt, published_at, created_at, tags }: PostCardProps) {
+  const formattedDate = new Date(published_at || created_at).toLocaleDateString('es-ES', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'

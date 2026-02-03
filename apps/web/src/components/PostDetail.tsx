@@ -1,12 +1,34 @@
 import { useParams, Link } from 'react-router-dom'
-import { getPostBySlug } from '../data/posts'
+import { motion } from 'framer-motion'
+import { usePost } from '../hooks/usePost'
+import { sanitizeHtml } from '../lib/sanitize'
 import { ShareButtons } from './ShareButtons'
 
 export function PostDetail() {
   const { slug } = useParams<{ slug: string }>()
-  const post = slug ? getPostBySlug(slug) : undefined
+  const { data: post, isLoading, error } = usePost(slug || '')
 
-  if (!post) {
+  if (isLoading) {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.15 }}
+        className="max-w-3xl mx-auto px-6 py-8"
+      >
+        <div className="h-4 w-20 bg-neutral-800 rounded mb-6 animate-pulse" />
+        <div className="h-10 w-3/4 bg-neutral-800 rounded mb-4 animate-pulse" />
+        <div className="h-4 w-1/2 bg-neutral-800/50 rounded mb-8 animate-pulse" />
+        <div className="space-y-4">
+          {[...Array(5)].map((_, i) => (
+            <div key={i} className="h-4 bg-neutral-800/30 rounded animate-pulse" />
+          ))}
+        </div>
+      </motion.div>
+    )
+  }
+
+  if (error || !post) {
     return (
       <div className="max-w-3xl mx-auto px-6 py-8">
         <h1 className="text-2xl font-bold text-white mb-4">Post not found</h1>
@@ -17,7 +39,7 @@ export function PostDetail() {
     )
   }
 
-  const formattedDate = new Date(post.date).toLocaleDateString('es-ES', {
+  const formattedDate = new Date(post.published_at || post.created_at).toLocaleDateString('es-ES', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
@@ -28,7 +50,12 @@ export function PostDetail() {
     : `https://alvarocortes.vercel.app/blog/${post.slug}`
 
   return (
-    <article className="max-w-3xl mx-auto px-6 py-8">
+    <motion.article
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.15 }}
+      className="max-w-3xl mx-auto px-6 py-8"
+    >
       {/* Back link */}
       <Link to="/blog" className="text-blue-400 hover:text-blue-300 text-sm mb-6 inline-block">
         &larr; Back to blog
@@ -63,13 +90,13 @@ export function PostDetail() {
           prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
           prose-code:text-blue-300 prose-code:bg-neutral-800 prose-code:px-1 prose-code:rounded
           prose-ul:text-neutral-300 prose-li:text-neutral-300"
-        dangerouslySetInnerHTML={{ __html: post.content }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }}
       />
 
       {/* Share buttons - POST-04 */}
       <div className="border-t border-neutral-700 pt-6">
         <ShareButtons title={post.title} url={currentUrl} />
       </div>
-    </article>
+    </motion.article>
   )
 }
