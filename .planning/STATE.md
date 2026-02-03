@@ -11,11 +11,11 @@ See: .planning/PROJECT.md (updated 2026-01-26)
 
 Milestone: v1.3 Admin Panel
 Phase: 18 (Site Integration) — IN PROGRESS
-Plan: 2 of TBD
+Plan: 3 of TBD
 Status: In progress
-Last activity: 2026-02-03 — Completed 18-02-PLAN.md
+Last activity: 2026-02-03 — Completed 18-03-PLAN.md
 
-Progress: ██████████████████████████████████░░░░░░░ 85% (v1.3 - Phase 18 Plan 02 complete)
+Progress: ██████████████████████████████████░░░░░░░ 87% (v1.3 - Phase 18 Plan 03 complete)
 
 ## Milestone History
 
@@ -64,7 +64,7 @@ Progress: ███████████████████████�
 | 15-blog-crud | 4/4 | ~45 min | ~11 min |
 | 16-projects-crud | 3/3 | ~5 min | ~2 min |
 | 17-timeline-tech-crud | 5/5 | ~8 min | ~1.6 min |
-| 18-site-integration | 2/? | ~4 min | ~2 min |
+| 18-site-integration | 3/? | ~6 min | ~2 min |
 
 ## Accumulated Context
 
@@ -139,6 +139,12 @@ Summary:
 - Published content filtering at database query level
 - Client-side joins for nested data relationships
 - Enabled guards for conditional queries
+- Component integration pattern: replace hardcoded data → add hook → add loading/error/empty states → wrap in motion.div
+- Loading states use skeleton UI with 150ms fade-in
+- Error states use red-themed alert boxes
+- Empty states provide contextual messaging
+- HTML sanitization before dangerouslySetInnerHTML
+- Date field flexibility: published_at || created_at fallback pattern
 
 ### Pending Todos
 
@@ -151,7 +157,7 @@ Summary:
 
 ### Blockers/Concerns
 
-None — Phase 18 Plan 02 complete. Query hooks ready for component integration.
+None — Phase 18 Plan 03 complete. Blog components integrated. Ready for projects/timelines/tech integration.
 
 ### Deferred to v1.4+
 
@@ -161,8 +167,8 @@ None — Phase 18 Plan 02 complete. Query hooks ready for component integration.
 ## Session Continuity
 
 Last session: 2026-02-03
-Stopped at: Completed 18-02-PLAN.md
+Stopped at: Completed 18-03-PLAN.md
 Resume file: None
 
 ---
-*Last updated: 2026-02-03 — Phase 18 Plan 02 complete*
+*Last updated: 2026-02-03 — Phase 18 Plan 03 complete*
