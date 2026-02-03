@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { TIMELINE_DATA, type TimelineEntry } from "../data/timeline"
+import { useTimelines, type TimelineEntry } from "../hooks/useTimelines"
 
 function TimelineCard({ entry, index, isLast }: { entry: TimelineEntry; index: number; isLast: boolean }) {
   const isWork = entry.type === "work"
@@ -67,6 +67,52 @@ function TimelineCard({ entry, index, isLast }: { entry: TimelineEntry; index: n
 }
 
 export function Timeline() {
+  const { data: entries = [], isLoading, error } = useTimelines()
+
+  if (isLoading) {
+    return (
+      <div className="relative">
+        <div className="flex flex-col gap-4 md:flex-row md:gap-6">
+          {[...Array(3)].map((_, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.15 }}
+              className="w-full md:w-72 md:flex-shrink-0 h-40 bg-neutral-800/50 rounded-lg animate-pulse"
+            />
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.15 }}
+        className="text-red-400 p-6 rounded-lg bg-red-900/20 border border-red-800"
+      >
+        <p className="font-medium">Failed to load timeline</p>
+      </motion.div>
+    )
+  }
+
+  if (entries.length === 0) {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.15 }}
+        className="text-neutral-400 text-center py-8 bg-neutral-800/30 rounded-lg"
+      >
+        No timeline entries yet.
+      </motion.div>
+    )
+  }
+
   return (
     <div className="relative">
       {/* Scroll container */}
@@ -79,12 +125,12 @@ export function Timeline() {
       >
         {/* Flex container: vertical on mobile, horizontal on desktop */}
         <div className="flex flex-col gap-4 md:flex-row md:gap-6 md:min-w-max">
-          {TIMELINE_DATA.map((entry, index) => (
+          {entries.map((entry, index) => (
             <TimelineCard
               key={entry.id}
               entry={entry}
               index={index}
-              isLast={index === TIMELINE_DATA.length - 1}
+              isLast={index === entries.length - 1}
             />
           ))}
         </div>
