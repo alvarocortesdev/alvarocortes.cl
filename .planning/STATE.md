@@ -10,12 +10,12 @@ See: .planning/PROJECT.md (updated 2026-01-26)
 ## Current Position
 
 Milestone: v1.3 Admin Panel
-Phase: 17 (Timeline & Tech CRUD) — COMPLETE
-Plan: 5 of 5
-Status: Phase complete, verified 25/25
-Last activity: 2026-02-03 — Phase 17 complete and verified
+Phase: 18 (Site Integration) — IN PROGRESS
+Plan: 1 of TBD
+Status: In progress
+Last activity: 2026-02-03 — Completed 18-01-PLAN.md
 
-Progress: ██████████████████████████████████░░░░░░░ 83% (v1.3 - Phase 17 complete, Phase 18 next)
+Progress: ██████████████████████████████████░░░░░░░ 84% (v1.3 - Phase 18 Plan 01 complete)
 
 ## Milestone History
 
@@ -64,6 +64,7 @@ Progress: ███████████████████████�
 | 15-blog-crud | 4/4 | ~45 min | ~11 min |
 | 16-projects-crud | 3/3 | ~5 min | ~2 min |
 | 17-timeline-tech-crud | 5/5 | ~8 min | ~1.6 min |
+| 18-site-integration | 1/? | ~2 min | ~2 min |
 
 ## Accumulated Context
 
@@ -130,6 +131,10 @@ Summary:
 - Inline entity management within parent form (edit mode only)
 - Dashboard card pattern with counts and navigation
 - Parallel data loading with Promise.all for counts
+- QueryClientProvider at app root with locked config (5min staleTime, 2 retries)
+- Utility files in apps/web/src/lib/ directory
+- sanitizeHtml function for rich text content rendering
+- Supabase client pattern: env validation + typed createClient
 
 ### Pending Todos
 
@@ -142,7 +147,7 @@ Summary:
 
 ### Blockers/Concerns
 
-None — Phase 17 complete. Ready for Phase 18 (Site Integration).
+None — Phase 18 Plan 01 complete. Web app data fetching infrastructure ready.
 
 ### Deferred to v1.4+
 
@@ -152,8 +157,8 @@ None — Phase 17 complete. Ready for Phase 18 (Site Integration).
 ## Session Continuity
 
 Last session: 2026-02-03
-Stopped at: Phase 17 verified. Ready for Phase 18 (Site Integration).
+Stopped at: Completed 18-01-PLAN.md
 Resume file: None
 
 ---
-*Last updated: 2026-02-03 — Phase 17 complete, verified*
+*Last updated: 2026-02-03 — Phase 18 Plan 01 complete*
