@@ -11,11 +11,11 @@ See: .planning/PROJECT.md (updated 2026-01-26)
 
 Milestone: v1.3 Admin Panel
 Phase: 18 (Site Integration) — IN PROGRESS
-Plan: 1 of TBD
+Plan: 2 of TBD
 Status: In progress
-Last activity: 2026-02-03 — Completed 18-01-PLAN.md
+Last activity: 2026-02-03 — Completed 18-02-PLAN.md
 
-Progress: ██████████████████████████████████░░░░░░░ 84% (v1.3 - Phase 18 Plan 01 complete)
+Progress: ██████████████████████████████████░░░░░░░ 85% (v1.3 - Phase 18 Plan 02 complete)
 
 ## Milestone History
 
@@ -64,7 +64,7 @@ Progress: ███████████████████████�
 | 15-blog-crud | 4/4 | ~45 min | ~11 min |
 | 16-projects-crud | 3/3 | ~5 min | ~2 min |
 | 17-timeline-tech-crud | 5/5 | ~8 min | ~1.6 min |
-| 18-site-integration | 1/? | ~2 min | ~2 min |
+| 18-site-integration | 2/? | ~4 min | ~2 min |
 
 ## Accumulated Context
 
@@ -135,6 +135,10 @@ Summary:
 - Utility files in apps/web/src/lib/ directory
 - sanitizeHtml function for rich text content rendering
 - Supabase client pattern: env validation + typed createClient
+- React Query hook pattern: one hook per content type with typed interfaces
+- Published content filtering at database query level
+- Client-side joins for nested data relationships
+- Enabled guards for conditional queries
 
 ### Pending Todos
 
@@ -147,7 +151,7 @@ Summary:
 
 ### Blockers/Concerns
 
-None — Phase 18 Plan 01 complete. Web app data fetching infrastructure ready.
+None — Phase 18 Plan 02 complete. Query hooks ready for component integration.
 
 ### Deferred to v1.4+
 
@@ -157,8 +161,8 @@ None — Phase 18 Plan 01 complete. Web app data fetching infrastructure ready.
 ## Session Continuity
 
 Last session: 2026-02-03
-Stopped at: Completed 18-01-PLAN.md
+Stopped at: Completed 18-02-PLAN.md
 Resume file: None
 
 ---
-*Last updated: 2026-02-03 — Phase 18 Plan 01 complete*
+*Last updated: 2026-02-03 — Phase 18 Plan 02 complete*
