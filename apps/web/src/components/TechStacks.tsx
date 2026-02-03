@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { TECH_STACKS, type TechCategory, type Technology } from "../data/techStacks"
+import { useTechCategories, type TechCategory, type Technology } from "../hooks/useTechCategories"
 import { useState } from "react"
 
 function TechIcon({ tech }: { tech: Technology }) {
@@ -48,9 +48,53 @@ function TechCard({ category, index }: { category: TechCategory; index: number }
 }
 
 export function TechStacks() {
+  const { data: categories = [], isLoading, error } = useTechCategories()
+
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        {[...Array(4)].map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.15 }}
+            className="h-64 bg-neutral-800/50 rounded-lg animate-pulse"
+          />
+        ))}
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.15 }}
+        className="text-red-400 p-6 rounded-lg bg-red-900/20 border border-red-800"
+      >
+        <p className="font-medium">Failed to load tech stacks</p>
+      </motion.div>
+    )
+  }
+
+  if (categories.length === 0) {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.15 }}
+        className="text-neutral-400 text-center py-8 bg-neutral-800/30 rounded-lg"
+      >
+        No tech categories yet.
+      </motion.div>
+    )
+  }
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-      {TECH_STACKS.map((category, index) => (
+      {categories.map((category, index) => (
         <TechCard key={category.id} category={category} index={index} />
       ))}
     </div>

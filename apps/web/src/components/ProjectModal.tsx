@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import type { Project } from "../data/projects"
+import type { Project } from "../hooks/useProjects"
 
 interface ProjectModalProps {
   project: Project | null
@@ -115,22 +115,22 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                     Tech Stack
                   </h3>
                   <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech) => (
+                    {project.tech_stack.map((tech) => (
                       <TechBadge key={tech} tech={tech} />
                     ))}
                   </div>
                 </div>
 
                 {/* Links */}
-                {(project.liveUrl || project.repoUrl) && (
+                {(project.live_url || project.repo_url) && (
                   <div>
                     <h3 className="text-sm font-semibold text-neutral-400 uppercase tracking-wider mb-3">
                       Links
                     </h3>
                     <div className="flex gap-4">
-                      {project.liveUrl && (
+                      {project.live_url && (
                         <a
-                          href={project.liveUrl}
+                          href={project.live_url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
@@ -151,9 +151,9 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                           View Live
                         </a>
                       )}
-                      {project.repoUrl && (
+                      {project.repo_url && (
                         <a
-                          href={project.repoUrl}
+                          href={project.repo_url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
