@@ -10,12 +10,12 @@ See: .planning/PROJECT.md (updated 2026-01-26)
 ## Current Position
 
 Milestone: v1.3 Admin Panel
-Phase: 17 (Timeline & Tech CRUD) — IN PROGRESS
-Plan: 4 of 5
-Status: In progress
-Last activity: 2026-02-02 — Completed 17-04-PLAN.md (Tech Category CRUD UI)
+Phase: 17 (Timeline & Tech CRUD) — COMPLETE
+Plan: 5 of 5
+Status: Complete - ready for Phase 18
+Last activity: 2026-02-03 — Completed 17-05-PLAN.md (Dashboard Integration)
 
-Progress: ████████████████████████████░░░░░░░░░░░░░ 70% (v1.3 - Phase 17 in progress)
+Progress: ████████████████████████████████░░░░░░░░░ 75% (v1.3 - Phase 17 complete)
 
 ## Milestone History
 
@@ -63,7 +63,7 @@ Progress: ███████████████████████�
 | 14-authentication | 3/3 | ~15 min | ~5 min |
 | 15-blog-crud | 4/4 | ~45 min | ~11 min |
 | 16-projects-crud | 3/3 | ~5 min | ~2 min |
-| 17-timeline-tech-crud | 4/5 | ~6 min | ~2 min |
+| 17-timeline-tech-crud | 5/5 | ~8 min | ~1.6 min |
 
 ## Accumulated Context
 
@@ -128,19 +128,21 @@ Summary:
 - Expandable/collapsible list items with Set-based state
 - Create-then-edit pattern for parent-child form relationships
 - Inline entity management within parent form (edit mode only)
+- Dashboard card pattern with counts and navigation
+- Parallel data loading with Promise.all for counts
 
 ### Pending Todos
 
 - [x] Plan and execute Phase 13 (Admin Foundation)
 - [x] Plan and execute Phase 14 (Authentication)
 - [x] Plan and execute Phase 15 (Blog CRUD) — complete (4/4 plans)
-- [x] Plan and execute Phase 16 (Projects CRUD)
-- [ ] Plan and execute Phase 17 (Timeline & Tech CRUD)
+- [x] Plan and execute Phase 16 (Projects CRUD) — complete (3/3 plans)
+- [x] Plan and execute Phase 17 (Timeline & Tech CRUD) — complete (5/5 plans)
 - [ ] Plan and execute Phase 18 (Site Integration)
 
 ### Blockers/Concerns
 
-None — Phase 17 Plan 04 complete, ready for Plan 05 (Timeline Form).
+None — Phase 17 complete. Ready for Phase 18 (Site Integration).
 
 ### Deferred to v1.4+
 
@@ -149,9 +151,9 @@ None — Phase 17 Plan 04 complete, ready for Plan 05 (Timeline Form).
 
 ## Session Continuity
 
-Last session: 2026-02-02
-Stopped at: Completed 17-04-PLAN.md (Tech Category CRUD UI)
+Last session: 2026-02-03
+Stopped at: Completed 17-05-PLAN.md (Dashboard Integration)
 Resume file: None
 
 ---
-*Last updated: 2026-02-02 — Phase 17 Plan 04 complete*
+*Last updated: 2026-02-03 — Phase 17 complete*
