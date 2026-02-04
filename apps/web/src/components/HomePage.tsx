@@ -54,7 +54,7 @@ export function HomePage() {
 
       {/* Portfolio sections — scroll reveal */}
       <div className="max-w-6xl mx-auto px-6 py-12">
-        <RevealSection id="portfolio" className="mb-16">
+        <RevealSection id="portfolio" className="mb-16 scroll-mt-20">
           <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
             Mi Trayectoria
           </h2>

@@ -2,7 +2,7 @@ import avatar from "@/assets/avatar.jpeg"
 
 export function Banner() {
   return (
-    <section className="py-12 md:py-20 lg:py-32">
+    <section className="pt-12 pb-4 md:pt-20 md:pb-6 lg:pt-32 lg:pb-8">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center">
           {/* Photo placeholder */}
