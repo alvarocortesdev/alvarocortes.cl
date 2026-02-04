@@ -4,7 +4,7 @@ import { usePost } from '../hooks/usePost'
 import { sanitizeHtml } from '../lib/sanitize'
 import { ShareButtons } from './ShareButtons'
 import { useLanguage } from '../context/LanguageContext'
-import { useTranslation } from '../i18n/useTranslation'
+import { useTranslation, localized } from '../i18n/useTranslation'
 import type { TranslationKey } from '../i18n/translations'
 
 export function PostDetail() {
@@ -68,7 +68,7 @@ export function PostDetail() {
       </Link>
 
       {/* Title */}
-      <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">{post.title}</h1>
+      <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">{localized(post, 'title', lang)}</h1>
 
       {/* Metadata - POST-02 */}
       <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-400 mb-6">
@@ -96,12 +96,12 @@ export function PostDetail() {
           prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
           prose-code:text-blue-300 prose-code:bg-neutral-800 prose-code:px-1 prose-code:rounded
           prose-ul:text-neutral-300 prose-li:text-neutral-300"
-        dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(localized(post, 'content', lang)) }}
       />
 
       {/* Share buttons - POST-04 */}
       <div className="border-t border-neutral-700 pt-6">
-        <ShareButtons title={post.title} url={currentUrl} />
+        <ShareButtons title={localized(post, 'title', lang)} url={currentUrl} />
       </div>
     </motion.article>
   )

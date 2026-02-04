@@ -2,7 +2,8 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { useProjects, type Project } from "../hooks/useProjects"
 import { ProjectModal } from "./ProjectModal"
-import { useTranslation } from "../i18n/useTranslation"
+import { useTranslation, localized } from "../i18n/useTranslation"
+import { useLanguage } from "../context/LanguageContext"
 
 function TechBadge({ tech }: { tech: string }) {
   return (
@@ -17,11 +18,13 @@ function ProjectCard({
   index,
   onClick,
   t,
+  lang,
 }: {
   project: Project
   index: number
   onClick: () => void
   t: (key: import('../i18n/translations').TranslationKey) => string
+  lang: 'es' | 'en'
 }) {
   return (
     <motion.div
@@ -48,12 +51,12 @@ function ProjectCard({
       <div className="p-5">
       {/* Project Name */}
       <h3 className="text-lg font-bold text-white mb-2">
-        {project.name}
+        {localized(project, 'name', lang)}
       </h3>
 
       {/* Description */}
       <p className="text-neutral-300 text-sm mb-4 line-clamp-2">
-        {project.description}
+        {localized(project, 'description', lang)}
       </p>
 
       {/* Tech Stack Badges */}
@@ -91,6 +94,7 @@ export function ProjectsBento() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const { data: projects = [], isLoading, error } = useProjects()
   const { t } = useTranslation()
+  const { lang } = useLanguage()
 
   if (isLoading) {
     return (
@@ -144,6 +148,7 @@ export function ProjectsBento() {
             index={index}
             onClick={() => setSelectedProject(project)}
             t={t}
+            lang={lang}
           />
         ))}
       </div>

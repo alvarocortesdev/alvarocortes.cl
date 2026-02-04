@@ -4,9 +4,12 @@ import { supabase } from '../lib/supabase'
 export interface Post {
   id: string
   title: string
+  title_en?: string | null
   slug: string
   content: string
+  content_en?: string | null
   excerpt: string
+  excerpt_en?: string | null
   author: string
   category: string
   tags: string[]

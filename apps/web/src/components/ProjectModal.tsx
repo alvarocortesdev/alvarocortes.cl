@@ -1,7 +1,8 @@
 import { useEffect } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import type { Project } from "../hooks/useProjects"
-import { useTranslation } from "../i18n/useTranslation"
+import { useTranslation, localized } from "../i18n/useTranslation"
+import { useLanguage } from "../context/LanguageContext"
 
 interface ProjectModalProps {
   project: Project | null
@@ -19,6 +20,7 @@ function TechBadge({ tech }: { tech: string }) {
 
 export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   const { t } = useTranslation()
+  const { lang } = useLanguage()
 
   // Handle Escape key to close modal
   useEffect(() => {
@@ -77,7 +79,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b border-neutral-700">
                 <h2 id="modal-title" className="text-xl font-bold text-white">
-                  {project.name}
+                  {localized(project, 'name', lang)}
                 </h2>
                 <button
                   onClick={onClose}
@@ -104,7 +106,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
               {project.image_url && (
                 <img
                   src={project.image_url}
-                  alt={project.name}
+                  alt={localized(project, 'name', lang)}
                   className="w-full aspect-video object-cover"
                 />
               )}
@@ -117,7 +119,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                     {t('projectModal.about')}
                   </h3>
                   <p className="text-neutral-200 leading-relaxed whitespace-pre-line">
-                    {project.details}
+                    {localized(project, 'details', lang)}
                   </p>
                 </div>
 

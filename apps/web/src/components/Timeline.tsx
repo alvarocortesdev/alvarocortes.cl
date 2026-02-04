@@ -1,8 +1,9 @@
 import { motion } from "framer-motion"
 import { useTimelines, type TimelineEntry } from "../hooks/useTimelines"
-import { useTranslation } from "../i18n/useTranslation"
+import { useTranslation, localized } from "../i18n/useTranslation"
+import { useLanguage } from "../context/LanguageContext"
 
-function TimelineCard({ entry, index, isLast, t }: { entry: TimelineEntry; index: number; isLast: boolean; t: (key: import('../i18n/translations').TranslationKey) => string }) {
+function TimelineCard({ entry, index, isLast, t, lang }: { entry: TimelineEntry; index: number; isLast: boolean; t: (key: import('../i18n/translations').TranslationKey) => string; lang: 'es' | 'en' }) {
   const isWork = entry.type === "work"
 
   return (
@@ -55,7 +56,7 @@ function TimelineCard({ entry, index, isLast, t }: { entry: TimelineEntry; index
 
         {/* Title */}
         <div className="text-neutral-200 font-medium mb-1">
-          {entry.title}
+          {localized(entry, 'title', lang)}
         </div>
 
         {/* Organization */}
@@ -70,6 +71,7 @@ function TimelineCard({ entry, index, isLast, t }: { entry: TimelineEntry; index
 export function Timeline() {
   const { data: entries = [], isLoading, error } = useTimelines()
   const { t } = useTranslation()
+  const { lang } = useLanguage()
 
   if (isLoading) {
     return (
@@ -134,6 +136,7 @@ export function Timeline() {
               index={index}
               isLast={index === entries.length - 1}
               t={t}
+              lang={lang}
             />
           ))}
         </div>

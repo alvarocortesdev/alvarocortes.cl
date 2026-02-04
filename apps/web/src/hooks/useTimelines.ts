@@ -5,9 +5,11 @@ export interface TimelineEntry {
   id: string
   period: string
   title: string
+  title_en?: string | null
   organization: string
   type: 'work' | 'studies'
   description: string | null
+  description_en?: string | null
   display_order: number
   created_at: string
   updated_at: string

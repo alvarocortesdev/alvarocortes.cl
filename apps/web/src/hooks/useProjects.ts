@@ -4,8 +4,11 @@ import { supabase } from '../lib/supabase'
 export interface Project {
   id: string
   name: string
+  name_en?: string | null
   description: string
+  description_en?: string | null
   details: string
+  details_en?: string | null
   tech_stack: string[]
   live_url: string | null
   repo_url: string | null
