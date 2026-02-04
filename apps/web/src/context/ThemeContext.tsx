@@ -7,11 +7,7 @@ interface ThemeContextType {
   toggleTheme: () => void
 }
 
-const STORAGE_KEY = 'theme-preference'
-
 function getColorPreference(): Theme {
-  const stored = localStorage.getItem(STORAGE_KEY)
-  if (stored === 'light' || stored === 'dark') return stored
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
@@ -33,7 +29,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     reflectPreference(theme)
-    localStorage.setItem(STORAGE_KEY, theme)
   }, [theme])
 
   // Sync with system preference changes
