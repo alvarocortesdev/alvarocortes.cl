@@ -86,7 +86,7 @@ export function PostDetail() {
       <div
         className="prose prose-invert prose-neutral max-w-none mb-8
           prose-headings:text-white prose-headings:font-semibold
-          prose-p:text-neutral-300 prose-p:leading-relaxed
+          prose-p:text-neutral-300 prose-p:leading-relaxed prose-p:mb-4
           prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
           prose-code:text-blue-300 prose-code:bg-neutral-800 prose-code:px-1 prose-code:rounded
           prose-ul:text-neutral-300 prose-li:text-neutral-300"

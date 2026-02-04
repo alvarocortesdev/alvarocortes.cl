@@ -1,7 +1,8 @@
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Link from '@tiptap/extension-link'
-import Image from '@tiptap/extension-image'
+import ImageResize from 'tiptap-extension-resize-image'
+import TextAlign from '@tiptap/extension-text-align'
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { toast } from 'react-toastify'
 import { uploadImage } from '../lib/storage'
@@ -44,10 +45,9 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
           class: 'text-blue-400 underline',
         },
       }),
-      Image.configure({
-        HTMLAttributes: {
-          class: 'max-w-full rounded-lg my-4',
-        },
+      ImageResize,
+      TextAlign.configure({
+        types: ['heading', 'paragraph'],
       }),
     ],
     content,
@@ -151,7 +151,7 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
       const result = await uploadImage(file)
 
       if (insertMode === 'embedded') {
-        editor.chain().focus().setImage({ src: result.url }).run()
+        ;(editor.chain().focus() as any).setImage({ src: result.url }).run()
         toast.success('Image uploaded')
       } else {
         // Link mode - insert as text link
@@ -224,6 +224,45 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
           title="Heading 3"
         >
           H3
+        </ToolbarButton>
+
+        <div className="w-px bg-neutral-600 mx-1" />
+
+        <ToolbarButton
+          onClick={() => editor.chain().focus().setTextAlign('left').run()}
+          active={editor.isActive({ textAlign: 'left' })}
+          title="Align Left"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+            <line x1="2" y1="3" x2="14" y2="3" /><line x1="2" y1="6.5" x2="10" y2="6.5" /><line x1="2" y1="10" x2="14" y2="10" /><line x1="2" y1="13.5" x2="10" y2="13.5" />
+          </svg>
+        </ToolbarButton>
+        <ToolbarButton
+          onClick={() => editor.chain().focus().setTextAlign('center').run()}
+          active={editor.isActive({ textAlign: 'center' })}
+          title="Align Center"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+            <line x1="2" y1="3" x2="14" y2="3" /><line x1="4" y1="6.5" x2="12" y2="6.5" /><line x1="2" y1="10" x2="14" y2="10" /><line x1="4" y1="13.5" x2="12" y2="13.5" />
+          </svg>
+        </ToolbarButton>
+        <ToolbarButton
+          onClick={() => editor.chain().focus().setTextAlign('right').run()}
+          active={editor.isActive({ textAlign: 'right' })}
+          title="Align Right"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+            <line x1="2" y1="3" x2="14" y2="3" /><line x1="6" y1="6.5" x2="14" y2="6.5" /><line x1="2" y1="10" x2="14" y2="10" /><line x1="6" y1="13.5" x2="14" y2="13.5" />
+          </svg>
+        </ToolbarButton>
+        <ToolbarButton
+          onClick={() => editor.chain().focus().setTextAlign('justify').run()}
+          active={editor.isActive({ textAlign: 'justify' })}
+          title="Justify"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+            <line x1="2" y1="3" x2="14" y2="3" /><line x1="2" y1="6.5" x2="14" y2="6.5" /><line x1="2" y1="10" x2="14" y2="10" /><line x1="2" y1="13.5" x2="14" y2="13.5" />
+          </svg>
         </ToolbarButton>
 
         <div className="w-px bg-neutral-600 mx-1" />

@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import DOMPurify from 'dompurify'
 
 interface PreviewModalProps {
   isOpen: boolean
@@ -116,7 +117,7 @@ export function PreviewModal({
               prose-headings:text-white prose-headings:font-bold
               prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4
               prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3
-              prose-p:text-neutral-300 prose-p:leading-relaxed
+              prose-p:text-neutral-300 prose-p:leading-relaxed prose-p:mb-4
               prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
               prose-strong:text-white
               prose-code:text-pink-400 prose-code:bg-neutral-800 prose-code:px-1 prose-code:rounded
@@ -126,7 +127,18 @@ export function PreviewModal({
               prose-ul:list-disc prose-ul:pl-6
               prose-ol:list-decimal prose-ol:pl-6
               prose-li:text-neutral-300"
-            dangerouslySetInnerHTML={{ __html: content || '<p class="text-neutral-500">Sin contenido</p>' }}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content || '<p class="text-neutral-500">Sin contenido</p>', {
+              ALLOWED_TAGS: [
+                'p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+                'ul', 'ol', 'li', 'blockquote', 'a', 'code', 'pre', 'img', 'iframe'
+              ],
+              ALLOWED_ATTR: [
+                'href', 'title', 'target', 'src', 'alt', 'width', 'height',
+                'allow', 'allowfullscreen', 'frameborder', 'class', 'style'
+              ],
+              ALLOW_DATA_ATTR: false,
+              ALLOW_ARIA_ATTR: true,
+            }) }}
           />
         </article>
       </div>

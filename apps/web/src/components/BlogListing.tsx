@@ -1,15 +1,19 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { PostCard } from './PostCard'
 import { Pagination } from './Pagination'
-import { usePosts } from '../hooks/usePosts'
+import type { Post } from '../hooks/usePosts'
 
 const POSTS_PER_PAGE = 4
 
-export function BlogListing() {
-  const [currentPage, setCurrentPage] = useState(1)
-  const { data: posts = [], isLoading, error } = usePosts()
+interface BlogListingProps {
+  posts: Post[]
+  isLoading: boolean
+  error: Error | null
+  currentPage: number
+  onPageChange: (page: number) => void
+}
 
+export function BlogListing({ posts, isLoading, error, currentPage, onPageChange }: BlogListingProps) {
   if (isLoading) {
     return (
       <motion.div
@@ -47,8 +51,8 @@ export function BlogListing() {
         transition={{ duration: 0.15 }}
         className="text-neutral-400 text-center py-12 bg-neutral-800/30 rounded-lg"
       >
-        <p className="text-lg mb-2">No posts published yet</p>
-        <p className="text-sm">Check back soon for new content.</p>
+        <p className="text-lg mb-2">No posts found</p>
+        <p className="text-sm">Try adjusting your filters.</p>
       </motion.div>
     )
   }
@@ -74,7 +78,7 @@ export function BlogListing() {
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
-          onPageChange={setCurrentPage}
+          onPageChange={onPageChange}
         />
       )}
     </div>
