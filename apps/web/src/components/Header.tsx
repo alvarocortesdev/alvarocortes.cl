@@ -3,6 +3,8 @@ import avatar from "@/assets/avatar.jpeg"
 import { useState } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useTheme } from "../context/ThemeContext"
+import { useLanguage } from "../context/LanguageContext"
+import { useTranslation } from "../i18n/useTranslation"
 
 function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()
@@ -36,10 +38,25 @@ function ThemeToggle() {
   )
 }
 
+function LanguageToggle() {
+  const { lang, setLang } = useLanguage()
+
+  return (
+    <button
+      className="w-8 h-8 rounded-full border border-[var(--border-subtle)] text-xs font-bold text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 flex items-center justify-center"
+      onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
+      aria-label={lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+    >
+      {lang === 'es' ? 'EN' : 'ES'}
+    </button>
+  )
+}
+
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
+  const { t } = useTranslation()
 
   const handlePortfolioClick = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -74,26 +91,28 @@ export function Header() {
             to="/"
             className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 text-sm font-medium"
           >
-            Inicio
+            {t('nav.home')}
           </Link>
           <a
             href="#portfolio"
             onClick={handlePortfolioClick}
             className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 text-sm font-medium"
           >
-            Portafolio
+            {t('nav.portfolio')}
           </a>
           <Link
             to="/blog"
             className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 text-sm font-medium"
           >
-            Blog
+            {t('nav.blog')}
           </Link>
+          <LanguageToggle />
           <ThemeToggle />
         </nav>
 
-        {/* Mobile: theme toggle + hamburger */}
+        {/* Mobile: lang toggle + theme toggle + hamburger */}
         <div className="flex md:hidden items-center gap-2">
+          <LanguageToggle />
           <ThemeToggle />
           <button
             className="p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200"
@@ -124,21 +143,21 @@ export function Header() {
             onClick={() => setMenuOpen(false)}
             className="block py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 text-sm font-medium"
           >
-            Inicio
+            {t('nav.home')}
           </Link>
           <a
             href="#portfolio"
             onClick={handlePortfolioClick}
             className="block py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 text-sm font-medium"
           >
-            Portafolio
+            {t('nav.portfolio')}
           </a>
           <Link
             to="/blog"
             onClick={() => setMenuOpen(false)}
             className="block py-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 text-sm font-medium"
           >
-            Blog
+            {t('nav.blog')}
           </Link>
         </nav>
       )}

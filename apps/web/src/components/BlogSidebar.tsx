@@ -1,6 +1,9 @@
 import { useMemo, useState } from 'react'
 import type { Post } from '../hooks/usePosts'
 import type { BlogFilters } from './BlogPage'
+import { useTranslation } from '../i18n/useTranslation'
+import { useLanguage } from '../context/LanguageContext'
+import type { TranslationKey } from '../i18n/translations'
 
 interface BlogSidebarProps {
   posts: Post[]
@@ -15,6 +18,8 @@ interface CalendarWidgetProps {
 }
 
 function CalendarWidget({ posts, selectedDate, onDateSelect }: CalendarWidgetProps) {
+  const { lang } = useLanguage()
+  const locale = lang === 'en' ? 'en-US' : 'es-CL'
   const [viewYear, setViewYear] = useState(() => new Date().getFullYear())
   const [viewMonth, setViewMonth] = useState(() => new Date().getMonth())
 
@@ -32,7 +37,7 @@ function CalendarWidget({ posts, selectedDate, onDateSelect }: CalendarWidgetPro
     return days
   }, [posts, viewYear, viewMonth])
 
-  const monthLabel = new Date(viewYear, viewMonth).toLocaleString('default', { month: 'long' })
+  const monthLabel = new Date(viewYear, viewMonth).toLocaleString(locale, { month: 'long' })
 
   const goToPrevMonth = () => {
     if (viewMonth === 0) {
@@ -130,6 +135,7 @@ function CalendarWidget({ posts, selectedDate, onDateSelect }: CalendarWidgetPro
 }
 
 export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps) {
+  const { t } = useTranslation()
   const tags = useMemo(() => {
     const tagSet = new Set<string>()
     posts.forEach(post => post.tags.forEach(t => tagSet.add(t)))
@@ -152,10 +158,10 @@ export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps
     <div className="space-y-6">
       {/* Search - SIDE-01 */}
       <div>
-        <h3 className="text-sm font-semibold text-white mb-3">Search</h3>
+        <h3 className="text-sm font-semibold text-white mb-3">{t('blog.search')}</h3>
         <input
           type="text"
-          placeholder="Search posts..."
+          placeholder={t('blog.searchPlaceholder')}
           value={filters.search}
           onChange={e => onFilterChange('search', e.target.value)}
           className="w-full px-3 py-2 bg-neutral-700 border border-neutral-600 rounded-lg text-white placeholder-neutral-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -174,7 +180,7 @@ export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps
       {/* Tags cloud - SIDE-03 */}
       {tags.length > 0 && (
         <div>
-          <h3 className="text-sm font-semibold text-white mb-3">Tags</h3>
+          <h3 className="text-sm font-semibold text-white mb-3">{t('blog.tags')}</h3>
           <div className="flex flex-wrap gap-2">
             {tags.map(tag => (
               <button
@@ -197,7 +203,7 @@ export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps
       {/* Categories list - SIDE-04 */}
       {categories.length > 0 && (
         <div>
-          <h3 className="text-sm font-semibold text-white mb-3">Categories</h3>
+          <h3 className="text-sm font-semibold text-white mb-3">{t('blog.categories')}</h3>
           <ul className="space-y-2">
             {categories.map(category => (
               <li key={category.name}>
@@ -212,7 +218,7 @@ export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps
                       : 'text-neutral-300 hover:text-white'
                   }`}
                 >
-                  <span>{category.name}</span>
+                  <span>{t(`category.${category.name}` as TranslationKey)}</span>
                   <span className="text-neutral-500">({category.count})</span>
                 </button>
               </li>

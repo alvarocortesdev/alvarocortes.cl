@@ -3,10 +3,16 @@ import { motion } from 'framer-motion'
 import { usePost } from '../hooks/usePost'
 import { sanitizeHtml } from '../lib/sanitize'
 import { ShareButtons } from './ShareButtons'
+import { useLanguage } from '../context/LanguageContext'
+import { useTranslation } from '../i18n/useTranslation'
+import type { TranslationKey } from '../i18n/translations'
 
 export function PostDetail() {
   const { slug } = useParams<{ slug: string }>()
   const { data: post, isLoading, error } = usePost(slug || '')
+  const { lang } = useLanguage()
+  const { t } = useTranslation()
+  const locale = lang === 'en' ? 'en-US' : 'es-CL'
 
   if (isLoading) {
     return (
@@ -31,15 +37,15 @@ export function PostDetail() {
   if (error || !post) {
     return (
       <div className="max-w-3xl mx-auto px-6 py-8">
-        <h1 className="text-2xl font-bold text-white mb-4">Post not found</h1>
+        <h1 className="text-2xl font-bold text-white mb-4">{t('post.notFound')}</h1>
         <Link to="/blog" className="text-blue-400 hover:text-blue-300">
-          &larr; Back to blog
+          &larr; {t('post.backToBlog')}
         </Link>
       </div>
     )
   }
 
-  const formattedDate = new Date(post.published_at || post.created_at).toLocaleDateString('es-ES', {
+  const formattedDate = new Date(post.published_at || post.created_at).toLocaleDateString(locale, {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
@@ -58,7 +64,7 @@ export function PostDetail() {
     >
       {/* Back link */}
       <Link to="/blog" className="text-blue-400 hover:text-blue-300 text-sm mb-6 inline-block">
-        &larr; Back to blog
+        &larr; {t('post.backToBlog')}
       </Link>
 
       {/* Title */}
@@ -70,7 +76,7 @@ export function PostDetail() {
         <span>&bull;</span>
         <span>{post.author}</span>
         <span>&bull;</span>
-        <span className="text-blue-400">{post.category}</span>
+        <span className="text-blue-400">{t(`category.${post.category}` as TranslationKey)}</span>
       </div>
 
       {/* Tags */}

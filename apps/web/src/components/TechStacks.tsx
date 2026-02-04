@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { useTechCategories, type TechCategory, type Technology } from "../hooks/useTechCategories"
 import { useState } from "react"
+import { useTranslation } from "../i18n/useTranslation"
 
 function TechIcon({ tech }: { tech: Technology }) {
   const [hasError, setHasError] = useState(false)
@@ -54,6 +55,7 @@ function TechCard({ category, index }: { category: TechCategory; index: number }
 
 export function TechStacks() {
   const { data: categories = [], isLoading, error } = useTechCategories()
+  const { t } = useTranslation()
 
   if (isLoading) {
     return (
@@ -79,7 +81,7 @@ export function TechStacks() {
         transition={{ duration: 0.15 }}
         className="text-red-400 p-6 rounded-lg bg-red-900/20 border border-red-800"
       >
-        <p className="font-medium">Failed to load tech stacks</p>
+        <p className="font-medium">{t('tech.errorLoad')}</p>
       </motion.div>
     )
   }
@@ -92,7 +94,7 @@ export function TechStacks() {
         transition={{ duration: 0.15 }}
         className="text-neutral-400 text-center py-8 bg-neutral-800/30 rounded-lg"
       >
-        No tech categories yet.
+        {t('tech.empty')}
       </motion.div>
     )
   }

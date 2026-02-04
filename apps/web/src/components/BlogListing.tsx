@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { PostCard } from './PostCard'
 import { Pagination } from './Pagination'
 import type { Post } from '../hooks/usePosts'
+import { useTranslation } from '../i18n/useTranslation'
 
 const POSTS_PER_PAGE = 4
 
@@ -14,6 +15,7 @@ interface BlogListingProps {
 }
 
 export function BlogListing({ posts, isLoading, error, currentPage, onPageChange }: BlogListingProps) {
+  const { t } = useTranslation()
   if (isLoading) {
     return (
       <motion.div
@@ -37,8 +39,8 @@ export function BlogListing({ posts, isLoading, error, currentPage, onPageChange
         transition={{ duration: 0.15 }}
         className="text-red-400 p-6 rounded-lg bg-red-900/20 border border-red-800"
       >
-        <p className="font-medium mb-2">Failed to load posts</p>
-        <p className="text-sm text-red-300">Please try again later.</p>
+        <p className="font-medium mb-2">{t('blogListing.errorLoad')}</p>
+        <p className="text-sm text-red-300">{t('blogListing.errorRetry')}</p>
       </motion.div>
     )
   }
@@ -51,8 +53,8 @@ export function BlogListing({ posts, isLoading, error, currentPage, onPageChange
         transition={{ duration: 0.15 }}
         className="text-neutral-400 text-center py-12 bg-neutral-800/30 rounded-lg"
       >
-        <p className="text-lg mb-2">No posts found</p>
-        <p className="text-sm">Try adjusting your filters.</p>
+        <p className="text-lg mb-2">{t('blogListing.noResults')}</p>
+        <p className="text-sm">{t('blogListing.noResultsHint')}</p>
       </motion.div>
     )
   }

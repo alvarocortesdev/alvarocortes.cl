@@ -13,6 +13,9 @@
       var t = localStorage.getItem('theme-preference');
       if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', t);
+      // Set lang early to prevent flash
+      var l = localStorage.getItem('lang-preference');
+      if (l === 'en' || l === 'es') document.documentElement.setAttribute('lang', l);
     </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>

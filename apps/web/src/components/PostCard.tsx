@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../context/LanguageContext'
 
 interface PostCardProps {
   slug: string
@@ -10,7 +11,9 @@ interface PostCardProps {
 }
 
 export function PostCard({ slug, title, excerpt, published_at, created_at, tags }: PostCardProps) {
-  const formattedDate = new Date(published_at || created_at).toLocaleDateString('es-ES', {
+  const { lang } = useLanguage()
+  const locale = lang === 'en' ? 'en-US' : 'es-CL'
+  const formattedDate = new Date(published_at || created_at).toLocaleDateString(locale, {
     year: 'numeric',
     month: 'long',
     day: 'numeric'

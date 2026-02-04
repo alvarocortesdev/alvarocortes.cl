@@ -1,3 +1,5 @@
+import { useTranslation } from '../i18n/useTranslation'
+
 interface PaginationProps {
   currentPage: number
   totalPages: number
@@ -9,6 +11,7 @@ export function Pagination({
   totalPages,
   onPageChange,
 }: PaginationProps) {
+  const { t } = useTranslation()
   const canGoPrev = currentPage > 1
   const canGoNext = currentPage < totalPages
 
@@ -23,10 +26,10 @@ export function Pagination({
             : "bg-neutral-800 text-neutral-500 cursor-not-allowed"
         }`}
       >
-        Previous
+        {t('pagination.previous')}
       </button>
       <span className="text-neutral-400 text-sm">
-        Page {currentPage} of {totalPages}
+        {t('pagination.page', { current: currentPage, total: totalPages })}
       </span>
       <button
         onClick={() => onPageChange(currentPage + 1)}
@@ -37,7 +40,7 @@ export function Pagination({
             : "bg-neutral-800 text-neutral-500 cursor-not-allowed"
         }`}
       >
-        Next
+        {t('pagination.next')}
       </button>
     </div>
   )

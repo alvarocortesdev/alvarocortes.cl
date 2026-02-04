@@ -1,7 +1,8 @@
 import { motion } from "framer-motion"
 import { useTimelines, type TimelineEntry } from "../hooks/useTimelines"
+import { useTranslation } from "../i18n/useTranslation"
 
-function TimelineCard({ entry, index, isLast }: { entry: TimelineEntry; index: number; isLast: boolean }) {
+function TimelineCard({ entry, index, isLast, t }: { entry: TimelineEntry; index: number; isLast: boolean; t: (key: import('../i18n/translations').TranslationKey) => string }) {
   const isWork = entry.type === "work"
 
   return (
@@ -44,7 +45,7 @@ function TimelineCard({ entry, index, isLast }: { entry: TimelineEntry; index: n
             }
           `}
         >
-          {isWork ? "Work" : "Studies"}
+          {isWork ? t('timeline.work') : t('timeline.studies')}
         </span>
 
         {/* Period */}
@@ -68,6 +69,7 @@ function TimelineCard({ entry, index, isLast }: { entry: TimelineEntry; index: n
 
 export function Timeline() {
   const { data: entries = [], isLoading, error } = useTimelines()
+  const { t } = useTranslation()
 
   if (isLoading) {
     return (
@@ -95,7 +97,7 @@ export function Timeline() {
         transition={{ duration: 0.15 }}
         className="text-red-400 p-6 rounded-lg bg-red-900/20 border border-red-800"
       >
-        <p className="font-medium">Failed to load timeline</p>
+        <p className="font-medium">{t('timeline.errorLoad')}</p>
       </motion.div>
     )
   }
@@ -108,7 +110,7 @@ export function Timeline() {
         transition={{ duration: 0.15 }}
         className="text-neutral-400 text-center py-8 bg-neutral-800/30 rounded-lg"
       >
-        No timeline entries yet.
+        {t('timeline.empty')}
       </motion.div>
     )
   }
@@ -131,6 +133,7 @@ export function Timeline() {
               entry={entry}
               index={index}
               isLast={index === entries.length - 1}
+              t={t}
             />
           ))}
         </div>

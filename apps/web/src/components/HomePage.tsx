@@ -5,6 +5,7 @@ import { Bio } from './Bio'
 import { Timeline } from './Timeline'
 import { TechStacks } from './TechStacks'
 import { ProjectsBento } from './ProjectsBento'
+import { useTranslation } from '../i18n/useTranslation'
 
 function RevealSection({ children, id, className }: { children: ReactNode; id?: string; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -25,6 +26,8 @@ function RevealSection({ children, id, className }: { children: ReactNode; id?: 
 }
 
 export function HomePage() {
+  const { t } = useTranslation()
+
   useEffect(() => {
     if (window.location.hash === '#portfolio') {
       setTimeout(() => {
@@ -56,21 +59,21 @@ export function HomePage() {
       <div className="max-w-6xl mx-auto px-6 pb-12">
         <RevealSection id="portfolio" className="mb-24 md:mb-28 scroll-mt-20">
           <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
-            Mi Trayectoria
+            {t('home.trajectory')}
           </h2>
           <Timeline />
         </RevealSection>
 
         <RevealSection className="mb-24 md:mb-28">
           <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
-            Tech Stack
+            {t('home.techStack')}
           </h2>
           <TechStacks />
         </RevealSection>
 
         <RevealSection className="mb-24 md:mb-28">
           <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
-            Proyectos
+            {t('home.projects')}
           </h2>
           <ProjectsBento />
         </RevealSection>

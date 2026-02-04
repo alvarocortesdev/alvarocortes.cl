@@ -1,4 +1,7 @@
+import { useTranslation } from "../i18n/useTranslation"
+
 export function Footer() {
+  const { t } = useTranslation()
   return (
     <footer className="bg-[var(--bg-footer)] border-t border-[var(--border-subtle)] py-8 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6">
@@ -33,7 +36,7 @@ export function Footer() {
 
           {/* Copyright */}
           <p className="text-[var(--text-faint)] text-sm">
-            Alvaro Cortés Opazo &copy; 2026
+            {t('footer.copyright')} &copy; 2026
           </p>
         </div>
       </div>

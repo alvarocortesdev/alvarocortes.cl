@@ -3,6 +3,7 @@ import { BlogListing } from './BlogListing'
 import { BlogSidebar } from './BlogSidebar'
 import { usePosts } from '../hooks/usePosts'
 import type { Post } from '../hooks/usePosts'
+import { useTranslation } from '../i18n/useTranslation'
 
 export interface BlogFilters {
   search: string
@@ -50,6 +51,7 @@ function filterPosts(posts: Post[], filters: BlogFilters): Post[] {
 }
 
 export function BlogPage() {
+  const { t } = useTranslation()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [filters, setFilters] = useState<BlogFilters>({
     search: '',
@@ -71,7 +73,7 @@ export function BlogPage() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-8">
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-bold text-white">Blog</h1>
+        <h1 className="text-3xl font-bold text-white">{t('blog.title')}</h1>
         {/* Mobile toggle button - BLOG-03 */}
         <button
           className="md:hidden p-2 text-neutral-300 hover:text-white transition-colors duration-200"

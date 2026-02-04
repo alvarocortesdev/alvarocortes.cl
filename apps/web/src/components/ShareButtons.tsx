@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from '../i18n/useTranslation'
 
 interface ShareButtonsProps {
   title: string
@@ -6,6 +7,7 @@ interface ShareButtonsProps {
 }
 
 export function ShareButtons({ title, url }: ShareButtonsProps) {
+  const { t } = useTranslation()
   const [copied, setCopied] = useState(false)
 
   const shareOnTwitter = () => {
@@ -30,7 +32,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
 
   return (
     <div className="flex items-center gap-3">
-      <span className="text-neutral-500 text-sm">Share:</span>
+      <span className="text-neutral-500 text-sm">{t('share.label')}</span>
       <button
         onClick={shareOnTwitter}
         className="p-2 bg-neutral-700 hover:bg-neutral-600 rounded-lg transition-colors"

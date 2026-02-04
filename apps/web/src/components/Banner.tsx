@@ -1,6 +1,8 @@
 import avatar from "@/assets/avatar.jpeg"
+import { useTranslation } from "../i18n/useTranslation"
 
 export function Banner() {
+  const { t } = useTranslation()
   return (
     <section className="pt-12 pb-4 md:pt-20 md:pb-6 lg:pt-32 lg:pb-8">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
@@ -24,7 +26,7 @@ export function Banner() {
 
           {/* Job Title */}
           <p className="text-lg md:text-xl text-[var(--text-muted)]">
-            Full Stack Developer
+            {t('banner.role')}
           </p>
         </div>
       </div>
