@@ -1,7 +1,9 @@
 @import "https://unpkg.com/open-props/easings.min.css";
 @import "tailwindcss";
 
-html, body, #root {
+html,
+body,
+#root {
   min-height: 100vh;
 }
 
@@ -10,16 +12,17 @@ html {
 }
 
 /* ── Theme variables ── */
-:root, [data-theme="dark"] {
-  --bg-page: theme('colors.neutral.900');
-  --bg-header: theme('colors.neutral.900');
-  --bg-footer: theme('colors.neutral.900');
-  --border-subtle: theme('colors.neutral.800');
+:root,
+[data-theme="dark"] {
+  --bg-page: theme("colors.neutral.900");
+  --bg-header: theme("colors.neutral.900");
+  --bg-footer: theme("colors.neutral.900");
+  --border-subtle: theme("colors.neutral.800");
   --text-primary: #ffffff;
-  --text-secondary: theme('colors.neutral.300');
-  --text-muted: theme('colors.neutral.400');
-  --text-faint: theme('colors.neutral.500');
-  --icon-fill: theme('colors.neutral.300');
+  --text-secondary: theme("colors.neutral.300");
+  --text-muted: theme("colors.neutral.400");
+  --text-faint: theme("colors.neutral.500");
+  --icon-fill: theme("colors.neutral.300");
   --icon-fill-hover: #ffffff;
   --bg-card: #262626;
   --bg-card-hover: #303030;
@@ -34,24 +37,26 @@ html {
   --bg-header: #ffffff;
   --bg-footer: #ffffff;
   --border-subtle: #e5e5e5;
-  --text-primary: theme('colors.neutral.900');
-  --text-secondary: theme('colors.neutral.700');
-  --text-muted: theme('colors.neutral.500');
-  --text-faint: theme('colors.neutral.400');
-  --icon-fill: theme('colors.neutral.600');
-  --icon-fill-hover: theme('colors.neutral.900');
+  --text-primary: theme("colors.neutral.900");
+  --text-secondary: theme("colors.neutral.700");
+  --text-muted: theme("colors.neutral.500");
+  --text-faint: theme("colors.neutral.400");
+  --icon-fill: theme("colors.neutral.600");
+  --icon-fill-hover: theme("colors.neutral.900");
   --bg-card: #404040;
   --bg-card-hover: #4a4a4a;
   --bg-card-50: rgb(64 64 64 / 0.5);
   --bg-card-30: rgb(64 64 64 / 0.3);
-  --bg-tag: #262626;
-  --bg-tag-hover: #363636;
+  --bg-tag: #363636;
+  --bg-tag-hover: #393939;
 }
 
 body {
   background-color: var(--bg-page);
   color: var(--text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* ── Theme toggle button ── */
@@ -112,36 +117,38 @@ body {
 
 @media (prefers-reduced-motion: no-preference) {
   .sun-and-moon > .sun {
-    transition: transform .5s var(--ease-elastic-3);
+    transition: transform 0.5s var(--ease-elastic-3);
   }
 
   .sun-and-moon > .sun-beams {
-    transition: transform .5s var(--ease-elastic-4), opacity .5s var(--ease-3);
+    transition:
+      transform 0.5s var(--ease-elastic-4),
+      opacity 0.5s var(--ease-3);
   }
 
   .sun-and-moon .moon > circle {
-    transition: transform .25s var(--ease-out-5);
+    transition: transform 0.25s var(--ease-out-5);
   }
 
   @supports (cx: 1) {
     .sun-and-moon .moon > circle {
-      transition: cx .25s var(--ease-out-5);
+      transition: cx 0.25s var(--ease-out-5);
     }
   }
 
   [data-theme="dark"] .sun-and-moon > .sun {
     transition-timing-function: var(--ease-3);
-    transition-duration: .25s;
+    transition-duration: 0.25s;
     transform: scale(1.75);
   }
 
   [data-theme="dark"] .sun-and-moon > .sun-beams {
-    transition-duration: .15s;
+    transition-duration: 0.15s;
     transform: rotateZ(-25deg);
   }
 
   [data-theme="dark"] .sun-and-moon > .moon > circle {
-    transition-duration: .5s;
-    transition-delay: .25s;
+    transition-duration: 0.5s;
+    transition-delay: 0.25s;
   }
 }
