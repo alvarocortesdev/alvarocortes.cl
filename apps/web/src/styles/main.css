@@ -44,8 +44,8 @@ html {
   --bg-card-hover: #4a4a4a;
   --bg-card-50: rgb(64 64 64 / 0.5);
   --bg-card-30: rgb(64 64 64 / 0.3);
-  --bg-tag: #5d5d5d;
-  --bg-tag-hover: #6b6b6b;
+  --bg-tag: #262626;
+  --bg-tag-hover: #363636;
 }
 
 body {
