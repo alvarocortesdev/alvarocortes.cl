@@ -1,6 +1,63 @@
 import { useEffect } from 'react'
 import DOMPurify from 'dompurify'
 
+const SAFE_STYLE_PROPERTIES = new Set([
+  'text-align', 'width', 'height', 'max-width', 'float',
+  'margin', 'margin-left', 'margin-right', 'margin-top', 'margin-bottom', 'display',
+])
+
+function filterStyle(raw: string): string {
+  return raw
+    .split(';')
+    .map(s => s.trim())
+    .filter(s => {
+      const prop = s.split(':')[0]?.trim().toLowerCase()
+      return prop && SAFE_STYLE_PROPERTIES.has(prop)
+    })
+    .join('; ')
+}
+
+DOMPurify.addHook('uponSanitizeAttribute', (_node, data) => {
+  if (data.attrName === 'style') {
+    const clean = filterStyle(data.attrValue)
+    data.attrValue = clean
+    if (!clean) data.keepAttr = false
+  }
+})
+
+DOMPurify.addHook('afterSanitizeAttributes', (node) => {
+  if (node.tagName === 'IMG') {
+    const containerStyle = node.getAttribute('containerstyle')
+    if (containerStyle) {
+      const safeStyle = filterStyle(containerStyle)
+      if (safeStyle) {
+        const existing = node.getAttribute('style') || ''
+        const merged = existing ? `${existing}; ${safeStyle}; display: block` : `${safeStyle}; display: block`
+        node.setAttribute('style', merged)
+      }
+      node.removeAttribute('containerstyle')
+    }
+    node.removeAttribute('wrapperstyle')
+  }
+})
+
+function sanitizePreviewHtml(dirty: string): string {
+  const processed = dirty.replace(/<p><\/p>/g, '<p><br></p>')
+  return DOMPurify.sanitize(processed, {
+    ALLOWED_TAGS: [
+      'p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+      'ul', 'ol', 'li', 'blockquote', 'a', 'code', 'pre', 'img', 'iframe'
+    ],
+    ALLOWED_ATTR: [
+      'href', 'title', 'target', 'src', 'alt', 'width', 'height',
+      'allow', 'allowfullscreen', 'frameborder', 'class', 'style',
+      'containerstyle', 'wrapperstyle'
+    ],
+    ALLOW_DATA_ATTR: false,
+    ALLOW_ARIA_ATTR: true,
+  })
+}
+
 interface PreviewModalProps {
   isOpen: boolean
   onClose: () => void
@@ -127,18 +184,7 @@ export function PreviewModal({
               prose-ul:list-disc prose-ul:pl-6
               prose-ol:list-decimal prose-ol:pl-6
               prose-li:text-neutral-300"
-            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content || '<p class="text-neutral-500">Sin contenido</p>', {
-              ALLOWED_TAGS: [
-                'p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-                'ul', 'ol', 'li', 'blockquote', 'a', 'code', 'pre', 'img', 'iframe'
-              ],
-              ALLOWED_ATTR: [
-                'href', 'title', 'target', 'src', 'alt', 'width', 'height',
-                'allow', 'allowfullscreen', 'frameborder', 'class', 'style'
-              ],
-              ALLOW_DATA_ATTR: false,
-              ALLOW_ARIA_ATTR: true,
-            }) }}
+            dangerouslySetInnerHTML={{ __html: sanitizePreviewHtml(content || '<p class="text-neutral-500">Sin contenido</p>') }}
           />
         </article>
       </div>
