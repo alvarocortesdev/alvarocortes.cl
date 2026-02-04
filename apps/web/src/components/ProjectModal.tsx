@@ -113,7 +113,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                   <h3 className="text-sm font-semibold text-neutral-400 uppercase tracking-wider mb-2">
                     About
                   </h3>
-                  <p className="text-neutral-200 leading-relaxed">
+                  <p className="text-neutral-200 leading-relaxed whitespace-pre-line">
                     {project.details}
                   </p>
                 </div>
