@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="bg-neutral-900 border-t border-neutral-800 py-8">
+    <footer className="bg-[var(--bg-footer)] border-t border-[var(--border-subtle)] py-8 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col items-center gap-4">
           {/* Social links */}
@@ -9,7 +9,7 @@ export function Footer() {
               href="https://www.linkedin.com/in/alvarocortesopazo/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-500 text-sm hover:text-neutral-200 transition-colors"
+              className="text-[var(--text-faint)] text-sm hover:text-[var(--text-primary)] transition-colors"
             >
               LinkedIn
             </a>
@@ -18,21 +18,21 @@ export function Footer() {
               href="https://github.com/alvarocortesdev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-500 text-sm hover:text-neutral-200 transition-colors"
+              className="text-[var(--text-faint)] text-sm hover:text-[var(--text-primary)] transition-colors"
             >
               GitHub
             </a>
 
             <a
               href="mailto:contacto@alvarocortes.cl"
-              className="text-neutral-500 text-sm hover:text-neutral-200 transition-colors"
+              className="text-[var(--text-faint)] text-sm hover:text-[var(--text-primary)] transition-colors"
             >
               Email
             </a>
           </div>
 
           {/* Copyright */}
-          <p className="text-neutral-500 text-sm">
+          <p className="text-[var(--text-faint)] text-sm">
             Alvaro Cortés Opazo &copy; 2026
           </p>
         </div>

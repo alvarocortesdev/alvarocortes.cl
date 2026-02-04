@@ -1,16 +1,135 @@
+@import "https://unpkg.com/open-props/easings.min.css";
 @import "tailwindcss";
 
-/* Ensure body fills viewport and allows proper footer positioning */
 html, body, #root {
   min-height: 100vh;
 }
 
-body {
-  background-color: theme('colors.neutral.900');
-  color: white;
-}
-
-/* Smooth scrolling for better UX */
 html {
   scroll-behavior: smooth;
+}
+
+/* ── Theme variables ── */
+:root, [data-theme="dark"] {
+  --bg-page: theme('colors.neutral.900');
+  --bg-header: theme('colors.neutral.900');
+  --bg-footer: theme('colors.neutral.900');
+  --border-subtle: theme('colors.neutral.800');
+  --text-primary: #ffffff;
+  --text-secondary: theme('colors.neutral.300');
+  --text-muted: theme('colors.neutral.400');
+  --text-faint: theme('colors.neutral.500');
+  --icon-fill: theme('colors.neutral.300');
+  --icon-fill-hover: #ffffff;
+}
+
+[data-theme="light"] {
+  --bg-page: #f5f5f5;
+  --bg-header: #ffffff;
+  --bg-footer: #ffffff;
+  --border-subtle: #e5e5e5;
+  --text-primary: theme('colors.neutral.900');
+  --text-secondary: theme('colors.neutral.700');
+  --text-muted: theme('colors.neutral.500');
+  --text-faint: theme('colors.neutral.400');
+  --icon-fill: theme('colors.neutral.600');
+  --icon-fill-hover: theme('colors.neutral.900');
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Theme toggle button ── */
+.theme-toggle {
+  --size: 2rem;
+  background: none;
+  border: none;
+  padding: 0;
+  inline-size: var(--size);
+  block-size: var(--size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  outline-offset: 5px;
+}
+
+.sun-and-moon > :is(.moon, .sun, .sun-beams) {
+  transform-origin: center;
+}
+
+.sun-and-moon > :is(.moon, .sun) {
+  fill: var(--icon-fill);
+}
+
+.theme-toggle:is(:hover, :focus-visible) > .sun-and-moon > :is(.moon, .sun) {
+  fill: var(--icon-fill-hover);
+}
+
+.sun-and-moon > .sun-beams {
+  stroke: var(--icon-fill);
+  stroke-width: 2px;
+}
+
+.theme-toggle:is(:hover, :focus-visible) .sun-and-moon > .sun-beams {
+  stroke: var(--icon-fill-hover);
+}
+
+[data-theme="dark"] .sun-and-moon > .sun {
+  transform: scale(1.75);
+}
+
+[data-theme="dark"] .sun-and-moon > .sun-beams {
+  opacity: 0;
+}
+
+[data-theme="dark"] .sun-and-moon > .moon > circle {
+  transform: translateX(-7px);
+}
+
+@supports (cx: 1) {
+  [data-theme="dark"] .sun-and-moon > .moon > circle {
+    cx: 17;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sun-and-moon > .sun {
+    transition: transform .5s var(--ease-elastic-3);
+  }
+
+  .sun-and-moon > .sun-beams {
+    transition: transform .5s var(--ease-elastic-4), opacity .5s var(--ease-3);
+  }
+
+  .sun-and-moon .moon > circle {
+    transition: transform .25s var(--ease-out-5);
+  }
+
+  @supports (cx: 1) {
+    .sun-and-moon .moon > circle {
+      transition: cx .25s var(--ease-out-5);
+    }
+  }
+
+  [data-theme="dark"] .sun-and-moon > .sun {
+    transition-timing-function: var(--ease-3);
+    transition-duration: .25s;
+    transform: scale(1.75);
+  }
+
+  [data-theme="dark"] .sun-and-moon > .sun-beams {
+    transition-duration: .15s;
+    transform: rotateZ(-25deg);
+  }
+
+  [data-theme="dark"] .sun-and-moon > .moon > circle {
+    transition-duration: .5s;
+    transition-delay: .25s;
+  }
 }
