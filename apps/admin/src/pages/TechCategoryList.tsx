@@ -397,7 +397,7 @@ function TechnologyRow({
           src={
             isCustomUrl
               ? technology.icon
-              : `https://cdn.jsdelivr.net/npm/simple-icons@v18/icons/${technology.icon}.svg`
+              : `https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/${technology.icon}.svg`
           }
           alt={technology.name}
           className="w-full h-full object-contain"

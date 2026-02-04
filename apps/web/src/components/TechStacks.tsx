@@ -4,6 +4,7 @@ import { useState } from "react"
 
 function TechIcon({ tech }: { tech: Technology }) {
   const [hasError, setHasError] = useState(false)
+  const isCustomUrl = tech.icon.startsWith('http')
 
   if (hasError) {
     return (
@@ -11,10 +12,14 @@ function TechIcon({ tech }: { tech: Technology }) {
     )
   }
 
+  const iconSrc = isCustomUrl
+    ? tech.icon
+    : `https://cdn.simpleicons.org/${tech.icon}/white`
+
   return (
     <div className="flex items-center gap-2">
       <img
-        src={`https://cdn.simpleicons.org/${tech.icon}/white`}
+        src={iconSrc}
         alt={tech.name}
         className="w-5 h-5"
         onError={() => setHasError(true)}

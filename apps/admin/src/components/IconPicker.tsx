@@ -104,7 +104,7 @@ export function IconPicker({ value, onChange, label, error }: IconPickerProps) {
               <img src={value} alt="custom icon" className="w-full h-full object-contain" />
             ) : (
               <img
-                src={`https://cdn.jsdelivr.net/npm/simple-icons@v18/icons/${value}.svg`}
+                src={`https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/${value}.svg`}
                 alt={value}
                 className="w-full h-full object-contain"
                 onError={(e) => {
@@ -135,7 +135,7 @@ export function IconPicker({ value, onChange, label, error }: IconPickerProps) {
                 >
                   <div className="w-5 h-5 bg-white rounded p-0.5 flex-shrink-0">
                     <img
-                      src={`https://cdn.jsdelivr.net/npm/simple-icons@v18/icons/${icon}.svg`}
+                      src={`https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/${icon}.svg`}
                       alt={icon}
                       className="w-full h-full object-contain"
                     />
