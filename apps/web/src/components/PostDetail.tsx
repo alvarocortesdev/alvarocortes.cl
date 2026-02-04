@@ -22,12 +22,12 @@ export function PostDetail() {
         transition={{ duration: 0.15 }}
         className="max-w-3xl mx-auto px-6 py-8"
       >
-        <div className="h-4 w-20 bg-neutral-800 rounded mb-6 animate-pulse" />
-        <div className="h-10 w-3/4 bg-neutral-800 rounded mb-4 animate-pulse" />
-        <div className="h-4 w-1/2 bg-neutral-800/50 rounded mb-8 animate-pulse" />
+        <div className="h-4 w-20 bg-[var(--bg-card)] rounded mb-6 animate-pulse" />
+        <div className="h-10 w-3/4 bg-[var(--bg-card)] rounded mb-4 animate-pulse" />
+        <div className="h-4 w-1/2 bg-[var(--bg-card-50)] rounded mb-8 animate-pulse" />
         <div className="space-y-4">
           {[...Array(5)].map((_, i) => (
-            <div key={i} className="h-4 bg-neutral-800/30 rounded animate-pulse" />
+            <div key={i} className="h-4 bg-[var(--bg-card-30)] rounded animate-pulse" />
           ))}
         </div>
       </motion.div>
@@ -82,7 +82,7 @@ export function PostDetail() {
       {/* Tags */}
       <div className="flex flex-wrap gap-2 mb-8">
         {post.tags.map(tag => (
-          <span key={tag} className="px-3 py-1 bg-neutral-700 rounded-full text-xs text-neutral-300">
+          <span key={tag} className="px-3 py-1 bg-[var(--bg-tag)] rounded-full text-xs text-neutral-300">
             {tag}
           </span>
         ))}
@@ -94,7 +94,7 @@ export function PostDetail() {
           prose-headings:text-white prose-headings:font-semibold
           prose-p:text-neutral-300 prose-p:leading-relaxed prose-p:mb-4
           prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
-          prose-code:text-blue-300 prose-code:bg-neutral-800 prose-code:px-1 prose-code:rounded
+          prose-code:text-blue-300 prose-code:bg-[var(--bg-card)] prose-code:px-1 prose-code:rounded
           prose-ul:text-neutral-300 prose-li:text-neutral-300"
         dangerouslySetInnerHTML={{ __html: sanitizeHtml(localized(post, 'content', lang)) }}
       />

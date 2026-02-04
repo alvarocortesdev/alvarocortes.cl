@@ -21,6 +21,12 @@ html {
   --text-faint: theme('colors.neutral.500');
   --icon-fill: theme('colors.neutral.300');
   --icon-fill-hover: #ffffff;
+  --bg-card: #262626;
+  --bg-card-hover: #303030;
+  --bg-card-50: rgb(38 38 38 / 0.5);
+  --bg-card-30: rgb(38 38 38 / 0.3);
+  --bg-tag: #404040;
+  --bg-tag-hover: #525252;
 }
 
 [data-theme="light"] {
@@ -34,6 +40,12 @@ html {
   --text-faint: theme('colors.neutral.400');
   --icon-fill: theme('colors.neutral.600');
   --icon-fill-hover: theme('colors.neutral.900');
+  --bg-card: #404040;
+  --bg-card-hover: #4a4a4a;
+  --bg-card-50: rgb(64 64 64 / 0.5);
+  --bg-card-30: rgb(64 64 64 / 0.3);
+  --bg-tag: #5d5d5d;
+  --bg-tag-hover: #6b6b6b;
 }
 
 body {

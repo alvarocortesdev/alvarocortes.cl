@@ -28,7 +28,7 @@ export function PostCard(props: PostCardProps) {
   const displayExcerpt = localized(props, 'excerpt', lang)
 
   return (
-    <article className="bg-neutral-800 rounded-lg p-6 hover:bg-neutral-750 transition-colors">
+    <article className="bg-[var(--bg-card)] rounded-lg p-6 hover:bg-[var(--bg-card-hover)] transition-colors">
       <Link to={`/blog/${slug}`} className="block">
         <h2 className="text-xl font-semibold text-white mb-2 hover:text-blue-400 transition-colors">
           {displayTitle}
@@ -39,7 +39,7 @@ export function PostCard(props: PostCardProps) {
         <time className="text-neutral-500 text-xs">{formattedDate}</time>
         <div className="flex gap-2">
           {tags.slice(0, 2).map(tag => (
-            <span key={tag} className="px-2 py-0.5 bg-neutral-700 rounded text-xs text-neutral-300">
+            <span key={tag} className="px-2 py-0.5 bg-[var(--bg-tag)] rounded text-xs text-neutral-300">
               {tag}
             </span>
           ))}

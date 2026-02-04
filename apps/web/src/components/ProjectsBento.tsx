@@ -7,7 +7,7 @@ import { useLanguage } from "../context/LanguageContext"
 
 function TechBadge({ tech }: { tech: string }) {
   return (
-    <span className="inline-block bg-neutral-700 text-neutral-300 text-xs px-2 py-1 rounded">
+    <span className="inline-block bg-[var(--bg-tag)] text-neutral-300 text-xs px-2 py-1 rounded">
       {tech}
     </span>
   )
@@ -34,7 +34,7 @@ function ProjectCard({
       whileHover={{ scale: 1.02, y: -4 }}
       onClick={onClick}
       className={`
-        bg-neutral-800 rounded-lg overflow-hidden cursor-pointer
+        bg-[var(--bg-card)] rounded-lg overflow-hidden cursor-pointer
         shadow-lg hover:shadow-xl transition-shadow duration-200
         ${project.featured ? "md:col-span-2" : "col-span-1"}
       `}
@@ -105,7 +105,7 @@ export function ProjectsBento() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.15 }}
-            className="h-48 bg-neutral-800/50 rounded-lg animate-pulse"
+            className="h-48 bg-[var(--bg-card-50)] rounded-lg animate-pulse"
           />
         ))}
       </div>
@@ -131,7 +131,7 @@ export function ProjectsBento() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.15 }}
-        className="text-neutral-400 text-center py-8 bg-neutral-800/30 rounded-lg"
+        className="text-neutral-400 text-center py-8 bg-[var(--bg-card-30)] rounded-lg"
       >
         {t('projects.empty')}
       </motion.div>

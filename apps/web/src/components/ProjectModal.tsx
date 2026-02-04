@@ -12,7 +12,7 @@ interface ProjectModalProps {
 
 function TechBadge({ tech }: { tech: string }) {
   return (
-    <span className="inline-block bg-neutral-700 text-neutral-300 text-sm px-3 py-1 rounded">
+    <span className="inline-block bg-[var(--bg-tag)] text-neutral-300 text-sm px-3 py-1 rounded">
       {tech}
     </span>
   )
@@ -69,7 +69,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
             onClick={onClose}
           >
             <motion.div
-              className="bg-neutral-800 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+              className="bg-[var(--bg-card)] rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}

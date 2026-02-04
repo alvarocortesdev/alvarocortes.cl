@@ -91,7 +91,7 @@ export function BlogPage() {
       <div className="flex flex-col md:flex-row gap-8">
         {/* Sidebar - hidden on mobile unless toggled, sticky on desktop - BLOG-02, BLOG-03 */}
         <aside className={`w-full md:w-64 shrink-0 ${sidebarOpen ? 'block' : 'hidden'} md:block`}>
-          <div className="md:sticky md:top-24 bg-neutral-800 rounded-lg p-4">
+          <div className="md:sticky md:top-24 bg-[var(--bg-card)] rounded-lg p-4">
             <BlogSidebar
               posts={posts}
               filters={filters}

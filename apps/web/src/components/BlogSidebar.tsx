@@ -171,7 +171,7 @@ export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps
           placeholder={t('blog.searchPlaceholder')}
           value={filters.search}
           onChange={e => onFilterChange('search', e.target.value)}
-          className="w-full px-3 py-2 bg-neutral-700 border border-neutral-600 rounded-lg text-white placeholder-neutral-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-3 py-2 bg-[var(--bg-tag)] border border-neutral-600 rounded-lg text-white placeholder-neutral-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
       </div>
 
@@ -197,7 +197,7 @@ export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps
                 className={`px-2 py-1 rounded text-xs transition-colors ${
                   filters.tag === tag
                     ? 'bg-blue-600 text-white'
-                    : 'bg-neutral-700 hover:bg-neutral-600 text-neutral-300 hover:text-white'
+                    : 'bg-[var(--bg-tag)] hover:bg-[var(--bg-tag-hover)] text-neutral-300 hover:text-white'
                 }`}
               >
                 {tag}

@@ -22,8 +22,8 @@ export function Pagination({
         disabled={!canGoPrev}
         className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
           canGoPrev
-            ? "bg-neutral-700 text-white hover:bg-neutral-600"
-            : "bg-neutral-800 text-neutral-500 cursor-not-allowed"
+            ? "bg-[var(--bg-tag)] text-white hover:bg-[var(--bg-tag-hover)]"
+            : "bg-[var(--bg-card)] text-neutral-500 cursor-not-allowed"
         }`}
       >
         {t('pagination.previous')}
@@ -36,8 +36,8 @@ export function Pagination({
         disabled={!canGoNext}
         className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
           canGoNext
-            ? "bg-neutral-700 text-white hover:bg-neutral-600"
-            : "bg-neutral-800 text-neutral-500 cursor-not-allowed"
+            ? "bg-[var(--bg-tag)] text-white hover:bg-[var(--bg-tag-hover)]"
+            : "bg-[var(--bg-card)] text-neutral-500 cursor-not-allowed"
         }`}
       >
         {t('pagination.next')}

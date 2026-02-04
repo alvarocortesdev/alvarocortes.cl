@@ -25,7 +25,7 @@ export function BlogListing({ posts, isLoading, error, currentPage, onPageChange
         className="space-y-6"
       >
         {[...Array(POSTS_PER_PAGE)].map((_, i) => (
-          <div key={i} className="h-32 bg-neutral-800/50 rounded-lg animate-pulse" />
+          <div key={i} className="h-32 bg-[var(--bg-card-50)] rounded-lg animate-pulse" />
         ))}
       </motion.div>
     )
@@ -51,7 +51,7 @@ export function BlogListing({ posts, isLoading, error, currentPage, onPageChange
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.15 }}
-        className="text-neutral-400 text-center py-12 bg-neutral-800/30 rounded-lg"
+        className="text-neutral-400 text-center py-12 bg-[var(--bg-card-30)] rounded-lg"
       >
         <p className="text-lg mb-2">{t('blogListing.noResults')}</p>
         <p className="text-sm">{t('blogListing.noResultsHint')}</p>

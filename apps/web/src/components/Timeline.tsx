@@ -24,14 +24,14 @@ function TimelineCard({ entry, index, isLast, t, lang }: { entry: TimelineEntry;
         />
         {/* Vertical line */}
         {!isLast && (
-          <div className="absolute left-[15px] top-8 bottom-0 w-0.5 bg-neutral-700" />
+          <div className="absolute left-[15px] top-8 bottom-0 w-0.5 bg-[var(--bg-tag)]" />
         )}
       </div>
 
       {/* Card with left padding for timeline on mobile */}
       <div
         className={`
-          bg-neutral-800 rounded-lg p-4 md:p-5 h-full
+          bg-[var(--bg-card)] rounded-lg p-4 md:p-5 h-full
           border-l-4 ml-8 md:ml-0
           ${isWork ? "border-blue-500" : "border-green-500"}
         `}
@@ -83,7 +83,7 @@ export function Timeline() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.15 }}
-              className="w-full md:w-72 md:flex-shrink-0 h-40 bg-neutral-800/50 rounded-lg animate-pulse"
+              className="w-full md:w-72 md:flex-shrink-0 h-40 bg-[var(--bg-card-50)] rounded-lg animate-pulse"
             />
           ))}
         </div>
@@ -110,7 +110,7 @@ export function Timeline() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.15 }}
-        className="text-neutral-400 text-center py-8 bg-neutral-800/30 rounded-lg"
+        className="text-neutral-400 text-center py-8 bg-[var(--bg-card-30)] rounded-lg"
       >
         {t('timeline.empty')}
       </motion.div>

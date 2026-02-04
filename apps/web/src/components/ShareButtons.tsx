@@ -35,7 +35,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
       <span className="text-neutral-500 text-sm">{t('share.label')}</span>
       <button
         onClick={shareOnTwitter}
-        className="p-2 bg-neutral-700 hover:bg-neutral-600 rounded-lg transition-colors"
+        className="p-2 bg-[var(--bg-tag)] hover:bg-[var(--bg-tag-hover)] rounded-lg transition-colors"
         aria-label="Share on Twitter/X"
       >
         <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -44,7 +44,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
       </button>
       <button
         onClick={shareOnLinkedIn}
-        className="p-2 bg-neutral-700 hover:bg-neutral-600 rounded-lg transition-colors"
+        className="p-2 bg-[var(--bg-tag)] hover:bg-[var(--bg-tag-hover)] rounded-lg transition-colors"
         aria-label="Share on LinkedIn"
       >
         <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -53,7 +53,7 @@ export function ShareButtons({ title, url }: ShareButtonsProps) {
       </button>
       <button
         onClick={copyLink}
-        className="p-2 bg-neutral-700 hover:bg-neutral-600 rounded-lg transition-colors relative"
+        className="p-2 bg-[var(--bg-tag)] hover:bg-[var(--bg-tag-hover)] rounded-lg transition-colors relative"
         aria-label="Copy link"
       >
         {copied ? (

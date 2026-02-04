@@ -37,7 +37,7 @@ function TechCard({ category, index, lang }: { category: TechCategory; index: nu
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="bg-neutral-800 rounded-lg p-5"
+      className="bg-[var(--bg-card)] rounded-lg p-5"
     >
       {/* Category Title */}
       <h3 className="text-lg font-bold text-white mb-4">
@@ -68,7 +68,7 @@ export function TechStacks() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.15 }}
-            className="h-64 bg-neutral-800/50 rounded-lg animate-pulse"
+            className="h-64 bg-[var(--bg-card-50)] rounded-lg animate-pulse"
           />
         ))}
       </div>
@@ -94,7 +94,7 @@ export function TechStacks() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.15 }}
-        className="text-neutral-400 text-center py-8 bg-neutral-800/30 rounded-lg"
+        className="text-neutral-400 text-center py-8 bg-[var(--bg-card-30)] rounded-lg"
       >
         {t('tech.empty')}
       </motion.div>
