@@ -7,8 +7,8 @@ export function Bio() {
             <p>
               Desarrollador Full Stack con foco en experiencias web eficientes y
               robustas. Trabajo principalmente con React y JavaScript,
-              integrando APIs REST, bases de datos SQL y NoSQL, y flujos
-              modernos de despliegue y automatización.
+              integrando APIs REST, bases de datos PGSQL y flujos modernos de
+              despliegue y automatización.
             </p>
             <p>
               Además del desarrollo, tengo experiencia aplicando inteligencia
