@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { ConfirmModal, MultiActionModal } from '@/components/ConfirmModal'
+import { ThumbnailCropModal } from '@/components/ThumbnailCropModal'
 import { uploadImage, deleteImage } from '@/lib/storage'
 import {
   getProject,
@@ -48,6 +49,10 @@ export function ProjectForm() {
   // Track original image for cleanup on edit
   const [originalImageUrl, setOriginalImageUrl] = useState<string | null>(null)
 
+  // Crop modal state
+  const [cropModalOpen, setCropModalOpen] = useState(false)
+  const [cropImageUrl, setCropImageUrl] = useState<string | null>(null)
+
   // Modal state
   const [deleteModal, setDeleteModal] = useState(false)
   const [cancelModal, setCancelModal] = useState(false)
@@ -86,13 +91,40 @@ export function ProjectForm() {
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
-      // Clean up previous blob URL if exists
-      if (imagePreview && imagePreview.startsWith('blob:')) {
-        URL.revokeObjectURL(imagePreview)
-      }
-      setImageFile(file)
-      setImagePreview(URL.createObjectURL(file))
+      // Open crop modal with the selected file
+      const url = URL.createObjectURL(file)
+      setCropImageUrl(url)
+      setCropModalOpen(true)
     }
+    // Reset input so the same file can be re-selected
+    e.target.value = ''
+  }
+
+  const handleCropConfirm = (croppedBlob: Blob) => {
+    // Clean up crop source URL
+    if (cropImageUrl) {
+      URL.revokeObjectURL(cropImageUrl)
+    }
+    setCropModalOpen(false)
+    setCropImageUrl(null)
+
+    // Clean up previous preview blob URL if exists
+    if (imagePreview && imagePreview.startsWith('blob:')) {
+      URL.revokeObjectURL(imagePreview)
+    }
+
+    // Create a File from the cropped Blob for upload
+    const croppedFile = new File([croppedBlob], 'thumbnail.jpg', { type: 'image/jpeg' })
+    setImageFile(croppedFile)
+    setImagePreview(URL.createObjectURL(croppedBlob))
+  }
+
+  const handleCropCancel = () => {
+    if (cropImageUrl) {
+      URL.revokeObjectURL(cropImageUrl)
+    }
+    setCropModalOpen(false)
+    setCropImageUrl(null)
   }
 
   const handleRemoveImage = () => {
@@ -323,12 +355,15 @@ export function ProjectForm() {
           {/* Image Upload */}
           <div>
             <label className="block text-neutral-300 mb-2">Thumbnail Image</label>
+            <p className="text-neutral-500 text-sm mb-3">
+              Required aspect ratio: 16:9. A crop tool will open when you select an image.
+            </p>
             {imagePreview && (
               <div className="mb-3">
                 <img
                   src={imagePreview}
                   alt="Preview"
-                  className="max-w-xs max-h-48 rounded-lg border border-neutral-700 object-cover"
+                  className="w-full max-w-md aspect-video rounded-lg border border-neutral-700 object-cover"
                 />
               </div>
             )}
@@ -494,6 +529,16 @@ export function ProjectForm() {
         ]}
         onClose={() => setCancelModal(false)}
       />
+
+      {/* Thumbnail Crop Modal */}
+      {cropImageUrl && (
+        <ThumbnailCropModal
+          isOpen={cropModalOpen}
+          imageUrl={cropImageUrl}
+          onCancel={handleCropCancel}
+          onConfirm={handleCropConfirm}
+        />
+      )}
     </div>
   )
 }

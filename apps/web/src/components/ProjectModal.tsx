@@ -97,6 +97,15 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                 </button>
               </div>
 
+              {/* Image */}
+              {project.image_url && (
+                <img
+                  src={project.image_url}
+                  alt={project.name}
+                  className="w-full aspect-video object-cover"
+                />
+              )}
+
               {/* Content */}
               <div className="p-6 space-y-6">
                 {/* Full Description */}

@@ -28,11 +28,21 @@ function ProjectCard({
       whileHover={{ scale: 1.02, y: -4 }}
       onClick={onClick}
       className={`
-        bg-neutral-800 rounded-lg p-5 cursor-pointer
+        bg-neutral-800 rounded-lg overflow-hidden cursor-pointer
         shadow-lg hover:shadow-xl transition-shadow duration-200
         ${project.featured ? "md:col-span-2" : "col-span-1"}
       `}
     >
+      {/* Thumbnail */}
+      {project.image_url && (
+        <img
+          src={project.image_url}
+          alt={project.name}
+          className="w-full aspect-video object-cover"
+        />
+      )}
+
+      <div className="p-5">
       {/* Project Name */}
       <h3 className="text-lg font-bold text-white mb-2">
         {project.name}
@@ -68,6 +78,7 @@ function ProjectCard({
             Code
           </span>
         )}
+      </div>
       </div>
     </motion.div>
   )
