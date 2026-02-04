@@ -20,9 +20,12 @@ export function TimelineForm() {
 
   const [period, setPeriod] = useState('')
   const [title, setTitle] = useState('')
+  const [titleEn, setTitleEn] = useState('')
   const [organization, setOrganization] = useState('')
   const [type, setType] = useState<'work' | 'studies'>('work')
   const [description, setDescription] = useState('')
+  const [descriptionEn, setDescriptionEn] = useState('')
+  const [descriptionLang, setDescriptionLang] = useState<'es' | 'en'>('es')
 
   const [errors, setErrors] = useState<Record<string, string>>({})
 
@@ -37,9 +40,11 @@ export function TimelineForm() {
       const entry = await getTimelineEntry(entryId)
       setPeriod(entry.period)
       setTitle(entry.title)
+      setTitleEn((entry as Record<string, unknown>).title_en as string || '')
       setOrganization(entry.organization)
       setType(entry.type)
       setDescription(entry.description || '')
+      setDescriptionEn((entry as Record<string, unknown>).description_en as string || '')
     } catch (err) {
       toast.error('Failed to load timeline entry')
       console.error(err)
@@ -85,6 +90,8 @@ export function TimelineForm() {
         description: description.trim() || null,
         display_order: 0,
       }
+      ;(entryData as Record<string, unknown>).title_en = titleEn.trim() || null
+      ;(entryData as Record<string, unknown>).description_en = descriptionEn.trim() || null
 
       if (isEditing && id) {
         await updateTimelineEntry(id, entryData)
@@ -137,7 +144,7 @@ export function TimelineForm() {
 
           <div>
             <label className="block text-sm font-medium text-neutral-300 mb-2">
-              Title
+              Título (Español)
             </label>
             <input
               type="text"
@@ -151,6 +158,19 @@ export function TimelineForm() {
             {errors.title && (
               <div className="text-xs text-red-400 mt-1">{errors.title}</div>
             )}
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-neutral-300 mb-2">
+              Title (English)
+            </label>
+            <input
+              type="text"
+              value={titleEn}
+              onChange={(e) => setTitleEn(e.target.value)}
+              placeholder="e.g., Full Stack Developer (optional)"
+              className="w-full bg-neutral-800 border border-neutral-700 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-500"
+            />
           </div>
 
           <div>
@@ -203,10 +223,41 @@ export function TimelineForm() {
             <label className="block text-sm font-medium text-neutral-300 mb-2">
               Description (optional)
             </label>
-            <RichTextEditor
-              content={description}
-              onChange={setDescription}
-            />
+            <div className="flex gap-1 mb-2">
+              <button
+                type="button"
+                onClick={() => setDescriptionLang('es')}
+                className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
+                  descriptionLang === 'es'
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-neutral-700 text-neutral-300 hover:bg-neutral-600'
+                }`}
+              >
+                Español
+              </button>
+              <button
+                type="button"
+                onClick={() => setDescriptionLang('en')}
+                className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
+                  descriptionLang === 'en'
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-neutral-700 text-neutral-300 hover:bg-neutral-600'
+                }`}
+              >
+                English
+              </button>
+            </div>
+            {descriptionLang === 'es' ? (
+              <RichTextEditor
+                content={description}
+                onChange={setDescription}
+              />
+            ) : (
+              <RichTextEditor
+                content={descriptionEn}
+                onChange={setDescriptionEn}
+              />
+            )}
           </div>
 
           <div className="flex gap-3">

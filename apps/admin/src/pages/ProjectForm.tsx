@@ -31,8 +31,11 @@ export function ProjectForm() {
 
   // Form state (matching database schema)
   const [name, setName] = useState('')
+  const [nameEn, setNameEn] = useState('')
   const [description, setDescription] = useState('')
+  const [descriptionEn, setDescriptionEn] = useState('')
   const [details, setDetails] = useState('')
+  const [detailsEn, setDetailsEn] = useState('')
   const [techStack, setTechStack] = useState<string[]>([])
   const [techInput, setTechInput] = useState('')
   const [imageUrl, setImageUrl] = useState<string | null>(null)
@@ -63,8 +66,11 @@ export function ProjectForm() {
       getProject(id)
         .then((project) => {
           setName(project.name)
+          setNameEn((project as Record<string, unknown>).name_en as string || '')
           setDescription(project.description)
+          setDescriptionEn((project as Record<string, unknown>).description_en as string || '')
           setDetails(project.details || '')
+          setDetailsEn((project as Record<string, unknown>).details_en as string || '')
           setTechStack(project.tech_stack || [])
           setImageUrl(project.image_url)
           setOriginalImageUrl(project.image_url)
@@ -186,6 +192,9 @@ export function ProjectForm() {
         featured,
         display_order: displayOrder,
       }
+      ;(projectData as Record<string, unknown>).name_en = nameEn || null
+      ;(projectData as Record<string, unknown>).description_en = descriptionEn || null
+      ;(projectData as Record<string, unknown>).details_en = detailsEn || null
 
       if (isEditing && id) {
         await updateProject(id, projectData)
@@ -313,7 +322,7 @@ export function ProjectForm() {
           {/* Name */}
           <div>
             <label className="block text-neutral-300 mb-2">
-              Name <span className="text-red-400">*</span>
+              Nombre (Español) <span className="text-red-400">*</span>
             </label>
             <input
               type="text"
@@ -324,11 +333,21 @@ export function ProjectForm() {
               placeholder="Project name"
             />
           </div>
+          <div>
+            <label className="block text-neutral-300 mb-2">Name (English)</label>
+            <input
+              type="text"
+              value={nameEn}
+              onChange={(e) => setNameEn(e.target.value)}
+              className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-2 text-white focus:border-blue-500 focus:outline-none"
+              placeholder="Project name in English (optional)"
+            />
+          </div>
 
           {/* Description */}
           <div>
             <label className="block text-neutral-300 mb-2">
-              Description <span className="text-red-400">*</span>
+              Descripción (Español) <span className="text-red-400">*</span>
             </label>
             <textarea
               value={description}
@@ -339,16 +358,36 @@ export function ProjectForm() {
               placeholder="Brief description for listing pages"
             />
           </div>
+          <div>
+            <label className="block text-neutral-300 mb-2">Description (English)</label>
+            <textarea
+              value={descriptionEn}
+              onChange={(e) => setDescriptionEn(e.target.value)}
+              rows={2}
+              className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-2 text-white focus:border-blue-500 focus:outline-none"
+              placeholder="Brief description in English (optional)"
+            />
+          </div>
 
           {/* Details */}
           <div>
-            <label className="block text-neutral-300 mb-2">Details</label>
+            <label className="block text-neutral-300 mb-2">Detalles (Español)</label>
             <textarea
               value={details}
               onChange={(e) => setDetails(e.target.value)}
               rows={4}
               className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-2 text-white focus:border-blue-500 focus:outline-none"
               placeholder="Longer description with more details (optional)"
+            />
+          </div>
+          <div>
+            <label className="block text-neutral-300 mb-2">Details (English)</label>
+            <textarea
+              value={detailsEn}
+              onChange={(e) => setDetailsEn(e.target.value)}
+              rows={4}
+              className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-2 text-white focus:border-blue-500 focus:outline-none"
+              placeholder="Longer description in English (optional)"
             />
           </div>
 

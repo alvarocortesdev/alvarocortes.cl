@@ -42,9 +42,13 @@ export function PostForm() {
 
   // Form state
   const [title, setTitle] = useState('')
+  const [titleEn, setTitleEn] = useState('')
   const [slug, setSlug] = useState('')
   const [excerpt, setExcerpt] = useState('')
+  const [excerptEn, setExcerptEn] = useState('')
   const [content, setContent] = useState('')
+  const [contentEn, setContentEn] = useState('')
+  const [contentLang, setContentLang] = useState<'es' | 'en'>('es')
   const [category, setCategory] = useState(CATEGORIES[0] ?? 'Development')
   const [tags, setTags] = useState<string[]>([])
   const [tagInput, setTagInput] = useState('')
@@ -75,9 +79,12 @@ export function PostForm() {
       getPost(id)
         .then((post) => {
           setTitle(post.title)
+          setTitleEn((post as Record<string, unknown>).title_en as string || '')
           setSlug(post.slug)
           setExcerpt(post.excerpt)
+          setExcerptEn((post as Record<string, unknown>).excerpt_en as string || '')
           setContent(post.content)
+          setContentEn((post as Record<string, unknown>).content_en as string || '')
           setCategory(post.category)
           setTags(post.tags || [])
           setStatus(post.status === 'published' ? 'published' : post.status === 'scheduled' ? 'scheduled' : 'draft')
@@ -108,6 +115,9 @@ export function PostForm() {
         tags,
         status,
       }
+      ;(postData as Record<string, unknown>).title_en = titleEn || null
+      ;(postData as Record<string, unknown>).excerpt_en = excerptEn || null
+      ;(postData as Record<string, unknown>).content_en = contentEn || null
 
       // Include created_at if editing and changed
       if (isEditing && createdAt) {
@@ -154,6 +164,9 @@ export function PostForm() {
         tags,
         status: targetStatus,
       }
+      ;(postData as Record<string, unknown>).title_en = titleEn || null
+      ;(postData as Record<string, unknown>).excerpt_en = excerptEn || null
+      ;(postData as Record<string, unknown>).content_en = contentEn || null
 
       if (targetStatus === 'published') {
         ;(postData as Record<string, unknown>).published_at = new Date().toISOString()
@@ -193,6 +206,9 @@ export function PostForm() {
         tags,
         status: 'scheduled',
       }
+      ;(postData as Record<string, unknown>).title_en = titleEn || null
+      ;(postData as Record<string, unknown>).excerpt_en = excerptEn || null
+      ;(postData as Record<string, unknown>).content_en = contentEn || null
       ;(postData as Record<string, unknown>).publish_at = selectedDate.toISOString()
 
       await createPost(postData)
@@ -423,7 +439,7 @@ export function PostForm() {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Title */}
           <div>
-            <label className="block text-neutral-300 mb-2">Title</label>
+            <label className="block text-neutral-300 mb-2">Título (Español)</label>
             <input
               type="text"
               value={title}
@@ -431,6 +447,16 @@ export function PostForm() {
               required
               className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-2 text-white focus:border-blue-500 focus:outline-none"
               placeholder="Post title"
+            />
+          </div>
+          <div>
+            <label className="block text-neutral-300 mb-2">Title (English)</label>
+            <input
+              type="text"
+              value={titleEn}
+              onChange={(e) => setTitleEn(e.target.value)}
+              className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-2 text-white focus:border-blue-500 focus:outline-none"
+              placeholder="Post title in English (optional)"
             />
           </div>
 
@@ -449,7 +475,7 @@ export function PostForm() {
 
           {/* Excerpt */}
           <div>
-            <label className="block text-neutral-300 mb-2">Excerpt</label>
+            <label className="block text-neutral-300 mb-2">Extracto (Español)</label>
             <textarea
               value={excerpt}
               onChange={(e) => setExcerpt(e.target.value)}
@@ -457,6 +483,16 @@ export function PostForm() {
               rows={2}
               className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-2 text-white focus:border-blue-500 focus:outline-none"
               placeholder="Brief description for listing pages"
+            />
+          </div>
+          <div>
+            <label className="block text-neutral-300 mb-2">Excerpt (English)</label>
+            <textarea
+              value={excerptEn}
+              onChange={(e) => setExcerptEn(e.target.value)}
+              rows={2}
+              className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-2 text-white focus:border-blue-500 focus:outline-none"
+              placeholder="Brief description in English (optional)"
             />
           </div>
 
@@ -543,7 +579,35 @@ export function PostForm() {
                 Preview
               </button>
             </div>
-            <RichTextEditor content={content} onChange={setContent} />
+            <div className="flex gap-1 mb-2">
+              <button
+                type="button"
+                onClick={() => setContentLang('es')}
+                className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
+                  contentLang === 'es'
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-neutral-700 text-neutral-300 hover:bg-neutral-600'
+                }`}
+              >
+                Español
+              </button>
+              <button
+                type="button"
+                onClick={() => setContentLang('en')}
+                className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
+                  contentLang === 'en'
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-neutral-700 text-neutral-300 hover:bg-neutral-600'
+                }`}
+              >
+                English
+              </button>
+            </div>
+            {contentLang === 'es' ? (
+              <RichTextEditor content={content} onChange={setContent} />
+            ) : (
+              <RichTextEditor content={contentEn} onChange={setContentEn} />
+            )}
           </div>
 
           {/* Submit */}
@@ -651,8 +715,11 @@ export function PostForm() {
         isOpen={previewModal}
         onClose={() => setPreviewModal(false)}
         title={title}
+        titleEn={titleEn}
         excerpt={excerpt}
+        excerptEn={excerptEn}
         content={content}
+        contentEn={contentEn}
         category={category}
         tags={tags}
         createdAt={createdAt || new Date().toISOString()}
