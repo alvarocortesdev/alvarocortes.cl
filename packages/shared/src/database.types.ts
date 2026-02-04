@@ -44,8 +44,10 @@ export type Database = {
           author: string
           category: string
           content: string
+          content_en: string | null
           created_at: string
           excerpt: string
+          excerpt_en: string | null
           id: string
           publish_at: string | null
           published_at: string | null
@@ -53,14 +55,17 @@ export type Database = {
           status: Database["public"]["Enums"]["post_status"]
           tags: string[]
           title: string
+          title_en: string | null
           updated_at: string
         }
         Insert: {
           author?: string
           category: string
           content: string
+          content_en?: string | null
           created_at?: string
           excerpt: string
+          excerpt_en?: string | null
           id?: string
           publish_at?: string | null
           published_at?: string | null
@@ -68,14 +73,17 @@ export type Database = {
           status?: Database["public"]["Enums"]["post_status"]
           tags?: string[]
           title: string
+          title_en?: string | null
           updated_at?: string
         }
         Update: {
           author?: string
           category?: string
           content?: string
+          content_en?: string | null
           created_at?: string
           excerpt?: string
+          excerpt_en?: string | null
           id?: string
           publish_at?: string | null
           published_at?: string | null
@@ -83,6 +91,7 @@ export type Database = {
           status?: Database["public"]["Enums"]["post_status"]
           tags?: string[]
           title?: string
+          title_en?: string | null
           updated_at?: string
         }
         Relationships: []
@@ -91,13 +100,16 @@ export type Database = {
         Row: {
           created_at: string
           description: string
+          description_en: string | null
           details: string
+          details_en: string | null
           display_order: number
           featured: boolean
           id: string
           image_url: string | null
           live_url: string | null
           name: string
+          name_en: string | null
           repo_url: string | null
           tech_stack: string[]
           updated_at: string
@@ -105,13 +117,16 @@ export type Database = {
         Insert: {
           created_at?: string
           description: string
+          description_en?: string | null
           details: string
+          details_en?: string | null
           display_order?: number
           featured?: boolean
           id?: string
           image_url?: string | null
           live_url?: string | null
           name: string
+          name_en?: string | null
           repo_url?: string | null
           tech_stack?: string[]
           updated_at?: string
@@ -119,13 +134,16 @@ export type Database = {
         Update: {
           created_at?: string
           description?: string
+          description_en?: string | null
           details?: string
+          details_en?: string | null
           display_order?: number
           featured?: boolean
           id?: string
           image_url?: string | null
           live_url?: string | null
           name?: string
+          name_en?: string | null
           repo_url?: string | null
           tech_stack?: string[]
           updated_at?: string
@@ -198,33 +216,39 @@ export type Database = {
         Row: {
           created_at: string
           description: string | null
+          description_en: string | null
           display_order: number
           id: string
           organization: string
           period: string
           title: string
+          title_en: string | null
           type: Database["public"]["Enums"]["timeline_entry_type"]
           updated_at: string
         }
         Insert: {
           created_at?: string
           description?: string | null
+          description_en?: string | null
           display_order?: number
           id?: string
           organization: string
           period: string
           title: string
+          title_en?: string | null
           type: Database["public"]["Enums"]["timeline_entry_type"]
           updated_at?: string
         }
         Update: {
           created_at?: string
           description?: string | null
+          description_en?: string | null
           display_order?: number
           id?: string
           organization?: string
           period?: string
           title?: string
+          title_en?: string | null
           type?: Database["public"]["Enums"]["timeline_entry_type"]
           updated_at?: string
         }
