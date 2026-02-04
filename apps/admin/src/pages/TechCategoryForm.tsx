@@ -224,7 +224,7 @@ export function TechCategoryForm() {
                         src={
                           isCustomUrl
                             ? tech.icon
-                            : `https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/${tech.icon}.svg`
+                            : `https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${tech.icon}.svg`
                         }
                         alt={tech.name}
                         className="w-full h-full object-contain"

@@ -14,14 +14,14 @@ function TechIcon({ tech }: { tech: Technology }) {
 
   const iconSrc = isCustomUrl
     ? tech.icon
-    : `https://cdn.simpleicons.org/${tech.icon}/white`
+    : `https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${tech.icon}.svg`
 
   return (
     <div className="flex items-center gap-2">
       <img
         src={iconSrc}
         alt={tech.name}
-        className="w-5 h-5"
+        className="w-5 h-5 invert"
         onError={() => setHasError(true)}
       />
       <span className="text-neutral-300 text-sm">{tech.name}</span>

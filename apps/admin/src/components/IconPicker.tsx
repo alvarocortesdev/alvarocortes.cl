@@ -9,12 +9,13 @@ interface IconPickerProps {
   error?: string
 }
 
-// Curated subset of ~100 common development technology icons
+// Curated subset of common development technology icons
+// All slugs verified against cdn.jsdelivr.net/npm/simple-icons@latest
 const CURATED_ICONS = [
-  'react', 'typescript', 'javascript', 'nodejs', 'python', 'java', 'csharp',
+  'react', 'typescript', 'javascript', 'nodedotjs', 'python', 'openjdk', 'dotnet',
   'php', 'ruby', 'go', 'rust', 'swift', 'kotlin', 'dart',
-  'html5', 'css3', 'sass', 'tailwindcss', 'bootstrap',
-  'nextdotjs', 'vite', 'webpack', 'rollup', 'esbuild',
+  'html5', 'css', 'sass', 'tailwindcss', 'bootstrap',
+  'nextdotjs', 'vite', 'webpack', 'rollupdotjs', 'esbuild',
   'express', 'nestjs', 'fastify', 'hono',
   'postgresql', 'mysql', 'mongodb', 'redis', 'sqlite',
   'supabase', 'firebase', 'amazonaws', 'googlecloud', 'microsoftazure',
@@ -33,7 +34,7 @@ const CURATED_ICONS = [
   'cloudinary', 'stripe', 'twilio', 'sendgrid',
   'sentry', 'datadog', 'newrelic',
   'jira', 'confluence', 'notion', 'slack', 'discord',
-  'chrome', 'firefox', 'safari', 'edge',
+  'googlechrome', 'firefox', 'safari', 'microsoftedge',
 ]
 
 export function IconPicker({ value, onChange, label, error }: IconPickerProps) {
@@ -104,7 +105,7 @@ export function IconPicker({ value, onChange, label, error }: IconPickerProps) {
               <img src={value} alt="custom icon" className="w-full h-full object-contain" />
             ) : (
               <img
-                src={`https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/${value}.svg`}
+                src={`https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${value}.svg`}
                 alt={value}
                 className="w-full h-full object-contain"
                 onError={(e) => {
@@ -135,7 +136,7 @@ export function IconPicker({ value, onChange, label, error }: IconPickerProps) {
                 >
                   <div className="w-5 h-5 bg-white rounded p-0.5 flex-shrink-0">
                     <img
-                      src={`https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/${icon}.svg`}
+                      src={`https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${icon}.svg`}
                       alt={icon}
                       className="w-full h-full object-contain"
                     />
