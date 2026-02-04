@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { useTimelines, type TimelineEntry } from "../hooks/useTimelines"
-import { useTranslation, localized } from "../i18n/useTranslation"
+import { useTranslation, localized, localizedPeriod } from "../i18n/useTranslation"
 import { useLanguage } from "../context/LanguageContext"
 
 function TimelineCard({ entry, index, isLast, t, lang }: { entry: TimelineEntry; index: number; isLast: boolean; t: (key: import('../i18n/translations').TranslationKey) => string; lang: 'es' | 'en' }) {
@@ -51,7 +51,7 @@ function TimelineCard({ entry, index, isLast, t, lang }: { entry: TimelineEntry;
 
         {/* Period */}
         <div className="text-2xl font-bold text-white mb-2">
-          {entry.period}
+          {localizedPeriod(entry.period, lang)}
         </div>
 
         {/* Title */}

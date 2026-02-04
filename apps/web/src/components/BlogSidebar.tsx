@@ -96,9 +96,16 @@ function CalendarWidget({ posts, selectedDate, onDateSelect }: CalendarWidgetPro
         </button>
       </div>
       <div className="grid grid-cols-7 gap-1 text-center text-xs">
-        {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map(day => (
-          <div key={day} className="text-neutral-500 py-1">{day}</div>
-        ))}
+        {Array.from({ length: 7 }, (_, i) => {
+          // Reference week starting from a known Sunday (Dec 31 2023)
+          const ref = new Date(2023, 11, 31 + i)
+          const label = ref.toLocaleString(locale, { weekday: 'short' }).replace(/\.$/, '')
+          return (
+            <div key={i} className="text-neutral-500 py-1">
+              {label.charAt(0).toUpperCase() + label.slice(1)}
+            </div>
+          )
+        })}
         {Array.from({ length: firstDayOfMonth }).map((_, i) => (
           <div key={`empty-${i}`} />
         ))}

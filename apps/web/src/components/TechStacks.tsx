@@ -1,7 +1,8 @@
 import { motion } from "framer-motion"
 import { useTechCategories, type TechCategory, type Technology } from "../hooks/useTechCategories"
 import { useState } from "react"
-import { useTranslation } from "../i18n/useTranslation"
+import { useTranslation, localized } from "../i18n/useTranslation"
+import { useLanguage } from "../context/LanguageContext"
 
 function TechIcon({ tech }: { tech: Technology }) {
   const [hasError, setHasError] = useState(false)
@@ -30,7 +31,7 @@ function TechIcon({ tech }: { tech: Technology }) {
   )
 }
 
-function TechCard({ category, index }: { category: TechCategory; index: number }) {
+function TechCard({ category, index, lang }: { category: TechCategory; index: number; lang: 'es' | 'en' }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -40,7 +41,7 @@ function TechCard({ category, index }: { category: TechCategory; index: number }
     >
       {/* Category Title */}
       <h3 className="text-lg font-bold text-white mb-4">
-        {category.name}
+        {localized(category, 'name', lang)}
       </h3>
 
       {/* Technologies List */}
@@ -56,6 +57,7 @@ function TechCard({ category, index }: { category: TechCategory; index: number }
 export function TechStacks() {
   const { data: categories = [], isLoading, error } = useTechCategories()
   const { t } = useTranslation()
+  const { lang } = useLanguage()
 
   if (isLoading) {
     return (
@@ -102,7 +104,7 @@ export function TechStacks() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
       {categories.map((category, index) => (
-        <TechCard key={category.id} category={category} index={index} />
+        <TechCard key={category.id} category={category} index={index} lang={lang} />
       ))}
     </div>
   )

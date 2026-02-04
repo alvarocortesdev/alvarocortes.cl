@@ -25,6 +25,7 @@ export function TechCategoryForm() {
   const [saving, setSaving] = useState(false)
 
   const [categoryName, setCategoryName] = useState('')
+  const [categoryNameEn, setCategoryNameEn] = useState('')
   const [technologies, setTechnologies] = useState<Technology[]>([])
 
   // New technology being added
@@ -44,6 +45,7 @@ export function TechCategoryForm() {
     try {
       const category = await getTechCategory(categoryId)
       setCategoryName(category.name)
+      setCategoryNameEn((category as Record<string, unknown>).name_en as string || '')
 
       const techs = await getTechnologiesByCategory(categoryId)
       setTechnologies(techs)
@@ -82,9 +84,11 @@ export function TechCategoryForm() {
         name: categoryName.trim(),
         display_order: 0,
       }
+      ;(categoryData as Record<string, unknown>).name_en = categoryNameEn.trim() || null
 
       if (isEditing && id) {
-        await updateTechCategory(id, { name: categoryData.name })
+        const updateData: Record<string, unknown> = { name: categoryData.name, name_en: categoryNameEn.trim() || null }
+        await updateTechCategory(id, updateData as TechCategoryInsert)
         toast.success('Category updated')
       } else {
         const newCategory = await createTechCategory(categoryData)
@@ -174,7 +178,7 @@ export function TechCategoryForm() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-neutral-300 mb-2">
-              Category Name
+              Nombre (Español)
             </label>
             <input
               type="text"
@@ -188,6 +192,18 @@ export function TechCategoryForm() {
             {errors.categoryName && (
               <div className="text-xs text-red-400 mt-1">{errors.categoryName}</div>
             )}
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-neutral-300 mb-2">
+              Name (English)
+            </label>
+            <input
+              type="text"
+              value={categoryNameEn}
+              onChange={(e) => setCategoryNameEn(e.target.value)}
+              placeholder="Category name in English (optional)"
+              className="w-full bg-neutral-800 border border-neutral-700 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-500"
+            />
           </div>
 
           <div className="flex gap-3">

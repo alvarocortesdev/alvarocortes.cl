@@ -14,6 +14,7 @@ export interface Technology {
 export interface TechCategory {
   id: string
   name: string
+  name_en?: string | null
   display_order: number
   created_at: string
   updated_at: string
