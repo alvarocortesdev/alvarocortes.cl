@@ -2,20 +2,20 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-01-26)
+See: .planning/PROJECT.md (updated 2026-02-03)
 
 **Core value:** El sitio debe sentirse fluido, profesional y demostrar dominio tecnico
-**Current focus:** v1.3 Admin Panel
+**Current focus:** v1.4 Timeline Redesign + Blog Filters
 
 ## Current Position
 
-Milestone: v1.3 Admin Panel
-Phase: 18 (Site Integration) — COMPLETE
-Plan: 4 of 4
-Status: Phase complete
-Last activity: 2026-02-03 — Completed 18-04-PLAN.md
+Milestone: v1.4 Timeline Redesign + Blog Filters
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-02-03 — Milestone v1.4 started
 
-Progress: ████████████████████████████████████████ 100% (v1.3 - Phase 18 complete)
+Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0% (v1.4 - defining requirements)
 
 ## Milestone History
 
@@ -24,7 +24,7 @@ Progress: ███████████████████████�
 | v1.0 MVP Foundation | 1-4 | 9 | SHIPPED | 2026-01-19 |
 | v1.1 Portfolio Page | 5-8 | 6 | SHIPPED | 2026-01-20 |
 | v1.2 Blog Page | 9-12 | 5 | SHIPPED | 2026-01-21 |
-| v1.3 Admin Panel | 13-18 | TBD | IN PROGRESS | — |
+| v1.3 Admin Panel | 13-18 | 22 | SHIPPED | 2026-02-03 |
 
 ## Performance Metrics
 
@@ -149,17 +149,13 @@ Summary:
 
 ### Pending Todos
 
-- [x] Plan and execute Phase 13 (Admin Foundation)
-- [x] Plan and execute Phase 14 (Authentication)
-- [x] Plan and execute Phase 15 (Blog CRUD) — complete (4/4 plans)
-- [x] Plan and execute Phase 16 (Projects CRUD) — complete (3/3 plans)
-- [x] Plan and execute Phase 17 (Timeline & Tech CRUD) — complete (5/5 plans)
-- [x] Plan and execute Phase 18 (Site Integration) — complete (4/4 plans)
-- [ ] Milestone v1.3 complete — ready for production deployment
+- [ ] Define requirements for v1.4
+- [ ] Create roadmap for v1.4
+- [ ] Plan and execute phases for v1.4
 
 ### Blockers/Concerns
 
-None — Phase 18 complete. All portfolio and blog components integrated with live Supabase data. Milestone v1.3 complete and ready for production deployment.
+None — starting fresh milestone v1.4.
 
 ### Deferred to v1.4+
 
@@ -169,8 +165,8 @@ None — Phase 18 complete. All portfolio and blog components integrated with li
 ## Session Continuity
 
 Last session: 2026-02-03
-Stopped at: Completed 18-04-PLAN.md (Phase 18 complete)
+Stopped at: Milestone v1.4 initialization — defining requirements
 Resume file: None
 
 ---
-*Last updated: 2026-02-03 — Phase 18 complete, Milestone v1.3 ready for deployment*
+*Last updated: 2026-02-03 — Milestone v1.4 started*
