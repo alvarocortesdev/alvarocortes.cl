@@ -53,22 +53,22 @@ export function HomePage() {
       </motion.div>
 
       {/* Portfolio sections — scroll reveal */}
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <RevealSection id="portfolio" className="mb-16 scroll-mt-20">
+      <div className="max-w-6xl mx-auto px-6 pb-12">
+        <RevealSection id="portfolio" className="mb-24 md:mb-28 scroll-mt-20">
           <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
             Mi Trayectoria
           </h2>
           <Timeline />
         </RevealSection>
 
-        <RevealSection className="mb-16">
+        <RevealSection className="mb-24 md:mb-28">
           <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
             Tech Stack
           </h2>
           <TechStacks />
         </RevealSection>
 
-        <RevealSection className="mb-16">
+        <RevealSection className="mb-24 md:mb-28">
           <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
             Proyectos
           </h2>
