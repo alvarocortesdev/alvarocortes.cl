@@ -12,6 +12,7 @@ export interface Post {
   excerpt_en?: string | null
   author: string
   category: string
+  category_id: string | null
   status: string
   publish_at: string | null
   published_at: string | null

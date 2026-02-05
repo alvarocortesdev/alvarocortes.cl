@@ -12,11 +12,12 @@ interface PostCardProps {
   published_at: string | null
   created_at: string
   category: string
+  category_id: string | null
   [key: string]: unknown
 }
 
 export function PostCard(props: PostCardProps) {
-  const { slug, published_at, created_at, category } = props
+  const { slug, published_at, created_at, category, category_id } = props
   const { lang } = useLanguage()
   const { data: blogCategories = [] } = useBlogCategories()
   const locale = lang === 'en' ? 'en-US' : 'es-CL'
@@ -29,8 +30,8 @@ export function PostCard(props: PostCardProps) {
   const displayTitle = localized(props, 'title', lang)
   const displayExcerpt = localized(props, 'excerpt', lang)
 
-  // Get localized category name from blog_categories
-  const categoryData = blogCategories.find(c => c.name === category)
+  // Get localized category name from blog_categories (by category_id)
+  const categoryData = category_id ? blogCategories.find(c => c.id === category_id) : null
   const displayCategory = categoryData ? localized(categoryData, 'name', lang) : category
 
   return (

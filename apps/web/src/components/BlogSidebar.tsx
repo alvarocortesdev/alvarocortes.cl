@@ -162,40 +162,39 @@ export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps
   const { lang } = useLanguage()
   const { data: blogCategories = [] } = useBlogCategories()
 
-  // Count posts per category and merge with DB categories
+  // Count posts per category_id and merge with DB categories
   const categoriesWithCounts = useMemo(() => {
     const counts = new Map<string, number>()
     posts.forEach(post => {
-      if (post.category) {
-        counts.set(post.category, (counts.get(post.category) || 0) + 1)
+      if (post.category_id) {
+        counts.set(post.category_id, (counts.get(post.category_id) || 0) + 1)
       }
     })
 
-    // If we have DB categories, use them with post counts
+    // Use DB categories with post counts (by category_id)
     if (blogCategories.length > 0) {
       return blogCategories
-        .map(cat => {
-          // Match by name OR name_en (posts may have either)
-          const count = counts.get(cat.name) || counts.get(cat.name_en || '') || 0
-          return {
-            id: cat.id,
-            name: cat.name,
-            name_en: cat.name_en,
-            // Store the actual key used in posts for filtering
-            filterKey: counts.has(cat.name) ? cat.name : (cat.name_en || cat.name),
-            count,
-          }
-        })
+        .map(cat => ({
+          id: cat.id,
+          name: cat.name,
+          name_en: cat.name_en,
+          count: counts.get(cat.id) || 0,
+        }))
         .filter(cat => cat.count > 0)
     }
 
-    // Fallback: derive categories from posts if DB is empty
-    return Array.from(counts.entries())
+    // Fallback: derive categories from posts if DB is empty (legacy text-based)
+    const textCounts = new Map<string, number>()
+    posts.forEach(post => {
+      if (post.category) {
+        textCounts.set(post.category, (textCounts.get(post.category) || 0) + 1)
+      }
+    })
+    return Array.from(textCounts.entries())
       .map(([name, count]) => ({
         id: name,
         name,
         name_en: null as string | null,
-        filterKey: name,
         count,
       }))
       .sort((a, b) => a.name.localeCompare(b.name))
@@ -234,10 +233,10 @@ export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps
                 <button
                   type="button"
                   onClick={() =>
-                    onFilterChange('category', filters.category === category.filterKey ? null : category.filterKey)
+                    onFilterChange('category', filters.category === category.id ? null : category.id)
                   }
                   className={`w-full flex justify-between items-center text-sm transition-colors ${
-                    filters.category === category.filterKey
+                    filters.category === category.id
                       ? 'text-blue-400 font-medium'
                       : 'text-neutral-300 hover:text-white'
                   }`}

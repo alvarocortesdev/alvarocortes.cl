@@ -35,9 +35,9 @@ function filterPosts(posts: Post[], filters: BlogFilters): Post[] {
       }
     }
 
-    // Category filter
+    // Category filter (by category_id UUID)
     if (filters.category) {
-      if (post.category !== filters.category) return false
+      if (post.category_id !== filters.category) return false
     }
 
     return true

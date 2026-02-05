@@ -79,7 +79,7 @@ export function PostDetail() {
         <span>&bull;</span>
         <span className="px-2 py-0.5 bg-[var(--bg-tag)] rounded text-xs text-neutral-300">
           {(() => {
-            const categoryData = blogCategories.find(c => c.name === post.category)
+            const categoryData = post.category_id ? blogCategories.find(c => c.id === post.category_id) : null
             return categoryData ? localized(categoryData, 'name', lang) : post.category
           })()}
         </span>
