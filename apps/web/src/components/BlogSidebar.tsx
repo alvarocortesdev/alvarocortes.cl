@@ -23,8 +23,15 @@ function CalendarWidget({ posts, selectedDate, onDateSelect }: CalendarWidgetPro
   const [viewYear, setViewYear] = useState(() => new Date().getFullYear())
   const [viewMonth, setViewMonth] = useState(() => new Date().getMonth())
 
+  // Spanish: Monday first (1), English: Sunday first (0)
+  const weekStartsOnMonday = lang === 'es'
+
   const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate()
-  const firstDayOfMonth = new Date(viewYear, viewMonth, 1).getDay()
+  const firstDayOfMonthRaw = new Date(viewYear, viewMonth, 1).getDay() // 0=Sunday
+  // Adjust for Monday start: Sunday (0) becomes 6, Monday (1) becomes 0, etc.
+  const firstDayOfMonth = weekStartsOnMonday
+    ? (firstDayOfMonthRaw === 0 ? 6 : firstDayOfMonthRaw - 1)
+    : firstDayOfMonthRaw
 
   const postDaySet = useMemo(() => {
     const days = new Set<number>()
@@ -70,6 +77,20 @@ function CalendarWidget({ posts, selectedDate, onDateSelect }: CalendarWidgetPro
     }
   }
 
+  // Generate weekday headers based on locale
+  const weekdayHeaders = useMemo(() => {
+    const headers: string[] = []
+    // Start from Monday (Jan 1 2024 is Monday) or Sunday (Dec 31 2023 is Sunday)
+    const startDate = weekStartsOnMonday ? new Date(2024, 0, 1) : new Date(2023, 11, 31)
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(startDate)
+      d.setDate(startDate.getDate() + i)
+      const label = d.toLocaleString(locale, { weekday: 'short' }).replace(/\.$/, '')
+      headers.push(label.charAt(0).toUpperCase() + label.slice(1))
+    }
+    return headers
+  }, [locale, weekStartsOnMonday])
+
   return (
     <div>
       <div className="flex items-center justify-between mb-2">
@@ -96,16 +117,11 @@ function CalendarWidget({ posts, selectedDate, onDateSelect }: CalendarWidgetPro
         </button>
       </div>
       <div className="grid grid-cols-7 gap-1 text-center text-xs">
-        {Array.from({ length: 7 }, (_, i) => {
-          // Reference week starting from a known Sunday (Dec 31 2023)
-          const ref = new Date(2023, 11, 31 + i)
-          const label = ref.toLocaleString(locale, { weekday: 'short' }).replace(/\.$/, '')
-          return (
-            <div key={i} className="text-neutral-500 py-1">
-              {label.charAt(0).toUpperCase() + label.slice(1)}
-            </div>
-          )
-        })}
+        {weekdayHeaders.map((header, i) => (
+          <div key={i} className="text-neutral-500 py-1">
+            {header}
+          </div>
+        ))}
         {Array.from({ length: firstDayOfMonth }).map((_, i) => (
           <div key={`empty-${i}`} />
         ))}
@@ -155,13 +171,27 @@ export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps
       }
     })
 
-    // Return DB categories with post counts
-    return blogCategories
-      .map(cat => ({
-        ...cat,
-        count: counts.get(cat.name) || 0,
+    // If we have DB categories, use them with post counts
+    if (blogCategories.length > 0) {
+      return blogCategories
+        .map(cat => ({
+          id: cat.id,
+          name: cat.name,
+          name_en: cat.name_en,
+          count: counts.get(cat.name) || 0,
+        }))
+        .filter(cat => cat.count > 0)
+    }
+
+    // Fallback: derive categories from posts if DB is empty
+    return Array.from(counts.entries())
+      .map(([name, count]) => ({
+        id: name,
+        name,
+        name_en: null as string | null,
+        count,
       }))
-      .filter(cat => cat.count > 0) // Only show categories that have posts
+      .sort((a, b) => a.name.localeCompare(b.name))
   }, [posts, blogCategories])
 
   return (
