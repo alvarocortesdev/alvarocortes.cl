@@ -1,15 +1,16 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { usePost } from '../hooks/usePost'
+import { useBlogCategories } from '../hooks/useBlogCategories'
 import { sanitizeHtml } from '../lib/sanitize'
 import { ShareButtons } from './ShareButtons'
 import { useLanguage } from '../context/LanguageContext'
 import { useTranslation, localized } from '../i18n/useTranslation'
-import type { TranslationKey } from '../i18n/translations'
 
 export function PostDetail() {
   const { slug } = useParams<{ slug: string }>()
   const { data: post, isLoading, error } = usePost(slug || '')
+  const { data: blogCategories = [] } = useBlogCategories()
   const { lang } = useLanguage()
   const { t } = useTranslation()
   const locale = lang === 'en' ? 'en-US' : 'es-CL'
@@ -77,7 +78,10 @@ export function PostDetail() {
         <span>{post.author}</span>
         <span>&bull;</span>
         <span className="px-2 py-0.5 bg-[var(--bg-tag)] rounded text-xs text-neutral-300">
-          {t(`category.${post.category}` as TranslationKey)}
+          {(() => {
+            const categoryData = blogCategories.find(c => c.name === post.category)
+            return categoryData ? localized(categoryData, 'name', lang) : post.category
+          })()}
         </span>
       </div>
 

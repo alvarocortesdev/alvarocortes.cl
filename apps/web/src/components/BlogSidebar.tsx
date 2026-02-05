@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react'
 import type { Post } from '../hooks/usePosts'
 import type { BlogFilters } from './BlogPage'
-import { useTranslation } from '../i18n/useTranslation'
+import { useTranslation, localized } from '../i18n/useTranslation'
 import { useLanguage } from '../context/LanguageContext'
-import type { TranslationKey } from '../i18n/translations'
+import { useBlogCategories } from '../hooks/useBlogCategories'
 
 interface BlogSidebarProps {
   posts: Post[]
@@ -143,18 +143,26 @@ function CalendarWidget({ posts, selectedDate, onDateSelect }: CalendarWidgetPro
 
 export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps) {
   const { t } = useTranslation()
+  const { lang } = useLanguage()
+  const { data: blogCategories = [] } = useBlogCategories()
 
-  const categories = useMemo(() => {
+  // Count posts per category and merge with DB categories
+  const categoriesWithCounts = useMemo(() => {
     const counts = new Map<string, number>()
     posts.forEach(post => {
       if (post.category) {
         counts.set(post.category, (counts.get(post.category) || 0) + 1)
       }
     })
-    return Array.from(counts.entries())
-      .map(([name, count]) => ({ name, count }))
-      .sort((a, b) => a.name.localeCompare(b.name))
-  }, [posts])
+
+    // Return DB categories with post counts
+    return blogCategories
+      .map(cat => ({
+        ...cat,
+        count: counts.get(cat.name) || 0,
+      }))
+      .filter(cat => cat.count > 0) // Only show categories that have posts
+  }, [posts, blogCategories])
 
   return (
     <div className="space-y-6">
@@ -180,12 +188,12 @@ export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps
       </div>
 
       {/* Categories list - SIDE-03 */}
-      {categories.length > 0 && (
+      {categoriesWithCounts.length > 0 && (
         <div>
           <h3 className="text-sm font-semibold text-white mb-3">{t('blog.categories')}</h3>
           <ul className="space-y-2">
-            {categories.map(category => (
-              <li key={category.name}>
+            {categoriesWithCounts.map(category => (
+              <li key={category.id}>
                 <button
                   type="button"
                   onClick={() =>
@@ -197,7 +205,7 @@ export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps
                       : 'text-neutral-300 hover:text-white'
                   }`}
                 >
-                  <span>{t(`category.${category.name}` as TranslationKey)}</span>
+                  <span>{localized(category, 'name', lang)}</span>
                   <span className="text-neutral-500">({category.count})</span>
                 </button>
               </li>

@@ -39,10 +39,38 @@ export type Database = {
   }
   public: {
     Tables: {
+      blog_categories: {
+        Row: {
+          created_at: string
+          display_order: number
+          id: string
+          name: string
+          name_en: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number
+          id?: string
+          name: string
+          name_en?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_order?: number
+          id?: string
+          name?: string
+          name_en?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       posts: {
         Row: {
           author: string
           category: string
+          category_id: string | null
           content: string
           content_en: string | null
           created_at: string
@@ -61,6 +89,7 @@ export type Database = {
         Insert: {
           author?: string
           category: string
+          category_id?: string | null
           content: string
           content_en?: string | null
           created_at?: string
@@ -79,6 +108,7 @@ export type Database = {
         Update: {
           author?: string
           category?: string
+          category_id?: string | null
           content?: string
           content_en?: string | null
           created_at?: string
@@ -94,7 +124,15 @@ export type Database = {
           title_en?: string | null
           updated_at?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "posts_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "blog_categories"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       projects: {
         Row: {

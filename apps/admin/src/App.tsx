@@ -10,6 +10,8 @@ import { TimelineList } from '@/pages/TimelineList'
 import { TimelineForm } from '@/pages/TimelineForm'
 import { TechCategoryList } from '@/pages/TechCategoryList'
 import { TechCategoryForm } from '@/pages/TechCategoryForm'
+import { BlogCategoryList } from '@/pages/BlogCategoryList'
+import { BlogCategoryForm } from '@/pages/BlogCategoryForm'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
 
 export function App() {
@@ -118,6 +120,30 @@ export function App() {
         element={
           <ProtectedRoute>
             <TechCategoryForm />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/blog-categories"
+        element={
+          <ProtectedRoute>
+            <BlogCategoryList />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/blog-categories/new"
+        element={
+          <ProtectedRoute>
+            <BlogCategoryForm />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/blog-categories/:id/edit"
+        element={
+          <ProtectedRoute>
+            <BlogCategoryForm />
           </ProtectedRoute>
         }
       />

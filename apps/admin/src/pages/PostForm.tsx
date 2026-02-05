@@ -15,9 +15,9 @@ import {
   schedulePost,
   unschedulePost,
   generateSlug,
-  CATEGORIES,
   type PostInsert,
 } from '@/lib/posts'
+import { getBlogCategories, type BlogCategory } from '@/lib/blogCategories'
 
 // Extract Cloudinary publicIds from HTML content
 function extractCloudinaryIds(html: string | null): string[] {
@@ -36,9 +36,12 @@ export function PostForm() {
   const navigate = useNavigate()
   const isEditing = Boolean(id)
 
-  const [loading, setLoading] = useState(isEditing)
+  const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  // Blog categories from DB
+  const [blogCategories, setBlogCategories] = useState<BlogCategory[]>([])
 
   // Form state
   const [title, setTitle] = useState('')
@@ -49,7 +52,7 @@ export function PostForm() {
   const [content, setContent] = useState('')
   const [contentEn, setContentEn] = useState('')
   const [contentLang, setContentLang] = useState<'es' | 'en'>('es')
-  const [category, setCategory] = useState(CATEGORIES[0] ?? 'Development')
+  const [categoryId, setCategoryId] = useState<string>('')
   const [tags, setTags] = useState<string[]>([])
   const [tagInput, setTagInput] = useState('')
   const [status, setStatus] = useState<'draft' | 'published' | 'scheduled'>('draft')
@@ -73,11 +76,17 @@ export function PostForm() {
     }
   }, [title, isEditing])
 
-  // Load existing post when editing
+  // Load blog categories and existing post (if editing)
   useEffect(() => {
-    if (isEditing && id) {
-      getPost(id)
-        .then((post) => {
+    const loadData = async () => {
+      try {
+        // Always load categories first
+        const categories = await getBlogCategories()
+        setBlogCategories(categories)
+
+        if (isEditing && id) {
+          // Load existing post
+          const post = await getPost(id)
           setTitle(post.title)
           setTitleEn((post as Record<string, unknown>).title_en as string || '')
           setSlug(post.slug)
@@ -85,19 +94,38 @@ export function PostForm() {
           setExcerptEn((post as Record<string, unknown>).excerpt_en as string || '')
           setContent(post.content)
           setContentEn((post as Record<string, unknown>).content_en as string || '')
-          setCategory(post.category)
+          // Use category_id if available, otherwise find by name for backward compatibility
+          const postCategoryId = (post as Record<string, unknown>).category_id as string
+          if (postCategoryId) {
+            setCategoryId(postCategoryId)
+          } else if (post.category) {
+            const matchingCategory = categories.find(c => c.name === post.category)
+            if (matchingCategory) {
+              setCategoryId(matchingCategory.id)
+            }
+          }
           setTags(post.tags || [])
           setStatus(post.status === 'published' ? 'published' : post.status === 'scheduled' ? 'scheduled' : 'draft')
-          setCreatedAt(post.created_at.slice(0, 16)) // Format for datetime-local input
+          setCreatedAt(post.created_at.slice(0, 16))
           if (post.publish_at) {
-            setPublishAt(post.publish_at.slice(0, 16)) // Format for datetime-local input
+            setPublishAt(post.publish_at.slice(0, 16))
           }
-          // Store original images for orphan cleanup
           setOriginalImageIds(extractCloudinaryIds(post.content))
-        })
-        .catch((err) => setError(err.message))
-        .finally(() => setLoading(false))
+        } else {
+          // New post - set default category to first one
+          const firstCategory = categories[0]
+          if (firstCategory) {
+            setCategoryId(firstCategory.id)
+          }
+        }
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to load data')
+      } finally {
+        setLoading(false)
+      }
     }
+
+    loadData()
   }, [id, isEditing])
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -105,19 +133,24 @@ export function PostForm() {
     setError(null)
     setSaving(true)
 
+    // Get category name for backward compatibility (category field is still required)
+    const selectedCategory = blogCategories.find(c => c.id === categoryId)
+    const categoryName = selectedCategory?.name || ''
+
     try {
       const postData: PostInsert = {
         title,
         slug,
         excerpt,
         content,
-        category,
+        category: categoryName,
         tags,
         status,
       }
       ;(postData as Record<string, unknown>).title_en = titleEn || null
       ;(postData as Record<string, unknown>).excerpt_en = excerptEn || null
       ;(postData as Record<string, unknown>).content_en = contentEn || null
+      ;(postData as Record<string, unknown>).category_id = categoryId || null
 
       // Include created_at if editing and changed
       if (isEditing && createdAt) {
@@ -154,19 +187,23 @@ export function PostForm() {
     setError(null)
     setSaving(true)
 
+    const selectedCategory = blogCategories.find(c => c.id === categoryId)
+    const categoryName = selectedCategory?.name || ''
+
     try {
       const postData: PostInsert = {
         title,
         slug,
         excerpt,
         content,
-        category,
+        category: categoryName,
         tags,
         status: targetStatus,
       }
       ;(postData as Record<string, unknown>).title_en = titleEn || null
       ;(postData as Record<string, unknown>).excerpt_en = excerptEn || null
       ;(postData as Record<string, unknown>).content_en = contentEn || null
+      ;(postData as Record<string, unknown>).category_id = categoryId || null
 
       if (targetStatus === 'published') {
         ;(postData as Record<string, unknown>).published_at = new Date().toISOString()
@@ -196,19 +233,23 @@ export function PostForm() {
     setError(null)
     setSaving(true)
 
+    const selectedCat = blogCategories.find(c => c.id === categoryId)
+    const categoryName = selectedCat?.name || ''
+
     try {
       const postData: PostInsert = {
         title,
         slug,
         excerpt,
         content,
-        category,
+        category: categoryName,
         tags,
         status: 'scheduled',
       }
       ;(postData as Record<string, unknown>).title_en = titleEn || null
       ;(postData as Record<string, unknown>).excerpt_en = excerptEn || null
       ;(postData as Record<string, unknown>).content_en = contentEn || null
+      ;(postData as Record<string, unknown>).category_id = categoryId || null
       ;(postData as Record<string, unknown>).publish_at = selectedDate.toISOString()
 
       await createPost(postData)
@@ -500,16 +541,23 @@ export function PostForm() {
           <div>
             <label className="block text-neutral-300 mb-2">Category</label>
             <select
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
+              value={categoryId}
+              onChange={(e) => setCategoryId(e.target.value)}
+              required
               className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-2 text-white focus:border-blue-500 focus:outline-none"
             >
-              {CATEGORIES.map((cat) => (
-                <option key={cat} value={cat}>
-                  {cat}
+              <option value="">Select a category</option>
+              {blogCategories.map((cat) => (
+                <option key={cat.id} value={cat.id}>
+                  {cat.name}{cat.name_en ? ` / ${cat.name_en}` : ''}
                 </option>
               ))}
             </select>
+            <p className="text-neutral-500 text-sm mt-1">
+              <Link to="/blog-categories" className="text-blue-400 hover:text-blue-300">
+                Manage categories
+              </Link>
+            </p>
           </div>
 
           {/* Tags */}
@@ -720,7 +768,7 @@ export function PostForm() {
         excerptEn={excerptEn}
         content={content}
         contentEn={contentEn}
-        category={category}
+        category={blogCategories.find(c => c.id === categoryId)?.name || ''}
         tags={tags}
         createdAt={createdAt || new Date().toISOString()}
       />

@@ -5,6 +5,7 @@ import { getPosts } from '@/lib/posts'
 import { getProjects } from '@/lib/projects'
 import { getTimelineEntries } from '@/lib/timelines'
 import { getTechCategories } from '@/lib/techCategories'
+import { getBlogCategories } from '@/lib/blogCategories'
 
 export function Dashboard() {
   const { user, signOut } = useAuth()
@@ -12,22 +13,25 @@ export function Dashboard() {
   const [projectsCount, setProjectsCount] = useState<number>(0)
   const [timelineCount, setTimelineCount] = useState<number>(0)
   const [techCategoriesCount, setTechCategoriesCount] = useState<number>(0)
+  const [blogCategoriesCount, setBlogCategoriesCount] = useState<number>(0)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        const [posts, projects, timeline, categories] = await Promise.all([
+        const [posts, projects, timeline, techCategories, blogCategories] = await Promise.all([
           getPosts(),
           getProjects(),
           getTimelineEntries(),
           getTechCategories(),
+          getBlogCategories(),
         ])
 
         setPostsCount(posts.length)
         setProjectsCount(projects.length)
         setTimelineCount(timeline.length)
-        setTechCategoriesCount(categories.length)
+        setTechCategoriesCount(techCategories.length)
+        setBlogCategoriesCount(blogCategories.length)
       } catch (error) {
         console.error('Failed to fetch counts:', error)
       } finally {
@@ -125,6 +129,22 @@ export function Dashboard() {
               </p>
               <div className="text-neutral-500 text-sm">
                 {techCategoriesCount} {techCategoriesCount === 1 ? 'category' : 'categories'}
+              </div>
+            </Link>
+
+            <Link
+              to="/blog-categories"
+              className="block p-6 bg-neutral-900 rounded-lg border border-neutral-700 hover:border-neutral-600 transition-colors"
+            >
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-lg font-semibold text-white">Blog Categories</h3>
+                <span className="text-2xl">🏷️</span>
+              </div>
+              <p className="text-neutral-400 text-sm mb-4">
+                Manage blog post categories (ES/EN)
+              </p>
+              <div className="text-neutral-500 text-sm">
+                {blogCategoriesCount} {blogCategoriesCount === 1 ? 'category' : 'categories'}
               </div>
             </Link>
           </div>

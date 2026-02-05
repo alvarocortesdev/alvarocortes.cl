@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
-import { localized, useTranslation } from '../i18n/useTranslation'
-import type { TranslationKey } from '../i18n/translations'
+import { localized } from '../i18n/useTranslation'
+import { useBlogCategories } from '../hooks/useBlogCategories'
 
 interface PostCardProps {
   slug: string
@@ -18,7 +18,7 @@ interface PostCardProps {
 export function PostCard(props: PostCardProps) {
   const { slug, published_at, created_at, category } = props
   const { lang } = useLanguage()
-  const { t } = useTranslation()
+  const { data: blogCategories = [] } = useBlogCategories()
   const locale = lang === 'en' ? 'en-US' : 'es-CL'
   const formattedDate = new Date(published_at || created_at).toLocaleDateString(locale, {
     year: 'numeric',
@@ -28,6 +28,10 @@ export function PostCard(props: PostCardProps) {
 
   const displayTitle = localized(props, 'title', lang)
   const displayExcerpt = localized(props, 'excerpt', lang)
+
+  // Get localized category name from blog_categories
+  const categoryData = blogCategories.find(c => c.name === category)
+  const displayCategory = categoryData ? localized(categoryData, 'name', lang) : category
 
   return (
     <article className="bg-[var(--bg-card)] rounded-lg p-6 hover:bg-[var(--bg-card-hover)] transition-colors">
@@ -40,7 +44,7 @@ export function PostCard(props: PostCardProps) {
       <div className="flex items-center justify-between">
         <time className="text-neutral-500 text-xs">{formattedDate}</time>
         <span className="px-2 py-0.5 bg-[var(--bg-tag)] rounded text-xs text-neutral-300">
-          {t(`category.${category}` as TranslationKey)}
+          {displayCategory}
         </span>
       </div>
     </article>

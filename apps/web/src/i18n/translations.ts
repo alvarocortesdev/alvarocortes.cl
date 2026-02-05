@@ -46,15 +46,6 @@ const translations = {
     'blog.searchPlaceholder': 'Buscar publicaciones...',
     'blog.categories': 'Categorías',
 
-    // Blog categories (display translations for EN-stored values)
-    'category.Development': 'Desarrollo',
-    'category.Design': 'Diseño',
-    'category.DevOps': 'DevOps',
-    'category.AI': 'IA',
-    'category.Career': 'Carrera',
-    'category.Tutorial': 'Tutorial',
-    'category.Other': 'Otro',
-
     // Blog Listing
     'blogListing.errorLoad': 'Error al cargar publicaciones',
     'blogListing.errorRetry': 'Por favor, inténtalo más tarde.',
@@ -122,15 +113,6 @@ const translations = {
     'blog.search': 'Search',
     'blog.searchPlaceholder': 'Search posts...',
     'blog.categories': 'Categories',
-
-    // Blog categories
-    'category.Development': 'Development',
-    'category.Design': 'Design',
-    'category.DevOps': 'DevOps',
-    'category.AI': 'AI',
-    'category.Career': 'Career',
-    'category.Tutorial': 'Tutorial',
-    'category.Other': 'Other',
 
     // Blog Listing
     'blogListing.errorLoad': 'Failed to load posts',
