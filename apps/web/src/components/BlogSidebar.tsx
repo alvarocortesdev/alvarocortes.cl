@@ -143,11 +143,6 @@ function CalendarWidget({ posts, selectedDate, onDateSelect }: CalendarWidgetPro
 
 export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps) {
   const { t } = useTranslation()
-  const tags = useMemo(() => {
-    const tagSet = new Set<string>()
-    posts.forEach(post => post.tags.forEach(t => tagSet.add(t)))
-    return Array.from(tagSet).sort()
-  }, [posts])
 
   const categories = useMemo(() => {
     const counts = new Map<string, number>()
@@ -184,30 +179,7 @@ export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps
         />
       </div>
 
-      {/* Tags cloud - SIDE-03 */}
-      {tags.length > 0 && (
-        <div>
-          <h3 className="text-sm font-semibold text-white mb-3">{t('blog.tags')}</h3>
-          <div className="flex flex-wrap gap-2">
-            {tags.map(tag => (
-              <button
-                key={tag}
-                type="button"
-                onClick={() => onFilterChange('tag', filters.tag === tag ? null : tag)}
-                className={`px-2 py-1 rounded text-xs transition-colors ${
-                  filters.tag === tag
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-[var(--bg-tag)] hover:bg-[var(--bg-tag-hover)] text-neutral-300 hover:text-white'
-                }`}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Categories list - SIDE-04 */}
+      {/* Categories list - SIDE-03 */}
       {categories.length > 0 && (
         <div>
           <h3 className="text-sm font-semibold text-white mb-3">{t('blog.categories')}</h3>

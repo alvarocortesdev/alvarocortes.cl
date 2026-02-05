@@ -71,21 +71,14 @@ export function PostDetail() {
       <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">{localized(post, 'title', lang)}</h1>
 
       {/* Metadata - POST-02 */}
-      <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-400 mb-6">
+      <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-400 mb-8">
         <time>{formattedDate}</time>
         <span>&bull;</span>
         <span>{post.author}</span>
         <span>&bull;</span>
-        <span className="text-blue-400">{t(`category.${post.category}` as TranslationKey)}</span>
-      </div>
-
-      {/* Tags */}
-      <div className="flex flex-wrap gap-2 mb-8">
-        {post.tags.map(tag => (
-          <span key={tag} className="px-3 py-1 bg-[var(--bg-tag)] rounded-full text-xs text-neutral-300">
-            {tag}
-          </span>
-        ))}
+        <span className="px-2 py-0.5 bg-[var(--bg-tag)] rounded text-xs text-neutral-300">
+          {t(`category.${post.category}` as TranslationKey)}
+        </span>
       </div>
 
       {/* Content - POST-01 */}

@@ -8,7 +8,6 @@ import { useTranslation } from '../i18n/useTranslation'
 export interface BlogFilters {
   search: string
   date: { year: number; month: number; day: number } | null
-  tag: string | null
   category: string | null
 }
 
@@ -36,11 +35,6 @@ function filterPosts(posts: Post[], filters: BlogFilters): Post[] {
       }
     }
 
-    // Tag filter
-    if (filters.tag) {
-      if (!post.tags.includes(filters.tag)) return false
-    }
-
     // Category filter
     if (filters.category) {
       if (post.category !== filters.category) return false
@@ -56,7 +50,6 @@ export function BlogPage() {
   const [filters, setFilters] = useState<BlogFilters>({
     search: '',
     date: null,
-    tag: null,
     category: null,
   })
   const [currentPage, setCurrentPage] = useState(1)

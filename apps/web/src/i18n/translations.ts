@@ -44,7 +44,6 @@ const translations = {
     'blog.title': 'Blog',
     'blog.search': 'Buscar',
     'blog.searchPlaceholder': 'Buscar publicaciones...',
-    'blog.tags': 'Etiquetas',
     'blog.categories': 'Categorías',
 
     // Blog categories (display translations for EN-stored values)
@@ -122,7 +121,6 @@ const translations = {
     'blog.title': 'Blog',
     'blog.search': 'Search',
     'blog.searchPlaceholder': 'Search posts...',
-    'blog.tags': 'Tags',
     'blog.categories': 'Categories',
 
     // Blog categories

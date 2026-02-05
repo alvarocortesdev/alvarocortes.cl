@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
-import { localized } from '../i18n/useTranslation'
+import { localized, useTranslation } from '../i18n/useTranslation'
+import type { TranslationKey } from '../i18n/translations'
 
 interface PostCardProps {
   slug: string
@@ -10,13 +11,14 @@ interface PostCardProps {
   excerpt_en?: string | null
   published_at: string | null
   created_at: string
-  tags: string[]
+  category: string
   [key: string]: unknown
 }
 
 export function PostCard(props: PostCardProps) {
-  const { slug, published_at, created_at, tags } = props
+  const { slug, published_at, created_at, category } = props
   const { lang } = useLanguage()
+  const { t } = useTranslation()
   const locale = lang === 'en' ? 'en-US' : 'es-CL'
   const formattedDate = new Date(published_at || created_at).toLocaleDateString(locale, {
     year: 'numeric',
@@ -37,13 +39,9 @@ export function PostCard(props: PostCardProps) {
       <p className="text-neutral-400 text-sm mb-4 line-clamp-2">{displayExcerpt}</p>
       <div className="flex items-center justify-between">
         <time className="text-neutral-500 text-xs">{formattedDate}</time>
-        <div className="flex gap-2">
-          {tags.slice(0, 2).map(tag => (
-            <span key={tag} className="px-2 py-0.5 bg-[var(--bg-tag)] rounded text-xs text-neutral-300">
-              {tag}
-            </span>
-          ))}
-        </div>
+        <span className="px-2 py-0.5 bg-[var(--bg-tag)] rounded text-xs text-neutral-300">
+          {t(`category.${category}` as TranslationKey)}
+        </span>
       </div>
     </article>
   )
