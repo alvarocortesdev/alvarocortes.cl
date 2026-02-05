@@ -1,6 +1,6 @@
 import avatar from "@/assets/avatar.jpeg"
 
-import { useState } from "react"
+import { useState, useId } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useTheme } from "../context/ThemeContext"
 import { useLanguage } from "../context/LanguageContext"
@@ -8,6 +8,7 @@ import { useTranslation } from "../i18n/useTranslation"
 
 function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()
+  const maskId = useId()
 
   return (
     <button
@@ -18,11 +19,11 @@ function ThemeToggle() {
       aria-live="polite"
     >
       <svg className="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
-        <mask className="moon" id="moon-mask">
+        <mask className="moon" id={maskId}>
           <rect x="0" y="0" width="100%" height="100%" fill="white" />
           <circle cx="24" cy="10" r="6" fill="black" />
         </mask>
-        <circle className="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+        <circle className="sun" cx="12" cy="12" r="6" mask={`url(#${maskId})`} fill="currentColor" />
         <g className="sun-beams" stroke="currentColor">
           <line x1="12" y1="1" x2="12" y2="3" />
           <line x1="12" y1="21" x2="12" y2="23" />
