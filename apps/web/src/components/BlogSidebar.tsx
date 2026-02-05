@@ -174,12 +174,18 @@ export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps
     // If we have DB categories, use them with post counts
     if (blogCategories.length > 0) {
       return blogCategories
-        .map(cat => ({
-          id: cat.id,
-          name: cat.name,
-          name_en: cat.name_en,
-          count: counts.get(cat.name) || 0,
-        }))
+        .map(cat => {
+          // Match by name OR name_en (posts may have either)
+          const count = counts.get(cat.name) || counts.get(cat.name_en || '') || 0
+          return {
+            id: cat.id,
+            name: cat.name,
+            name_en: cat.name_en,
+            // Store the actual key used in posts for filtering
+            filterKey: counts.has(cat.name) ? cat.name : (cat.name_en || cat.name),
+            count,
+          }
+        })
         .filter(cat => cat.count > 0)
     }
 
@@ -189,6 +195,7 @@ export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps
         id: name,
         name,
         name_en: null as string | null,
+        filterKey: name,
         count,
       }))
       .sort((a, b) => a.name.localeCompare(b.name))
@@ -227,10 +234,10 @@ export function BlogSidebar({ posts, filters, onFilterChange }: BlogSidebarProps
                 <button
                   type="button"
                   onClick={() =>
-                    onFilterChange('category', filters.category === category.name ? null : category.name)
+                    onFilterChange('category', filters.category === category.filterKey ? null : category.filterKey)
                   }
                   className={`w-full flex justify-between items-center text-sm transition-colors ${
-                    filters.category === category.name
+                    filters.category === category.filterKey
                       ? 'text-blue-400 font-medium'
                       : 'text-neutral-300 hover:text-white'
                   }`}
