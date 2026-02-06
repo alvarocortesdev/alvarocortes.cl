@@ -23,23 +23,22 @@ export function BlogCategoryForm() {
 
   useEffect(() => {
     if (isEditing && id) {
-      loadCategory(id)
+      const loadCategory = async () => {
+        try {
+          const category = await getBlogCategory(id)
+          setName(category.name)
+          setNameEn(category.name_en || '')
+        } catch (err) {
+          toast.error('Failed to load category')
+          console.error(err)
+          navigate('/blog-categories')
+        } finally {
+          setLoading(false)
+        }
+      }
+      loadCategory()
     }
-  }, [id, isEditing])
-
-  const loadCategory = async (categoryId: string) => {
-    try {
-      const category = await getBlogCategory(categoryId)
-      setName(category.name)
-      setNameEn(category.name_en || '')
-    } catch (err) {
-      toast.error('Failed to load category')
-      console.error(err)
-      navigate('/blog-categories')
-    } finally {
-      setLoading(false)
-    }
-  }
+  }, [id, isEditing, navigate])
 
   const validate = () => {
     const newErrors: Record<string, string> = {}

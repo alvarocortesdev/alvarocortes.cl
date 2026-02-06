@@ -31,28 +31,27 @@ export function TimelineForm() {
 
   useEffect(() => {
     if (isEditing && id) {
-      loadEntry(id)
+      const loadEntry = async () => {
+        try {
+          const entry = await getTimelineEntry(id)
+          setPeriod(entry.period)
+          setTitle(entry.title)
+          setTitleEn((entry as Record<string, unknown>).title_en as string || '')
+          setOrganization(entry.organization)
+          setType(entry.type)
+          setDescription(entry.description || '')
+          setDescriptionEn((entry as Record<string, unknown>).description_en as string || '')
+        } catch (err) {
+          toast.error('Failed to load timeline entry')
+          console.error(err)
+          navigate('/timeline')
+        } finally {
+          setLoading(false)
+        }
+      }
+      loadEntry()
     }
-  }, [id, isEditing])
-
-  const loadEntry = async (entryId: string) => {
-    try {
-      const entry = await getTimelineEntry(entryId)
-      setPeriod(entry.period)
-      setTitle(entry.title)
-      setTitleEn((entry as Record<string, unknown>).title_en as string || '')
-      setOrganization(entry.organization)
-      setType(entry.type)
-      setDescription(entry.description || '')
-      setDescriptionEn((entry as Record<string, unknown>).description_en as string || '')
-    } catch (err) {
-      toast.error('Failed to load timeline entry')
-      console.error(err)
-      navigate('/timeline')
-    } finally {
-      setLoading(false)
-    }
-  }
+  }, [id, isEditing, navigate])
 
   const validate = () => {
     const newErrors: Record<string, string> = {}

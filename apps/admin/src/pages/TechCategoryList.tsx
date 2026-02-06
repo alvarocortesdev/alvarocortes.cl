@@ -9,6 +9,8 @@ import {
   useSensor,
   useSensors,
   type DragEndEvent,
+  type SensorDescriptor,
+  type SensorOptions,
 } from '@dnd-kit/core'
 import {
   arrayMove,
@@ -225,7 +227,7 @@ export function TechCategoryList() {
                         await deleteTechnology(techId)
                         toast.success('Technology deleted')
                         fetchCategories()
-                      } catch (err) {
+                      } catch {
                         toast.error('Failed to delete technology')
                       }
                     }}
@@ -270,7 +272,7 @@ function CategoryRow({
   onDelete: () => void
   onTechDragEnd: (event: DragEndEvent) => void
   onDeleteTech: (id: string) => void
-  sensors: any
+  sensors: SensorDescriptor<SensorOptions>[]
 }) {
   const {
     attributes,

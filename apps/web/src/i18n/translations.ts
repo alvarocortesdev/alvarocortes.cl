@@ -64,6 +64,11 @@ const translations = {
     // Share
     'share.label': 'Compartir:',
 
+    // Not Found
+    'notFound.title': 'Página no encontrada',
+    'notFound.description': 'La página que buscas no existe o fue movida.',
+    'notFound.backHome': 'Volver al inicio',
+
     // Footer
     'footer.copyright': 'Alvaro Cortés Opazo',
   },
@@ -131,6 +136,11 @@ const translations = {
 
     // Share
     'share.label': 'Share:',
+
+    // Not Found
+    'notFound.title': 'Page not found',
+    'notFound.description': "The page you're looking for doesn't exist or has been moved.",
+    'notFound.backHome': 'Back to home',
 
     // Footer
     'footer.copyright': 'Alvaro Cortés Opazo',

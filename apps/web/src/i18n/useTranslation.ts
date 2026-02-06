@@ -22,20 +22,20 @@ export function useTranslation() {
  * If lang is 'en' and `obj[field + '_en']` exists, returns that.
  * Otherwise falls back to `obj[field]`.
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function localized(
-  obj: Record<string, any>,
+export function localized<T extends object>(
+  obj: T,
   field: string,
   lang: 'es' | 'en'
 ): string {
+  const record = obj as Record<string, unknown>
   if (lang === 'en') {
     const enField = `${field}_en`
-    const enValue = obj[enField]
+    const enValue = record[enField]
     if (enValue && typeof enValue === 'string' && enValue.trim()) {
       return enValue
     }
   }
-  const value = obj[field]
+  const value = record[field]
   return typeof value === 'string' ? value : ''
 }
 

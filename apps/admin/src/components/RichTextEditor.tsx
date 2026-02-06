@@ -151,6 +151,7 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
       const result = await uploadImage(file)
 
       if (insertMode === 'embedded') {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ;(editor.chain().focus() as any).setImage({ src: result.url }).run()
         toast.success('Image uploaded')
       } else {

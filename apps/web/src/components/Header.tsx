@@ -1,4 +1,4 @@
-import avatar from "@/assets/avatar.jpeg"
+import avatar from "@/assets/avatar.webp"
 
 import { useState, useId } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
@@ -78,6 +78,8 @@ export function Header() {
             <img
               src={avatar}
               alt="Alvaro Cortes"
+              width={40}
+              height={40}
               className="w-full h-full object-cover"
             />
           </div>

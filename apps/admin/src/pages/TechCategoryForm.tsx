@@ -37,26 +37,25 @@ export function TechCategoryForm() {
 
   useEffect(() => {
     if (isEditing && id) {
-      loadCategory(id)
-    }
-  }, [id, isEditing])
+      const loadCategory = async () => {
+        try {
+          const category = await getTechCategory(id)
+          setCategoryName(category.name)
+          setCategoryNameEn((category as Record<string, unknown>).name_en as string || '')
 
-  const loadCategory = async (categoryId: string) => {
-    try {
-      const category = await getTechCategory(categoryId)
-      setCategoryName(category.name)
-      setCategoryNameEn((category as Record<string, unknown>).name_en as string || '')
-
-      const techs = await getTechnologiesByCategory(categoryId)
-      setTechnologies(techs)
-    } catch (err) {
-      toast.error('Failed to load category')
-      console.error(err)
-      navigate('/tech-categories')
-    } finally {
-      setLoading(false)
+          const techs = await getTechnologiesByCategory(id)
+          setTechnologies(techs)
+        } catch (err) {
+          toast.error('Failed to load category')
+          console.error(err)
+          navigate('/tech-categories')
+        } finally {
+          setLoading(false)
+        }
+      }
+      loadCategory()
     }
-  }
+  }, [id, isEditing, navigate])
 
   const validate = () => {
     const newErrors: Record<string, string> = {}

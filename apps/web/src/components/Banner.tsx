@@ -1,4 +1,4 @@
-import avatar from "@/assets/avatar.jpeg"
+import avatar from "@/assets/avatar.webp"
 import { useTranslation } from "../i18n/useTranslation"
 
 export function Banner() {
@@ -15,6 +15,8 @@ export function Banner() {
             <img
               src={avatar}
               alt="Alvaro Cortés"
+              width={128}
+              height={128}
               className="w-full h-full object-cover"
             />
           </div>

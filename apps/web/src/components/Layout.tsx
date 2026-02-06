@@ -37,9 +37,15 @@ export function Layout({ children }: LayoutProps) {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-2 focus:left-2 focus:px-4 focus:py-2 focus:bg-[var(--bg-card)] focus:text-[var(--text-primary)] focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        Skip to content
+      </a>
       <Header />
 
-      <main className="flex-1 pt-16">
+      <main id="main-content" className="flex-1 pt-16">
         {children}
       </main>
 

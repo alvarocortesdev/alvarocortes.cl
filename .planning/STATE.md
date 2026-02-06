@@ -5,17 +5,17 @@
 See: .planning/PROJECT.md (updated 2026-02-03)
 
 **Core value:** El sitio debe sentirse fluido, profesional y demostrar dominio tecnico
-**Current focus:** v1.4 Timeline Redesign + Blog Filters
+**Current focus:** v1.4 complete (paused timeline fine-tuning). Ready for v1.5 planning.
 
 ## Current Position
 
 Milestone: v1.4 Timeline Redesign + Blog Filters
 Phase: 19 of 19 (19-timeline-redesign)
 Plan: 1 of 1
-Status: Phase complete
-Last activity: 2026-02-06 — Completed 19-01-PLAN.md (animated timeline demo)
+Status: Paused — demo functional at /timeline-demo, needs visual fine-tuning later
+Last activity: 2026-02-06 — Timeline demo deployed, paused for fine-tuning
 
-Progress: ████████████████████████████████████████ 100% (v1.4 complete - blog filters + timeline demo)
+Progress: ████████████████████████████████████████ 100% (v1.4 shipped — blog filters + timeline demo)
 
 ## Milestone History
 
@@ -164,12 +164,12 @@ Summary:
 
 - [x] Plan timeline redesign phase
 - [x] Execute timeline redesign demo
-- [ ] Test timeline demo with user
-- [ ] Integrate animated timeline into production (if approved)
+- [ ] Fine-tune timeline demo (timing, alignment, mobile) — PAUSED
+- [ ] Integrate animated timeline into production (after fine-tuning)
 
 ### Blockers/Concerns
 
-None — v1.4 complete, ready for user testing.
+None — v1.4 shipped. Timeline demo exists at /timeline-demo but needs visual polish before production integration.
 
 ### v1.4 Completed (Outside GSD)
 
@@ -185,8 +185,8 @@ None — v1.4 complete, ready for user testing.
 ## Session Continuity
 
 Last session: 2026-02-06
-Stopped at: Completed 19-01-PLAN.md (animated timeline demo)
+Stopped at: v1.4 paused — timeline demo needs fine-tuning, ready for v1.5 planning
 Resume file: None
 
 ---
-*Last updated: 2026-02-06 — v1.4 Timeline Redesign complete*
+*Last updated: 2026-02-06 — v1.4 paused, timeline demo at /timeline-demo*
