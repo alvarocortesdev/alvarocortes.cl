@@ -10,12 +10,12 @@ See: .planning/PROJECT.md (updated 2026-02-03)
 ## Current Position
 
 Milestone: v1.4 Timeline Redesign + Blog Filters
-Phase: Not started (defining requirements)
-Plan: —
-Status: Defining requirements
-Last activity: 2026-02-03 — Milestone v1.4 started
+Phase: 19 of 19 (19-timeline-redesign)
+Plan: 1 of 1
+Status: Phase complete
+Last activity: 2026-02-06 — Completed 19-01-PLAN.md (animated timeline demo)
 
-Progress: ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0% (v1.4 - defining requirements)
+Progress: ████████████████████████████████████████ 100% (v1.4 complete - blog filters + timeline demo)
 
 ## Milestone History
 
@@ -65,6 +65,12 @@ Progress: ░░░░░░░░░░░░░░░░░░░░░░░�
 | 16-projects-crud | 3/3 | ~5 min | ~2 min |
 | 17-timeline-tech-crud | 5/5 | ~8 min | ~1.6 min |
 | 18-site-integration | 4/4 | ~9 min | ~2.25 min |
+
+### v1.4
+
+| Phase | Plans | Total | Avg/Plan |
+|-------|-------|-------|----------|
+| 19-timeline-redesign | 1/1 | ~2 min | ~2 min |
 
 ## Accumulated Context
 
@@ -146,27 +152,41 @@ Summary:
 - Date field flexibility: published_at || created_at fallback pattern
 - Database field naming: direct schema field names in components (no mapping layer)
 - Complete data source migration: hardcoded data files removed after integration
+- Blog categories i18n: blog_categories table with name/name_en, localized() helper for display
+- Category filtering: use category_id (UUID FK) instead of text matching
+- Calendar locale: week starts Monday (ES) or Sunday (EN) based on lang context
+- Viewport-triggered animations: useInView hook for scroll-based animation start
+- SVG pathLength animation for line drawing effects
+- Stagger animations with staggerDirection for reverse-order reveals
+- Auto-scroll timing calculated from animation sequence duration
 
 ### Pending Todos
 
-- [ ] Define requirements for v1.4
-- [ ] Create roadmap for v1.4
-- [ ] Plan and execute phases for v1.4
+- [x] Plan timeline redesign phase
+- [x] Execute timeline redesign demo
+- [ ] Test timeline demo with user
+- [ ] Integrate animated timeline into production (if approved)
 
 ### Blockers/Concerns
 
-None — starting fresh milestone v1.4.
+None — v1.4 complete, ready for user testing.
 
-### Deferred to v1.4+
+### v1.4 Completed (Outside GSD)
 
-- Timeline redesign (animated horizontal line, vertical branches, drawer effect)
-- Blog filters (functional search, calendar, tags, categories filtering)
+- Blog categories table with i18n (name, name_en, display_order)
+- Categories CRUD in admin with drag-drop ordering
+- PostForm uses category dropdown (saves category + category_id)
+- Calendar starts Monday (ES) or Sunday (EN)
+- Category filter uses category_id (UUID) instead of text
+- PostCard and PostDetail show category in correct language
+- Tags removed from blog (categories only)
+- Search, calendar, and category filters verified working
 
 ## Session Continuity
 
-Last session: 2026-02-03
-Stopped at: Milestone v1.4 initialization — defining requirements
+Last session: 2026-02-06
+Stopped at: Completed 19-01-PLAN.md (animated timeline demo)
 Resume file: None
 
 ---
-*Last updated: 2026-02-03 — Milestone v1.4 started*
+*Last updated: 2026-02-06 — v1.4 Timeline Redesign complete*
