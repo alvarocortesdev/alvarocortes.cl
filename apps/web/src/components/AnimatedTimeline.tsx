@@ -6,12 +6,11 @@ import { useLanguage } from '../context/LanguageContext'
 
 interface TimelineCardProps {
   entry: TimelineEntry
-  index: number
   t: (key: import('../i18n/translations').TranslationKey) => string
   lang: 'es' | 'en'
 }
 
-function TimelineCard({ entry, index, t, lang }: TimelineCardProps) {
+function TimelineCard({ entry, t, lang }: TimelineCardProps) {
   const isWork = entry.type === 'work'
 
   return (
@@ -245,7 +244,6 @@ export function AnimatedTimeline() {
             >
               <TimelineCard
                 entry={entry}
-                index={index}
                 t={t}
                 lang={lang}
               />
