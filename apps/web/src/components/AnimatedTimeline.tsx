@@ -81,7 +81,7 @@ export function AnimatedTimeline() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const mostRecentRef = useRef<HTMLDivElement>(null)
 
-  const isInView = useInView(timelineRef, { once: true, amount: 0.3 })
+  const isInView = useInView(timelineRef, { once: true, amount: 0.1 })
 
   const [isScrolledFromLeft, setIsScrolledFromLeft] = useState(false)
 
@@ -114,9 +114,25 @@ export function AnimatedTimeline() {
     return () => container.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const viewBoxWidth = Math.max(1200, entries.length * 150)
+
+  // Container variants for staggered card animation
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 2.5,
+        staggerDirection: -1, // Animate newest to oldest
+      },
+    },
+  }
+
+  // Always render with ref so useInView can observe
   if (isLoading) {
     return (
-      <div className="relative">
+      <div ref={timelineRef} className="relative">
         <div className="flex flex-col gap-4 md:flex-row md:gap-6">
           {[...Array(3)].map((_, i) => (
             <motion.div
@@ -134,43 +150,32 @@ export function AnimatedTimeline() {
 
   if (error) {
     return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.15 }}
-        className="text-red-400 p-6 rounded-lg bg-red-900/20 border border-red-800"
-      >
-        <p className="font-medium">{t('timeline.errorLoad')}</p>
-      </motion.div>
+      <div ref={timelineRef}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.15 }}
+          className="text-red-400 p-6 rounded-lg bg-red-900/20 border border-red-800"
+        >
+          <p className="font-medium">{t('timeline.errorLoad')}</p>
+        </motion.div>
+      </div>
     )
   }
 
   if (entries.length === 0) {
     return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.15 }}
-        className="text-neutral-400 text-center py-8 bg-[var(--bg-card-30)] rounded-lg"
-      >
-        {t('timeline.empty')}
-      </motion.div>
+      <div ref={timelineRef}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.15 }}
+          className="text-neutral-400 text-center py-8 bg-[var(--bg-card-30)] rounded-lg"
+        >
+          {t('timeline.empty')}
+        </motion.div>
+      </div>
     )
-  }
-
-  const viewBoxWidth = Math.max(1200, entries.length * 150)
-
-  // Container variants for staggered card animation
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 2.5,
-        staggerDirection: -1, // Animate newest to oldest
-      },
-    },
   }
 
   return (
