@@ -36,7 +36,7 @@ export function Footer() {
 
           {/* Copyright */}
           <p className="text-[var(--text-faint)] text-sm">
-            {t('footer.copyright')} &copy; 2026
+            {t('footer.copyright')} 2026
           </p>
         </div>
       </div>
