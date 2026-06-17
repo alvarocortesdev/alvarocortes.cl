@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# ---------------------------------------------------------------------------
+# Guard anti-Claude: elimina trailers de co-autoría de IA de los mensajes de
+# commit ANTES de que se graben. Evita que vuelva a aparecer Claude como
+# contributor en este repo.
+#
+# Activar UNA sola vez por clon:
+#     git config core.hooksPath .githooks
+#
+# Quita:
+#   - "Co-Authored-By: ... Claude/anthropic ..."
+#   - "🤖 Generated with [Claude Code](...)"
+# ---------------------------------------------------------------------------
+set -euo pipefail
+
+msg_file="${1:?missing commit message file}"
+[ -f "$msg_file" ] || exit 0
+
+tmp="${msg_file}.guard.tmp"
+
+# Borra líneas de co-autoría/generación atribuidas a Claude/Anthropic
+grep -viE 'co-authored-by:.*(claude|anthropic)|generated with .*claude' "$msg_file" > "$tmp" || true
+
+# Recorta líneas en blanco sobrantes al final
+awk 'NF{last=NR} {buf[NR]=$0} END{for(i=1;i<=last;i++) print buf[i]}' "$tmp" > "$msg_file"
+
+rm -f "$tmp"
+exit 0
